@@ -1,4 +1,37 @@
 .welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+  margin-top: 3vh;
+  width: 40%;
+  vertical-align: center;
+}
+
+.abrir_mesa{
+  color: #f9f9f9;
+  --background: #981B26;
+}
+
+.mesa_anterior{
+  color: #981B26;
+  --border-color: #981B26;
+}
+
+ion-content{
+  --ion-background-color: #981B26;
+}
+
+ion-card{
+  margin-top: 30%;
+  --background: #FFFFFF;
+}
+
+ion-card-subtitle{
+  margin-bottom: 10vh;
+}
+
+ion-button{
+  --border-radius: 10px;
+  margin-bottom: 2vh;
+}
+
+ion-content.background{
+    --background: url(../../assets/icon/filtrot4.png) 0 0/100% 50% ;
 }
