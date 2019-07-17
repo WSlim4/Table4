@@ -1,9 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let pessoa of pessoas" (click)="itemSelected(pessoa)">
+        <ion-label>{{ pessoa.nome }}</ion-label> {{ pessoa.pagar }}
+    </ion-item>
+  </ion-list> 
+</ion-content>
