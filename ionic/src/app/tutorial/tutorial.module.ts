@@ -7,12 +7,15 @@ import { IonicModule } from '@ionic/angular';
 
 import { TutorialPage } from './tutorial.page';
 
+
 const routes: Routes = [
   {
     path: '',
     component: TutorialPage
   }
 ];
+
+
 
 @NgModule({
   imports: [
@@ -23,4 +26,5 @@ const routes: Routes = [
   ],
   declarations: [TutorialPage]
 })
-export class TutorialPageModule {}
+export class TutorialPageModule {  
+}
