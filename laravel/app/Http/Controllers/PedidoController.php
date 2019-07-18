@@ -53,6 +53,5 @@ class PedidoController extends Controller
     public function showPedido(Request $request, $id){
         return Pedido::where('pessoa_id', $id)->get();
         
-        
     }
 }
