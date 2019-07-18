@@ -20,7 +20,7 @@ class PedidoController extends Controller
         $pedido->pessoa_id = $request->pessoa_id;
         $pedido->save();
 
-        return response()->json([$pedido]);
+        return response()->success($pedido);
 
     }
 
@@ -38,7 +38,7 @@ class PedidoController extends Controller
             $pedido->pessoa_id = $request->pessoa_id;
         $pedido->save();
 
-        return response()->json([$pedido]);
+        return response()->success($pedido);
     }
 
     public function deletePedido($id){
