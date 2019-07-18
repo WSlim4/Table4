@@ -13,17 +13,14 @@ class CreatePedidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('pedidos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('pessoa_id')->unsigned();
+        Schema::create('pedidos', function(Blueprint $table){
+            $table->increments('id');
             $table->integer('quantidade');
             $table->float('preco');
             $table->string('nome');
             $table->timestamps();
         });
-    }
-       Schema::table('pedidos', function (Blueprint $table)){
-            $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('cascade');
+       
     }
 
 

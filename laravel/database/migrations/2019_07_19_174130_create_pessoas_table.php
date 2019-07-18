@@ -14,10 +14,19 @@ class CreatePessoasTable extends Migration
     public function up()
     {
         Schema::create('pessoas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->integer('pedido_id')->unsigned();
             $table->string('name');
             $table->timestamps();
         });
+        Schema::table('pessoas', function(Blueprint $table){
+            
+            $table->foreign('pedido_id')
+                  ->references('id')
+                  ->on('pedidos')
+                  ->onDelete('cascade');
+        });
+        
     }
       
     /**
