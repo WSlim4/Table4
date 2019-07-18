@@ -50,11 +50,8 @@ class PedidoController extends Controller
         return Pedido::all();
 
     }
-    public function showPedido($id){
-        $pedido = Pedido::find($id);
-        $pessoa = new Pessoa;
-        $id_pessoa = Pessoa::find($id);
-        return $pedido;
+    public function showPedido(Request $request, $id){
+        return Pedido::where('pessoa_id', $id)->get();
         
         
     }
