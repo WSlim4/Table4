@@ -17,6 +17,7 @@ class PedidoController extends Controller
         $pedido->quantidade = $request->quantidade;
         $pedido->pessoa_id = $request->pessoa_id;
         $pedido->preco = $request->preco;
+        $pedido->pessoa_id = $request->pessoa_id;
         $pedido->save();
 
         return response()->json([$pedido]);
@@ -33,6 +34,8 @@ class PedidoController extends Controller
             $pedido->quantidade = $request->quantidade;
         if ($request->preco)
             $pedido->preco = $request->preco;
+        if ($request->pessoa_id)
+            $pedido->pessoa_id = $request->pessoa_id;
         $pedido->save();
 
         return response()->json([$pedido]);
@@ -48,9 +51,10 @@ class PedidoController extends Controller
 
     }
     public function showPedido($id){
+        $pedido = Pedido::find($id);
         $pessoa = new Pessoa;
-
-        return Pedido::where($id, $pessoa->id)->get();
+        $id_pessoa = Pessoa::find($id);
+        return $pedido;
         
         
     }

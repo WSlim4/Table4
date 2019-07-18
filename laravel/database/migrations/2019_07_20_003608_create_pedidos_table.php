@@ -25,8 +25,8 @@ class CreatePedidosTable extends Migration
             
             $table->foreign('pessoa_id')
                   ->references('id')
-                  ->on('pessoas')
-                  ->onDelete('cascade');
+                  ->on('pessoas');
+                  
         });
 
     }

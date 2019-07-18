@@ -20,3 +20,10 @@ Route::post('adicionaPessoa', 'PessoaController@createPessoa');
 Route::put('atualizaPessoa/{id}','PessoaController@updatePessoa');
 Route::get('listaPessoa','PessoaController@listPessoa');
 Route::delete('deletaPessoa/{id}', 'PessoaController@deletePessoa');
+
+
+Route::get('mostraPedido/{id}','PedidoController@showPedido');
+Route::get('listaPedido','PedidoController@listPedido');
+Route::post('adicionaPedido','PedidoController@createPedido');
+Route::put('atualizaPedido/{id}','PedidoController@updatePedido');
+Route::delete('deletaPedido/{id}','PedidoController@deletePedido');
