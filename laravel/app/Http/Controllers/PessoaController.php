@@ -35,4 +35,5 @@ class PessoaController extends Controller
     public function listPessoa(){
         return Pessoa::all();
     }
+    
 }
