@@ -43,7 +43,7 @@ class PedidoController extends Controller
 
     public function deletePedido($id){
         Pedido::destroy($id);
-        return response()->json(['Pedido excluído']);
+        return response()->json(['Pedido excluido']);
     }
 
     public function listPedido(){
