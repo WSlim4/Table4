@@ -16,9 +16,15 @@ class CreatePessoasTable extends Migration
         Schema::create('pessoas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('mesa_id')->unsigned()->nullable();
             $table->timestamps();
         });
-         
+        Schema::table('pessoas', function (Blueprint $table){
+            $table->foreign('mesa_id')
+                  ->references('id')
+                  ->on('mesas')
+                  ->onDelete('cascade');
+        });
     }
       
     /**

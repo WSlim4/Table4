@@ -27,3 +27,6 @@ Route::get('listaPedido','PedidoController@listPedido');
 Route::post('adicionaPedido','PedidoController@createPedido');
 Route::put('atualizaPedido/{id}','PedidoController@updatePedido');
 Route::delete('deletaPedido/{id}','PedidoController@deletePedido');
+
+Route::post('criaMesa','MesaController@createMesa');
+

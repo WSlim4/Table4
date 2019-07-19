@@ -12,6 +12,7 @@ class PessoaController extends Controller
         $pessoa = new Pessoa;
 
         $pessoa->name = $request->name;
+        $pessoa->mesa_id = $request->mesa_id;
         $pessoa->save();
         return response()->success($pessoa);
     }

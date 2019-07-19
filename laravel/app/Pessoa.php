@@ -12,4 +12,8 @@ class Pessoa extends Model
     public function pedidos(){
         return $this->hasMany('App\Pedido');
     }
+
+    public function mesas(){
+        return $this->belongsTo('App\Mesa');
+    }
 }
