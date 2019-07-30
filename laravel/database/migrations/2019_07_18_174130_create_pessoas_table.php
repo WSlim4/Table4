@@ -20,6 +20,7 @@ class CreatePessoasTable extends Migration
             $table->timestamps();
         });
         Schema::table('pessoas', function (Blueprint $table){
+            
             $table->foreign('mesa_id')
                   ->references('id')
                   ->on('mesas')

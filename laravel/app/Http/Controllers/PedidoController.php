@@ -17,7 +17,6 @@ class PedidoController extends Controller
         $pedido->quantidade = $request->quantidade;
         $pedido->pessoa_id = $request->pessoa_id;
         $pedido->preco = $request->preco;
-        $pedido->pessoa_id = $request->pessoa_id;
         $pedido->save();
 
         return response()->success($pedido);
