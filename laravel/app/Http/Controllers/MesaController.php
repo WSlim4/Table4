@@ -8,15 +8,15 @@ use App\Pessoa;
 
 class MesaController extends Controller
 {
-    public function createMesa(Request $request){
+    public function create(Request $request){
+        
         $mesa = new Mesa;
-
-        $mesa->estabelecimento = $request->estabelecimento;
-        $mesa->save();
-
+        $mesa->createMesa($request);
+   
         return response()->success($mesa);
     }
     public function listaPedidos($id){
+        
         $mesa = Mesa::find($id);
         $pessoas = $mesa->pessoas;
         $pedidos = [];

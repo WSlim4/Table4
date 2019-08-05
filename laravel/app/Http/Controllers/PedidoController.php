@@ -9,47 +9,33 @@ use App\Pessoa;
 class PedidoController extends Controller
 {
 
-    public function createPedido(Request $request){
-
+    public function create(Request $request){
+        
         $pedido = new Pedido;
-
-        $pedido->nome = $request->nome;
-        $pedido->quantidade = $request->quantidade;
-        $pedido->pessoa_id = $request->pessoa_id;
-        $pedido->preco = $request->preco;
-        $pedido->save();
+        $pedido->createPedido($request);
 
         return response()->success($pedido);
 
     }
 
-    public function updatePedido(Request $request, $id){
+    public function update(Request $request, $id){
 
         $pedido = Pedido::findOrFail($id);
-
-        if ($request->nome)
-            $pedido->nome = $request->nome;
-        if ($request->quantidade)
-            $pedido->quantidade = $request->quantidade;
-        if ($request->preco)
-            $pedido->preco = $request->preco;
-        if ($request->pessoa_id)
-            $pedido->pessoa_id = $request->pessoa_id;
-        $pedido->save();
+        $pedido->updatePedido($request);
 
         return response()->success($pedido);
     }
 
-    public function deletePedido($id){
+    public function delete($id){
         Pedido::destroy($id);
         return response()->json(['Pedido excluido']);
     }
 
-    public function listPedido(){
+    public function list(){
         return Pedido::all();
 
     }
-    public function showPedido(Request $request, $id){
+    public function show(Request $request, $id){
         return Pedido::where('pessoa_id', $id)->get();
         
     }
