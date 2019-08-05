@@ -11,12 +11,13 @@ export class TabsService {
 	hideTabBarPages = [
 		'tab1',
 	];
-	
+
 	routeParamPages: string[] = [
 		'tabs/tab2',
 		'tabs/tab3',
+    'tabs/tab4'
 	];
-	
+
 	constructor(private router: Router, private platform: Platform) {
 		this.platform.ready().then(() => {
 			console.log('Core service init');
