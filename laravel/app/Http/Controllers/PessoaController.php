@@ -13,7 +13,7 @@ class PessoaController extends Controller
 
         $pessoa->name = $request->name;
         $pessoa->save();
-        return response()->json([$pessoa]);
+        return response()->success($pessoa);
     }
 
     public function updatePessoa(Request $request, $id){
@@ -23,7 +23,7 @@ class PessoaController extends Controller
         if($request->name)
             $pessoa->name = $request->name;
         $pessoa->save();
-        return response()->json([$pessoa]);
+        return response()->success($pessoa);
     }
 
     public function deletePessoa($id){
@@ -35,4 +35,5 @@ class PessoaController extends Controller
     public function listPessoa(){
         return Pessoa::all();
     }
+    
 }
