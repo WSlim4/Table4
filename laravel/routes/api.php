@@ -16,14 +16,17 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('adicionaPessoa', 'PessoaController@createPessoa');
-Route::put('atualizaPessoa/{id}','PessoaController@updatePessoa');
-Route::get('listaPessoa','PessoaController@listPessoa');
-Route::delete('deletaPessoa/{id}', 'PessoaController@deletePessoa');
+Route::post('/pessoa', 'PessoaController@create');
+Route::put('/pessoa/{id}','PessoaController@update');
+Route::get('/pessoa','PessoaController@list');
+Route::delete('/pessoa/{id}', 'PessoaController@delete');
 
+Route::get('/pedido/{id}','PedidoController@show');
+Route::get('/pedido','PedidoController@list');
+Route::post('/pedido','PedidoController@create');
+Route::put('/pedido/{id}','PedidoController@update');
+Route::delete('/pedido/{id}','PedidoController@delete');
 
-Route::get('mostraPedido/{id}','PedidoController@showPedido');
-Route::get('listaPedido','PedidoController@listPedido');
-Route::post('adicionaPedido','PedidoController@createPedido');
-Route::put('atualizaPedido/{id}','PedidoController@updatePedido');
-Route::delete('deletaPedido/{id}','PedidoController@deletePedido');
+Route::post('/mesa','MesaController@create');
+Route::get('listaPedidosMesa/{id}','MesaController@listaPedidos');
+

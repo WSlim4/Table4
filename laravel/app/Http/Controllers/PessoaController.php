@@ -7,32 +7,29 @@ use App\Pessoa;
 
 class PessoaController extends Controller
 {
-    public function createPessoa(Request $request){
+    public function create(Request $request){
 
         $pessoa = new Pessoa;
+        $pessoa->createPessoa($request);
 
-        $pessoa->name = $request->name;
-        $pessoa->save();
         return response()->success($pessoa);
     }
 
-    public function updatePessoa(Request $request, $id){
+    public function update(Request $request, $id){
 
         $pessoa = Pessoa::findOrFail($id);
+        $pessoa->updatePessoa($request);
 
-        if($request->name)
-            $pessoa->name = $request->name;
-        $pessoa->save();
         return response()->success($pessoa);
     }
 
-    public function deletePessoa($id){
+    public function delete($id){
 
         Pessoa::destroy($id);
         return response()->json(['Pessoa deletada da mesa']);
     }
 
-    public function listPessoa(){
+    public function list(){
         return Pessoa::all();
     }
     
