@@ -7,25 +7,28 @@ import { PessoaService } from '../pessoa.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  pessoas = [
-    {id:1, nome:'Fábio', pagar:'10 reais'},
-    {id:2, nome:'Igor', pagar:'10 reais'},
-    {id:3, nome:'Stephanie', pagar:'10 reais'},
-    {id:4, nome:'Mauro', pagar:'10 reais'},
-    {id:5, nome:'Wesley', pagar:'10 reais'}
-  ]
+  pessoas;
 
   constructor(
     public service: PessoaService 
   ) {}
 
   getPessoa ():void{
-    console.log(this.service)
-    this.service.getPessoa().subscribe( (res) => { console.log(res) } )
+    console.log(this.service + "Resgatando pessoad no Back")
+    this.service.getPessoa().subscribe( (res) => { this.pessoas = res } ) 
   }
 
-  // ngOnInit(){
-  //   this.getPessoa()
-  // }
+  deletePessoa( pessoa ) {
+
+    this.service.deletePessoa( pessoa.id ).subscribe(
+        (res) => {
+            console.log(res);
+        }
+    );
+}
+
+  ngOnInit(){
+    this.getPessoa()
+  }
 
 }

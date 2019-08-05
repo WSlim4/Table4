@@ -8,9 +8,9 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let pessoa of pessoas" (click)="itemSelected(pessoa)">
-        <ion-label>{{ pessoa.nome }}</ion-label> {{ pessoa.pagar }}
+    <ion-item *ngFor="let pessoa of pessoas">
+        <ion-label>{{ pessoa.name }}</ion-label>
+        <ion-button color="danger" size="small" type="submit" (click)="deletePessoa(pessoa.id)" >Deletar</ion-button>
     </ion-item>
-  </ion-list> 
-  <ion-button type="submit" (click)="getPessoa()"></ion-button>
+  </ion-list>
 </ion-content>
