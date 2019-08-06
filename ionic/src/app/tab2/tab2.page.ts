@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PessoaService } from '../pessoa.service';
 
 @Component({
   selector: 'app-tab2',
@@ -13,6 +14,18 @@ export class Tab2Page {
     {id:4, nome:'Mauro', pagar:'10 reais'},
     {id:5, nome:'Wesley', pagar:'10 reais'}
   ]
-  constructor() {}
+
+  constructor(
+    public service: PessoaService 
+  ) {}
+
+  getPessoa ():void{
+    console.log(this.service)
+    this.service.getPessoa().subscribe( (res) => { console.log(res) } )
+  }
+
+  // ngOnInit(){
+  //   this.getPessoa()
+  // }
 
 }
