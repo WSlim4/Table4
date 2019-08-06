@@ -23,4 +23,8 @@ export class PessoaService {
   getPessoa():Observable<any>{
     return this.http.get(this.url, httpOptions).pipe(map(res => res));
   }
+
+  deletePessoa(id: any):Observable<any>{
+    return this.http.delete(this.url + "/" + id);
+  }
 }
