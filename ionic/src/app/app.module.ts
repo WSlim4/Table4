@@ -4,8 +4,6 @@ import { RouteReuseStrategy } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
-import { PessoaService } from './pessoa.service';
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -13,7 +11,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+//Services
 import { TabsService } from './services/core/tabs.service';
+import { PessoaService } from './services/pessoa/pessoa.service';
 
 @NgModule({
   declarations: [AppComponent],

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PessoaService } from '../pessoa.service';
+import { PessoaService } from '../services/pessoa/pessoa.service';
 
 @Component({
   selector: 'app-tab2',
@@ -10,12 +10,12 @@ export class Tab2Page {
   pessoas;
 
   constructor(
-    public service: PessoaService 
+    public service: PessoaService
   ) {}
 
   getPessoa ():void{
     console.log(this.service + "Resgatando pessoad no Back")
-    this.service.getPessoa().subscribe( (res) => { this.pessoas = res } ) 
+    this.service.getPessoa().subscribe( (res) => { this.pessoas = res } )
   }
 
   deletePessoa( pessoa ) {
