@@ -9,6 +9,7 @@ import { Platform } from '@ionic/angular';
 export class TabsService {
 
 	hideTabBarPages = [
+    '',
 		'tab1',
 	];
 

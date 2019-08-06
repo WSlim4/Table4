@@ -14,13 +14,13 @@ const httpOptions = {
 })
 export class PessoaService {
 
-  url:string = "http://localhost:8000/api/listaPessoa";
+  url:string = "http://localhost:8000/api/pessoa";
 
   constructor(
-    public http: HttpClient 
+    public http: HttpClient
   ) { }
-  
-  getPessoa () :Observable<any>{
+
+  getPessoa():Observable<any>{
     return this.http.get(this.url, httpOptions).pipe(map(res => res));
   }
 }
