@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
+
 import { IonicModule } from '@ionic/angular';
 
 import { TutorialPage } from './tutorial.page';
@@ -26,5 +27,5 @@ const routes: Routes = [
   ],
   declarations: [TutorialPage]
 })
-export class TutorialPageModule {  
+export class TutorialPageModule {
 }

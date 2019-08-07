@@ -12,19 +12,22 @@
 }
 
 
-
 .tituloTutorial{
  margin-top: 25%;
- font-family: PoetsenOne;
+ font-family: 'PoetsenOne';
  font-size: 30px;
  color:#fbfbfb;
  padding: 5%;
 }
 
 
-.slider-pager-page.active
-{
-  fill: #fbfbfb!important;
+.swiper-pagination >>> .swiper-pagination-bullet {
+    opacity: 1;
+    border: white solid 1px;
+    background-color: transparent;
+}
+.swiper-pagination >>> .swiper-pagination-bullet-active {
+    background-color: white;
 }
 
 @media screen and (min-height: 600px){
@@ -33,10 +36,14 @@
     height:640px;
     background-color: #981B26;
     }
-    .botao{
-      position: absolute;
-      margin-top: 70%;
-      margin-left: 60%;
+
+    .estilo_botao{
+    position: absolute;
+    margin-top: 70%;
+    margin-left: 60%;
+    font-size: 15px;
+    text-align: center;
+    font-family:'PoetsenOne';
     }
 
 }
