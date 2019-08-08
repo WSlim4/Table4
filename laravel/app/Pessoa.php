@@ -16,12 +16,18 @@ class Pessoa extends Model
     public function mesas(){
         return $this->belongsTo('App\Mesa');
     }
+    
+    public function conta(){
+        return $this->hasOne('App\Conta');
+    }
+    
     public function createPessoa($request){
         
         $this->nome = $request->nome;
         $this->mesa_id = $request->mesa_id;
         $this->save();
     }
+    
     public function updatePessoa($request){
 
         if($request->nome)
