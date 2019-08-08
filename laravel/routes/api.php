@@ -30,3 +30,5 @@ Route::delete('/pedido/{id}','PedidoController@delete');
 Route::post('/mesa','MesaController@create');
 Route::get('listaPedidosMesa/{id}','MesaController@listaPedidos');
 
+Route::post('/conta','ContaController@create');
+
