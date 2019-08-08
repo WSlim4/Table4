@@ -3,13 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Pessoa;
 
 class Conta extends Model
 {
-    public function createConta($request){
-        
-        $this->pessoa_id = $request->pessoa_id;
-        $this->save();
-        
-    }
+   
 }
