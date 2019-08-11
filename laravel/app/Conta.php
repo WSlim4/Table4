@@ -9,7 +9,7 @@ class Conta extends Model
    public function pessoa(){
        return $this->belongsTo('App\Pessoa');
    }
-   public function create($pessoa,$id){
+   public function create($pessoa){
     /*Função que cria uma conta*/
        $c = $pessoa->conta;
        $itens = [];
