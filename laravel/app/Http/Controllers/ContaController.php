@@ -8,34 +8,10 @@ use App\Pessoa;
 
 class ContaController extends Controller
 {
-    public function create(Request $request, $id){
+    public function createConta(Request $request, $id){
         $pessoa = Pessoa::find($id);
-        $c = $pessoa->conta;
-        $itens = [];
-        
-        if($pessoa){
-            $pedidos = $pessoa->pedidos;
-
-            foreach($pedidos as $pedido){
-                array_push($itens,($pedido->quantidade*$pedido->preco));
-                
-            }
-        }
-        $valor = array_sum($itens);
-        
-
-        if($c){
-            Conta::destroy($c->id);
-            $conta = new Conta;
-            $conta->pessoa_id = $pessoa->id;
-            $conta->valor = $valor;
-            $conta->save();
-        } else{
-            $conta = new Conta;
-            $conta->pessoa_id = $pessoa->id;
-            $conta->valor = $valor;
-            $conta->save();
-        }
+        $conta = new Conta;
+        $conta->create($pessoa,$id);
         return response()->success($conta);
     }
 }
