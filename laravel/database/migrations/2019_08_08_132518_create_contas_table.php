@@ -16,6 +16,7 @@ class CreateContasTable extends Migration
         Schema::create('contas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('pessoa_id')->unsigned();
+            $table->double('valor');
             $table->timestamps();
         });
         Schema::table('contas', function(Blueprint $table){
