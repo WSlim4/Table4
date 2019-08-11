@@ -14,4 +14,8 @@ class ContaController extends Controller
         $conta->create($pessoa,$id);
         return response()->success($conta);
     }
+    public function showConta($id){
+        $pessoa = Pessoa::find($id);
+        return $pessoa->conta;
+    }
 }
