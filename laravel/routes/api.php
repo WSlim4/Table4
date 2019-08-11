@@ -31,4 +31,4 @@ Route::post('/mesa','MesaController@create');
 Route::get('listaPedidosMesa/{id}','MesaController@listaPedidos');
 
 Route::get('/conta/{id}','ContaController@createConta');
-
+Route::get('/contas/{id}', 'ContaController@showContas');

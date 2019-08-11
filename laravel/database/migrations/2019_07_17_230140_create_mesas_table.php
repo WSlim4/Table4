@@ -16,6 +16,7 @@ class CreateMesasTable extends Migration
         Schema::create('mesas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('estabelecimento');
+            $table->double('valor_total')->default(0)->nullable();
             $table->timestamps();
         });
        
