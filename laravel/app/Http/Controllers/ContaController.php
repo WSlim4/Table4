@@ -8,7 +8,7 @@ use App\Pessoa;
 
 class ContaController extends Controller
 {
-    public function createConta(Request $request, $id){
+    public function createConta($id){
         $pessoa = Pessoa::find($id);
         $conta = new Conta;
         $conta->create($pessoa,$id);
