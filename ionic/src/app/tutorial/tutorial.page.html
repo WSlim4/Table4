@@ -1,23 +1,24 @@
-<ion-content >
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <ion-slides pager ="true" #mySlider>
-  <ion-slide >
-          <div class="fundoTuorial">
-            <h1 class="tituloTutorial">Em qual restaurante você está? </h1>
-            <ion-input id = "entrada" typer="text" placeholder="Nome do Restaurante"></ion-input>
-                    <div>
-                      <ion-button (click)="swipeNext()" class = "estilo_botao" shape = "round" expand="block" color="light" size="medium">Próximo</ion-button>
-                    </div>
-          </div>
-
-  </ion-slide>
-  <ion-slide>
+      <ion-slide>
         <div class="fundoTuorial">
-          <h1 class="tituloTutorial">Com quantas pessoas você Está?</h1>
-            <ion-input type="number" id = "entrada" placeholder="Numero de Pessoas"></ion-input>
-            <div >
-              <ion-button href="/ " class = "estilo_botao" shape = "round" expand="block" color="light" size="medium">Concluir</ion-button>
-            </div>
+          <h1>Em qual estabelecimento você está? </h1>
+          <ion-input type="text" placeholder="Nome do estabelecimento" name="estabelecimento"></ion-input>
+          <div>
+            <ion-button (click)="swipeNext()" class = "estilo_botao" shape = "round" expand="block" color="light" size="medium">Próximo</ion-button>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="fundoTuorial">
+          <h1>Com quantas pessoas você está?</h1>
+          <ion-input required [(ngModel)]="quantPessoas" name="quantPessoas" type="number" placeholder="Ex.: 7"></ion-input>
+          <div >
+            <ion-button type="submit" class = "estilo_botao" shape = "round" expand="block" color="light" size="medium">Concluir</ion-button>
+          </div>
         </div>
       </ion-slide>
     </ion-slides>
+  </form>
 </ion-content>

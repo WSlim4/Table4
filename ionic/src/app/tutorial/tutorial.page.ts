@@ -11,6 +11,8 @@ import { IonSlides} from '@ionic/angular';
 export class TutorialPage implements OnInit {
   @ViewChild('mySlider')  slides: IonSlides;
 
+  quantPessoas: number;
+
   constructor() { }
 
   swipeNext(){
@@ -18,6 +20,10 @@ export class TutorialPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onSubmit(form) {
+    console.log(form);
   }
 
 }
