@@ -13,22 +13,26 @@ export class Tab2Page {
     public service: PessoaService
   ) {}
 
-  getPessoa ():void{
-    console.log(this.service + "Resgatando pessoas no Back")
-    this.service.getPessoa().subscribe( (res) => { this.pessoas = res } )
+  getPessoa():void{
+    console.log("Resgatando pessoas no Back")
+    this.service.getPessoa().subscribe( (res) => {
+      this.pessoas = res;
+      console.log(res);
+    });
   }
 
-  deletePessoa( pessoa ) {
-
-    this.service.deletePessoa( pessoa.id ).subscribe(
+  deletePessoa(id) {
+    console.log(id);
+    this.service.deletePessoa(id).subscribe(
         (res) => {
             console.log(res);
         }
     );
 }
 
-  ngOnInit(){
-    this.getPessoa()
-  }
+  ngOnInit(){ }
 
+  ionViewWillEnter() {
+    this.getPessoa();
+  }
 }

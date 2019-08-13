@@ -1,15 +1,7 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let pessoa of pessoas">
-      <ion-label>{{ pessoa.name }}</ion-label>
+      <ion-label>{{ pessoa.nome }}</ion-label>
       <ion-button color="danger" size="small" type="submit" (click)="deletePessoa(pessoa.id)" >Deletar</ion-button>
     </ion-item>
   </ion-list>

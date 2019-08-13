@@ -8,6 +8,8 @@ import { Platform } from '@ionic/angular';
 })
 export class TabsService {
 
+  // O objetivo do código abaixo é remover o menu tab da página home, sendo que a mesma está no menu tab.
+
 	hideTabBarPages = [
     '',
 		'tab1',
@@ -21,7 +23,7 @@ export class TabsService {
 
 	constructor(private router: Router, private platform: Platform) {
 		this.platform.ready().then(() => {
-			console.log('Core service init');
+			// console.log('Core service init');
 			this.navEvents();
 		});
 	}
@@ -39,7 +41,7 @@ export class TabsService {
 	// A simple subscription that tells us what page we're currently navigating to.
 	private navEvents() {
 		this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe((e: any) => {
-			console.log(e);
+			// console.log(e);
 			this.showHideTabs(e);
 		});
 	}
@@ -63,7 +65,7 @@ export class TabsService {
 		const hideParamPage = this.routeParamPages.indexOf(pageUrlParent) > -1 && !isNaN(Number(page));
 		// Check if we should hide or show tabs.
 		const shouldHide = this.hideTabBarPages.indexOf(page) > -1 || hideParamPage;
-		console.log(shouldHide);
+		//console.log(shouldHide);
 		// Result: true
 
 		// Not ideal to set the timeout, but I haven't figured out a better method to wait until the page is in transition...

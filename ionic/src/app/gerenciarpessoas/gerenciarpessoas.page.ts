@@ -13,22 +13,21 @@ export class GerenciarpessoasPage implements OnInit {
     public service: PessoaService
   ) {}
 
-  getPessoa ():void{
-    console.log(this.service + "Resgatando pessoas no Back")
-    this.service.getPessoa().subscribe( (res) => { this.pessoas = res } )
+  getPessoa():void{
+    console.log("Resgatando pessoas no Back");
+    this.service.getPessoa().subscribe( (res) => { this.pessoas = res } );
   }
 
-  deletePessoa( pessoa ) {
+  deletePessoa(id) {
+    this.service.deletePessoa(id).subscribe((res) => {
+      console.log(res);
+    });
+  }
 
-    this.service.deletePessoa( pessoa.id ).subscribe(
-        (res) => {
-            console.log(res);
-        }
-    );
-}
+  ngOnInit(){ }
 
-  ngOnInit(){
-    this.getPessoa()
+  ionViewWillEnter() {
+    this.getPessoa();
   }
 
 }
