@@ -1,8 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons class="back" slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-title>Gerenciar Pessoas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,6 +15,12 @@
     </ion-item>
   </ion-list>
   <section>
-    <ion-button class="gerenciar" expand="block" routerLink="/gerenciarpessoas">Gerenciar Pessoas</ion-button>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating"><ion-text>Escreva o nome aqui</ion-text></ion-label>
+        <ion-input required type="text" oninput="handleLastNameValue(event)"></ion-input>
+      </ion-item>
+      <ion-button class="add" expand="block">Adicionar pessoa</ion-button>
+    </ion-list>
   </section>
 </ion-content>
