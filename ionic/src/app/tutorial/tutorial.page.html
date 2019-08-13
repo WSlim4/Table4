@@ -1,15 +1,22 @@
-<ion-content>
-    <ion-slides pager ="true">
-  <ion-slide>
+<ion-content >
+    <ion-slides pager ="true" #mySlider>
+  <ion-slide >
           <div class="fundoTuorial">
             <h1 class="tituloTutorial">Em qual restaurante você está? </h1>
-            <ion-input id = "entrada" placeholder="Nome do Restaurante"></ion-input>
+            <ion-input id = "entrada" typer="text" placeholder="Nome do Restaurante"></ion-input>
+                    <div>
+                      <ion-button (click)="swipeNext()" class = "estilo_botao" shape = "round" expand="block" color="light" size="medium">Próximo</ion-button>
+                    </div>
           </div>
+
   </ion-slide>
   <ion-slide>
         <div class="fundoTuorial">
           <h1 class="tituloTutorial">Com quantas pessoas você Está?</h1>
-            <ion-input  id = "entrada" placeholder="Numero de Pessoas"></ion-input>
+            <ion-input type="number" id = "entrada" placeholder="Numero de Pessoas"></ion-input>
+            <div >
+              <ion-button href="/ " class = "estilo_botao" shape = "round" expand="block" color="light" size="medium">Concluir</ion-button>
+            </div>
         </div>
       </ion-slide>
     </ion-slides>

@@ -3,20 +3,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-
 import { IonicModule } from '@ionic/angular';
 
-import { TutorialPage } from './tutorial.page';
-
+import { FazendoPedidoPage } from './fazendo-pedido.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: TutorialPage
+    component: FazendoPedidoPage
   }
 ];
-
-
 
 @NgModule({
   imports: [
@@ -25,7 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TutorialPage]
+  declarations: [FazendoPedidoPage]
 })
-export class TutorialPageModule {
-}
+export class FazendoPedidoPageModule {}

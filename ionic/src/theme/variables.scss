@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #981B26; // Cor mudada para branco esse é o Azul padrão do Ionic 4
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -44,7 +44,7 @@
   --ion-color-warning-tint: #ffd31a;
 
   /** danger **/
-  --ion-color-danger: #f04141;
+  --ion-color-danger: #981B26; // Cor mudada para Vermelho padrao do T4 esse é era Vermelho padrão do Ionic 4
   --ion-color-danger-rgb: 245, 61, 61;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
@@ -70,13 +70,18 @@
   /** light **/
   --ion-color-light: #f4f5f8;
   --ion-color-light-rgb: 244, 244, 244;
-  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast: #981B26;// Cor mudada para Vermelho padrao do T4 esse é era o preto padrão para texto do Ionic 4
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
 
-/*@font-face {
+
+
+
+@font-face {
   font-family: 'PoetsenOne';
+  font-style: normal;
+  font-weight: 400;
   src: url('../assets/fontes/PoetsenOne-Regular.ttf') ;
-}*/
+}
