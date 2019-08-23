@@ -18,8 +18,12 @@ ion-input {
   font-size: 0.9em;
 }
 
-ion-content {
-  background-color: #981B26;
+ion-button{
+  margin: 0 1em;
+  margin-top: 70%;
+  font-size: 0.9em;
+  text-align: center;
+  font-family:'PoetsenOne', sans-serif;
 }
 
 .swiper-pagination >>> .swiper-pagination-bullet {
@@ -31,18 +35,15 @@ ion-content {
     background: white;
 }
 
-.fundoTuorial {
+.fundoTutorial {
   width: 100vw;
   height:100vh;
-  background-color: #981B26;
+  --background: #981B26;
 }
 
-.estilo_botao{
-  margin: 0 1em;
-  margin-top: 70%;
-  font-size: 0.9em;
-  text-align: center;
-  font-family:'PoetsenOne', sans-serif;
+.botao{
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 /*@media screen and (min-height: 600px){

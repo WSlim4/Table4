@@ -12,6 +12,7 @@ export class TutorialPage implements OnInit {
   @ViewChild('mySlider')  slides: IonSlides;
 
   quantPessoas: number;
+  pessoas = [];
 
   constructor() { }
 
@@ -23,7 +24,16 @@ export class TutorialPage implements OnInit {
   }
 
   onSubmit(form) {
+    console.log(this.pessoas);
     console.log(form);
+  }
+
+  criaArray(quant){
+    this.pessoas=[];
+    for( let i=0; i < quant; i++){
+      this.pessoas.push('');
+    }
+    console.log(this.pessoas);
   }
 
 }
