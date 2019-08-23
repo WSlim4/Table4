@@ -16,8 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/redirect', 'SocialAuthGoogleController@redirect');
-Route::get('/callback', 'SocialAuthGoogleController@callback');
 
 Route::post('/pessoa', 'PessoaController@create');
 Route::put('/pessoa/{id}','PessoaController@update');
