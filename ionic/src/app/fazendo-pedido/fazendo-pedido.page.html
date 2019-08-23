@@ -2,35 +2,35 @@
     <!-- Inicio do form  -->
 
 <ion-content color="danger">
-  <form class="estilo_form" action="index.html" method="post">
+  <form class="estilo_form" [formGroup]="fazPedidoForm" (ngSubmit)="fazPedido(fazPedidoForm)">
 
         <h1 class="titulo_criando_item"> Novo Pedido </h1>
 
-        <ion-input type="text" id = "entrada" placeholder= " Nome do Item"></ion-input>
-        <ion-input  type="number" id = "entrada" placeholder= " Valor do item"></ion-input>
-        <ion-input  type="number" id = "entrada" placeholder= " Quantidade"></ion-input>
+        <ion-input formControlName="nome" type="text" id = "entrada" placeholder= " Nome do Item"></ion-input>
+        <ion-input formControlName="valor" type="number" id = "entrada" placeholder= " Valor do item"></ion-input>
+        <ion-input formControlName="quantidade" type="number" id = "entrada" placeholder= " Quantidade"></ion-input>
 
         <h4 class="titulo_dicisao"> Quem vai dividir esse pedido? </h4>
         <ion-item id= "entrada_checkbox">
-            <ion-checkbox color="danger"  slot="start"></ion-checkbox>
+            <ion-checkbox formControlName="pessoa_id" value="1" color="danger"  slot="start"></ion-checkbox>
             <ion-label class= "estilo_text">Cliente 1</ion-label>
           </ion-item>
           <ion-item id= "entrada_checkbox">
-              <ion-checkbox color="danger"  slot="start"></ion-checkbox>
+              <ion-checkbox formControlName="pessoa_id" value="2" color="danger"  slot="start"></ion-checkbox>
               <ion-label class= "estilo_text">Cliente 2</ion-label>
             </ion-item>
             <ion-item id= "entrada_checkbox">
-                <ion-checkbox color="danger"  slot="start"></ion-checkbox>
+                <ion-checkbox formControlName="pessoa_id" value="3" color="danger"  slot="start"></ion-checkbox>
                 <ion-label class= "estilo_text">Cliente 3</ion-label>
               </ion-item>
               <ion-item id= "entrada_checkbox">
-                  <ion-checkbox color="danger"  slot="start"></ion-checkbox>
+                  <ion-checkbox formControlName="pessoa_id" value="4" color="danger"  slot="start"></ion-checkbox>
                   <ion-label class= "estilo_text">Cliente 4</ion-label>
                 </ion-item>
 
                 <ion-row>
                   <ion-col size="12">
-                    <ion-button class = "estilo_botao" shape = "round" expand="block" color="light"> Adicionar Item</ion-button>
+                    <ion-button type="submit" class = "estilo_botao" shape = "round" expand="block" color="light"> Adicionar Item</ion-button>
                   </ion-col>
                 </ion-row>
   </form>

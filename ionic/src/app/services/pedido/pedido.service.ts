@@ -11,7 +11,21 @@ export class PedidoService {
   private httpHeaders = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
- 
+  
+  url:string = "http://localhost:8000/api/pedido";
+
   constructor(public http: HttpClient) { }
+
+  postPedido(nome: string, quantidade: number, preco: number, pessoa_id: number): Observable<any> {
+    return this.http.post(this.url, {
+      'nome': nome,
+      'preco': preco,
+      'quantidade': quantidade,
+      'pessoa_id': pessoa_id,
+
+    }, this.httpHeaders).pipe(map(res => res));
+  }
+
+
 
 }
