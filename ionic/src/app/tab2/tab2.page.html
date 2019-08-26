@@ -1,11 +1,10 @@
 <ion-content>
   <ion-list>
+    <section>
+      <ion-button class="gerenciar" expand="block" routerLink="/gerenciarpessoas">Gerenciar Pessoas</ion-button>
+    </section>
     <ion-item *ngFor="let pessoa of pessoas">
-      <ion-label>{{ pessoa.nome }}</ion-label>
-      <ion-button color="danger" size="small" type="submit" (click)="deletePessoa(pessoa.id)" >Deletar</ion-button>
+      <ion-label>{{ pessoa.name }}</ion-label>
     </ion-item>
-  </ion-list>
-  <section>
-    <ion-button class="gerenciar" expand="block" routerLink="/gerenciarpessoas">Gerenciar Pessoas</ion-button>
-  </section>
+  </ion-list>  
 </ion-content>
