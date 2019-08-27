@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class PessoaService {
 
-  url:string = "http://localhost:8000/api/pessoa";
+  url: string = "http://localhost:8000/api/pessoa";
 
   constructor(
     public http: HttpClient

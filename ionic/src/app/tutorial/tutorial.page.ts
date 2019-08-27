@@ -1,7 +1,11 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
-// slider import
-import { IonSlides} from '@ionic/angular';
+// Slide import
+import { IonSlides } from '@ionic/angular';
+
+//Service
+import { MesaService } from '../services/mesa/mesa.service';
 
 @Component({
   selector: 'app-tutorial',
@@ -14,7 +18,7 @@ export class TutorialPage implements OnInit {
   quantPessoas: number;
   pessoas = [];
 
-  constructor() { }
+  constructor(private mesaService: MesaService, private storage: Storage) { }
 
   swipeNext(){
     this.slides.slideNext();
@@ -24,8 +28,16 @@ export class TutorialPage implements OnInit {
   }
 
   onSubmit(form) {
-    console.log(this.pessoas);
-    console.log(form);
+    console.log(form.value);
+    this.mesaService.createTable(form.value.estabelecimento).subscribe(
+      (res) => {
+        console.log(res);
+        this.storage.set('mesa_id', res.data.id);
+      },
+      (error) => {
+        console.log("Erro ao criar a mesa.");
+      }
+    );
   }
 
   criaArray(quant){

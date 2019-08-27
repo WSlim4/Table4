@@ -26,13 +26,14 @@ ion-button{
   font-family:'PoetsenOne', sans-serif;
 }
 
-.swiper-pagination >>> .swiper-pagination-bullet {
+/*.swiper-pagination >>> .swiper-pagination-bullet {
     opacity: 1;
     border: white solid 1px;
     background-color: transparent;
-}
-.swiper-pagination > .swiper-pagination-bullet-active {
-    background: white;
+}*/
+
+ion-slides {
+  --bullet-background-active: white;
 }
 
 .fundoTutorial {
