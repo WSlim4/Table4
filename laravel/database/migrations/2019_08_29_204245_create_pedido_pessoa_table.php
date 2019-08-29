@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContasTable extends Migration
+class CreatePedidoPessoaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,22 @@ class CreateContasTable extends Migration
      */
     public function up()
     {
-        Schema::create('contas', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('pedido_pessoa', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('pedido_id')->unsigned();
             $table->integer('pessoa_id')->unsigned();
-            $table->double('valor');
             $table->timestamps();
         });
-        Schema::table('contas', function(Blueprint $table){
-            
-            $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('cascade');
-                
-         });
-    }
         
+        Schema::table('pedido_pessoa', function (Blueprint $table){
+            $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
+        });
+        Schema::table('pedido_pessoa', function (Blueprint $table){
+            $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('cascade');
+        });
+    
+    }
+
 
     /**
      * Reverse the migrations.
@@ -34,6 +37,6 @@ class CreateContasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contas');
+        Schema::dropIfExists('pedido_pessoa');
     }
 }

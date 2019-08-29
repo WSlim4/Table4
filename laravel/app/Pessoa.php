@@ -10,7 +10,7 @@ class Pessoa extends Model
     use Notifiable;
     
     public function pedidos(){
-        return $this->hasMany('App\Pedido');
+        return $this->belongsToMany('App\Pedido');
     }
 
     public function mesas(){

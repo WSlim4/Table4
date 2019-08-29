@@ -8,7 +8,7 @@ use App\Pessoa;
 class Pedido extends Model
 {
     public function pessoa(){
-        return $this->belongsTo('App\Pessoa');
+        return $this->belongsToMany('App\Pessoa');
     }
     public function createPedido($request){
         $this->nome = $request->nome;
