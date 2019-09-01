@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-tab3',
@@ -15,4 +17,7 @@ export class Tab3Page {
   ]
   constructor() {}
 
+changeTextColor(){
+    $('#myButton').text('white');
+  }
 }
