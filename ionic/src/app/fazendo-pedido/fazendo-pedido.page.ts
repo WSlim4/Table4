@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PessoaService } from '../services/pessoa/pessoa.service';
 
 @Component({
   selector: 'app-fazendo-pedido',
@@ -6,10 +7,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fazendo-pedido.page.scss'],
 })
 export class FazendoPedidoPage implements OnInit {
+  pessoas;
+  show: boolean;
+  checked: boolean;
 
-  constructor() { }
+  constructor(
+    public service: PessoaService
+  ) {}
 
+  changeChecked(index) {
+  
+    this.pessoas[index].checked = !this.pessoas[index].checked
+    console.log(this.pessoas[index].checked)
+}
+
+  getPessoa():void{
+    console.log("Resgatando pessoas no Back");
+    this.service.getPessoa().subscribe( (res) => {
+       this.pessoas = res;
+       for(let pessoa of this.pessoas) {
+        pessoa['checked'] = false;
+    } } );
+  }
+  
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    this.getPessoa();
   }
 
 }
