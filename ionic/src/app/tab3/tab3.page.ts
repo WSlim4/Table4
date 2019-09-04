@@ -13,7 +13,7 @@ export class Tab3Page {
     {id:2, nome:'Batata Frita', valor:'10 reais'},
     {id:3, nome:'Sorvete', valor:'10 reais'},
     {id:4, nome:'Hamburguer', valor:'10 reais'},
-    {id:5, nome:'Amendoim kkkk', valor:'10 reais'}
+    {id:5, nome:'Amendoim', valor:'10 reais'}
   ]
   constructor() {}
 

@@ -1,7 +1,5 @@
-ion-toolbar{
-    --background: #981B26;
-}
 
+// Área do tirulo e texto de apoio ao usuário
 .titulo{
   text-align:center;
   padding: 2%;
@@ -11,4 +9,41 @@ ion-toolbar{
  font-family: 'PoetsenOne';
  font-size: 25px;
  color:#981B26;
+}
+.titulo_subtitulo-tutorial{
+  font-size: 1em;
+  margin: 10%;
+}
+
+
+// Área da lista de pedidos
+
+.lista_container {
+  display: flex;
+}
+
+.lista_pedido{
+  margin: 5%;
+
+}
+
+.lista_configuracao-pedido{
+  background: #f5f5f5;
+  border-top: 1px solid #c6c6c6;
+  padding:5%;
+}
+.lista_botao-configuracao-pedido{
+  text-align: center;
+}
+
+.lista_icon-pedido{
+  text-align: right;
+}
+
+.lista_nome-pedido{
+    text-align: left;
+}
+
+.lista_valor-pedido{
+  text-align: center;
 }

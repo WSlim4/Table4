@@ -1,3 +1,6 @@
+
+
+
 <!-- Botão para adicionar item de pedido -->
 <ion-fab horizontal="end"  vertical="bottom" slot="fixed">
   <ion-fab-button color="danger" href="/fazendo-pedido">
@@ -6,20 +9,62 @@
 </ion-fab>
 
 <section class="titulo">
-  <h1 class="titulo_pedidos">Lista de pedidos realizados? </h1>
-  <h4> Ops! Você ainda não tem nenhum pedido realizado.</h4>
-  <h4> Clique em  e adicione um novo pedido.</h4>
+  <h1 class="titulo_pedidos">Lista de pedidos realizados</h1>
+  <h2 class="titulo_subtitulo-tutorial"> Ops! Você ainda não tem nenhum pedido realizado.<br>
+     Clique em
+     <ion-icon id= "text_icon" color= "danger" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      e adicione um novo pedido.</h2>
 </section>
 
-
-
-<section>
-  <button id="myButton" (click)="changeTextColor()">Click Me!</button>
-</section>
-<!-- <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let pedido of pedidos" (click)="itemSelected(pedido)">
-        <ion-label>{{ pedido.nome }}</ion-label> {{ pedido.valor }}
+<!-- <section class="lista" *ngFor="let pedido of pedidos" (click)="itemSelected(pedido)">
+      <ion-row>
+    <ion-col col-6>
+      <ion-item item-left>
+          <ion-label>{{ pedido.nome }}</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col col-5>
+      <ion-item item-cente>
+          <ion-label>{{ pedido.valor }}</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col col-12>
+      <ion-item>
+      <ion-icon ios="ios-arrow-dropdown-circle" md="md-arrow-dropdown-circle" ></ion-icon>
     </ion-item>
-  </ion-list>
-</ion-content> -->
+    </ion-col>
+    <section>
+      <ion-row>
+        <ion-col col-1>
+          <ion-button> Teste </ion-button>
+        </ion-col>
+      </ion-row>
+    </section>
+</ion-row>
+</section> -->
+<section *ngFor="let pedido of pedidos" (click)="itemSelected(pedido)">
+  <section class= "lista_pedido">
+    <div class="lista_container">
+      <div style="flex-grow: 6" class="lista_nome-pedido">
+          <ion-label>{{ pedido.nome }}</ion-label>
+      </div>
+      <div style="flex-grow: 5" class="lista_valor-pedido">
+        <ion-label>{{ pedido.valor }}</ion-label>
+      </div>
+      <div style="flex-grow: 1" class="lista_icon-pedido">
+          <ion-icon color="danger" ios="ios-arrow-dropdown-circle" md="md-arrow-dropdown-circle" ></ion-icon>
+      </div>
+    </div>
+  </section>
+  <section class="lista_configuracao-pedido">
+    <ion-row >
+      <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
+          <ion-button> Teste </ion-button>
+      </div>
+      <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
+          <ion-button> Teste </ion-button>
+      </div>
+    </ion-row>
+  </section>
+
+</section>
