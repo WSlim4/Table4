@@ -1,0 +1,24 @@
+<ion-card *ngFor="let mesa of mesas">
+    <ion-card-content>
+        <ion-list>
+            <ion-item>{{ mesa.estabelecimento }}</ion-item>
+            <ion-item>{{ mesa.data }}</ion-item>
+            <ion-item>{{ mesa.total }}</ion-item>
+        </ion-list>
+    </ion-card-content>
+</ion-card>
+
+<ion-card>
+    <ion-list *ngFor="let detalhe of detalhes">
+
+        <ion-item>
+            <ion-avatar slot="start">
+            <img [src]=detalhe.foto>
+          </ion-avatar>
+          <ion-label>
+              <h2>{{ detalhe.nome }}</h2>
+              <h3>R$ {{ detalhe.valor }}</h3>
+          </ion-label>
+      </ion-item>
+    </ion-list>
+</ion-card>
