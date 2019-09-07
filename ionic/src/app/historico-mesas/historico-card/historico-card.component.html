@@ -1,9 +1,9 @@
 <ion-card *ngFor="let mesa of mesas">
     <ion-card-content>
-        <ion-list>
-            <ion-item>{{ mesa.estabelecimento }}</ion-item>
-            <ion-item>{{ mesa.data }}</ion-item>
-            <ion-item>{{ mesa.total }}</ion-item>
+        <ion-list lines="none">
+            <ion-item><ion-icon slot="start" name="home"></ion-icon>{{ mesa.estabelecimento }}</ion-item>
+            <ion-item><ion-icon slot="start" name="calendar"></ion-icon>{{ mesa.data }}</ion-item>
+            <ion-item><ion-icon slot="start" name="cash"></ion-icon>{{ mesa.total }}</ion-item>
         </ion-list>
     </ion-card-content>
 </ion-card>

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-historico-mesas-component',
-    templateUrl: './historico-mesas.component.html',
-    styleUrls: ['./historico-mesas.component.scss'],
+  selector: 'app-historico-card',
+  templateUrl: './historico-card.component.html',
+  styleUrls: ['./historico-card.component.scss'],
 })
-export class HistoricoMesasComponent implements OnInit {
+export class HistoricoCardComponent implements OnInit {
 
     mesas = [
         {
@@ -59,4 +59,4 @@ export class HistoricoMesasComponent implements OnInit {
     ngOnInit() {
 
     }
-}
+  }

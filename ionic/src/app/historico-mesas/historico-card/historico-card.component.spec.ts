@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HistoricoMesasComponent } from './historico-mesas.component';
+import { HistoricoCardComponent } from './historico-card.component';
 
-describe('HistoricoMesasComponent', () => {
-  let component: HistoricoMesasComponent;
-  let fixture: ComponentFixture<HistoricoMesasComponent>;
+describe('HistoricoCardComponent', () => {
+  let component: HistoricoCardComponent;
+  let fixture: ComponentFixture<HistoricoCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HistoricoMesasComponent ],
+      declarations: [ HistoricoCardComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HistoricoMesasComponent);
+    fixture = TestBed.createComponent(HistoricoCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
