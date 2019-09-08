@@ -16,13 +16,78 @@ export class Tab3Page {
     {id:5, nome:'Amendoim', valor:'10'}
   ]
   constructor(public alertController: AlertController) {}
+  
+    async dropdownConfiguracao(){
+      $(document).ready(function() {
+        $('#lista_configuracao-pedido').hide();
+        });
+      console.log("clicou");
+    }
 
-    async presentAlert(){
+    async editandoPedido(){
       const alert = await this.alertController.create({
-        header:'Alert',
-        subHeader:'Subtitle',
-        message: 'This is an alert message',
-        buttons:['OK']
+        header:'Editar Item',
+        subHeader:'Modifique os campos a baixo para modificar Item.',
+        message: 'Caso queira mudar a pessoa que esta pedindo o item vá até a aba de Pessoas.',
+        inputs:[
+          {
+            name: 'Nome',
+            type: 'text',
+            id:'lista_nome-pedido-editar',
+            placeholder:' Pedido'
+          },{
+            name: 'Valor',
+            type: 'number',
+            placeholder:' Valor'
+          }, {
+              name: 'Quantidade',
+              type: 'number',
+              min:'0',
+              max:'1000',
+              placeholder:'Quantidade'
+            },
+        ],
+        buttons:[
+          {
+            text:'Cancelar',
+            role:'cancel',
+            cssClass:'alert_editar-botao',
+            handler:(confirmar_cancelamento) => {
+              console.log('Confirmar cancelamento:blash');
+            }
+          },{
+            text:'Concluir',
+            handler:()=> {
+              console.log('Confirmar conclusão');
+            }
+          }
+        ]
+    });
+
+    await alert.present();
+    let result = await alert.onDidDismiss();
+    console.log(result);
+    }
+
+    async pagandoPedido(){
+      const alert = await this.alertController.create({
+        header:'Finalizar Pedido',
+        message: 'Tem certeza que gostaria de finaçozar pedido?.',
+        buttons:[
+          {
+            text:'Não',
+            role:'cancel',
+            cssClass:'alert_editar-botao',
+            handler:(confirmar_cancelamento) => {
+              console.log('Confirmar cancelamento:blash');
+            }
+          },{
+            text:'Sim',
+            handler:()=> {
+              console.log('Confirmar conclusão');
+            }
+          }
+        ]
     });
 
     await alert.present();
