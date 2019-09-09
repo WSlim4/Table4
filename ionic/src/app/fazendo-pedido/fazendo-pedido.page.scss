@@ -1,29 +1,23 @@
-
+ion-inpu{
+  color:black;
+}
 #entrada{
-  background-color: #fbfbfb;
   border: 10%;
   margin-top: 10%;
   margin-left: 10%;
-  border-radius: 10px;
-  border: 2px solid #9E9E9E;
-  box-sizing: border-box;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
-  width: 80%;
   color:black;
 }
 
 
 #entrada_checkbox{
-  background-color: #fbfbfb;
   border: 10%;
   margin-top: 5%;
-  margin-left: 10%;
-  border-radius: 10px;
-  border: 2px solid #9E9E9E;
-  box-sizing: border-box;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
-  width: 80%;
+  width: 100%;
   color:black;
+}
+
+#peso{
+  font-size:0.8em;
 }
 
 .estilo_botao{
@@ -42,14 +36,14 @@ font-family:'PoetsenOne';
 .titulo_criando_item{
   font-family: 'PoetsenOne';
   font-size: 30px;
-  color:#fbfbfb;
+  color:#981B26;
   text-align: center;
 }
 
 .titulo_dicisao{
   font-family: 'PoetsenOne';
   font-size: 16px;
-  color:#fbfbfb;
+  color:#981B26;
   text-align: left;
   margin-left: 10%;
 }

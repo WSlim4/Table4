@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PedidoService } from '../services/pedido/pedido.service'; 
+import { PedidoService } from '../services/pedido/pedido.service';
 
 @Component({
   selector: 'app-fazendo-pedido',
   templateUrl: './fazendo-pedido.page.html',
   styleUrls: ['./fazendo-pedido.page.scss'],
 })
-export class FazendoPedidoPage implements OnInit {
+export class FazendoPedidoPage {
+  pessoas;
+  show: boolean;
+  checked: boolean;
 
   fazPedidoForm: FormGroup;
 
@@ -20,7 +23,23 @@ export class FazendoPedidoPage implements OnInit {
     });
    }
 
-  ngOnInit() {
+  changeChecked(index) {
+
+    this.pessoas[index].checked = !this.pessoas[index].checked
+    console.log(this.pessoas[index].checked)
+}
+
+  getPessoa():void{
+    console.log("Resgatando pessoas no Back");
+    this.service.getPessoa().subscribe( (res) => {
+       this.pessoas = res;
+       for(let pessoa of this.pessoas) {
+        pessoa['checked'] = false;
+    } } );
+  }
+
+  ionViewWillEnter() {
+    this.getPessoa();
   }
 
   fazPedido(form){
@@ -34,6 +53,6 @@ export class FazendoPedidoPage implements OnInit {
           console.log(error);
         }
       )
-  } 
+  }
 
 }
