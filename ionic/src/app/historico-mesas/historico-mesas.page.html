@@ -1,0 +1,9 @@
+<ion-content class="ion-padding">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <h1 class="titulo_historico"> Mesas Anteriores </h1>
+    </ion-toolbar>
+    <app-historico-card *ngFor="let mesa of mesas" [mesaInfo]="mesa" (mesaClicked)="detalheMesa($event)"></app-historico-card>
+</ion-content>

@@ -1,0 +1,21 @@
+ion-content {
+    --ion-background-color: #981B26;
+}
+
+.titulo_historico {
+    font-family: 'PoetsenOne';
+    font-size: 30px;
+    color: #f9f9f9;
+    text-align: center;
+}
+
+ion-toolbar {
+    padding-bottom: 10px;
+}
+
+ion-back-button {
+    --color: #f9f9f9;
+    --icon-padding-top: 10px;
+    --icon-font-size: 30px;
+    --icon-font-weight: 10;
+}

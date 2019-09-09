@@ -17,6 +17,14 @@ const routes: Routes = [
   {
     path: 'fazendo-pedido',
     loadChildren: './fazendo-pedido/fazendo-pedido.module#FazendoPedidoPageModule'
+  },
+  {
+    path: 'historico-mesas',
+    loadChildren: './historico-mesas/historico-mesas.module#HistoricoMesasPageModule'
+  },
+  {
+    path: 'historico-detalhe',
+    loadChildren: './historico-detalhe/historico-detalhe.module#HistoricoDetalhePageModule'
   }
 ];
 @NgModule({
