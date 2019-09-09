@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PedidoService } from '../services/pedido/pedido.service';
+import { PessoaService } from '../services/pessoa/pessoa.service';
 
 @Component({
   selector: 'app-fazendo-pedido',
@@ -14,7 +15,7 @@ export class FazendoPedidoPage {
 
   fazPedidoForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, private PedidoService: PedidoService) {
+  constructor(public formBuilder: FormBuilder, private PedidoService: PedidoService, private PessoaService: PessoaService) {
     this.fazPedidoForm = this.formBuilder.group({
        nome: [null,[Validators.required]],
        valor: [null,[Validators.required]],
@@ -31,7 +32,7 @@ export class FazendoPedidoPage {
 
   getPessoa():void{
     console.log("Resgatando pessoas no Back");
-    this.service.getPessoa().subscribe( (res) => {
+    this.PessoaService.getPessoa().subscribe( (res) => {
        this.pessoas = res;
        for(let pessoa of this.pessoas) {
         pessoa['checked'] = false;
