@@ -1,24 +1,15 @@
-<ion-card *ngFor="let mesa of mesas">
+<ion-card (click)="mostrarDetalhe(mesaInfo.id)">
     <ion-card-content>
         <ion-list lines="none">
-            <ion-item><ion-icon slot="start" name="home"></ion-icon>{{ mesa.estabelecimento }}</ion-item>
-            <ion-item><ion-icon slot="start" name="calendar"></ion-icon>{{ mesa.data }}</ion-item>
-            <ion-item><ion-icon slot="start" name="cash"></ion-icon>{{ mesa.total }}</ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="home"></ion-icon>{{ mesaInfo.estabelecimento }}
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="calendar"></ion-icon>{{ mesaInfo.data }}
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="cash"></ion-icon>{{ mesaInfo.total }}
+            </ion-item>
         </ion-list>
     </ion-card-content>
-</ion-card>
-
-<ion-card>
-    <ion-list *ngFor="let detalhe of detalhes">
-
-        <ion-item>
-            <ion-avatar slot="start">
-            <img [src]=detalhe.foto>
-          </ion-avatar>
-          <ion-label>
-              <h2>{{ detalhe.nome }}</h2>
-              <h3>R$ {{ detalhe.valor }}</h3>
-          </ion-label>
-      </ion-item>
-    </ion-list>
 </ion-card>

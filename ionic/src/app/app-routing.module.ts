@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'historico-mesas',
     loadChildren: './historico-mesas/historico-mesas.module#HistoricoMesasPageModule'
+  },
+  {
+    path: 'historico-detalhe',
+    loadChildren: './historico-detalhe/historico-detalhe.module#HistoricoDetalhePageModule'
   }
 ];
 @NgModule({

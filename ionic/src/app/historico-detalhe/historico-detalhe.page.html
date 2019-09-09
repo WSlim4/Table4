@@ -1,0 +1,27 @@
+<ion-content class="ion-padding">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/historico-mesas"></ion-back-button>
+        </ion-buttons>
+        <h1 class="titulo_historico"> Detalhes da Mesa </h1>
+    </ion-toolbar>
+    <ion-card *ngIf="mesaDetalhe">
+        <ion-list lines="none">
+            <ion-item>
+                <ion-icon slot="start" name="home"></ion-icon>{{ mesaDetalhe.estabelecimento }}
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="calendar"></ion-icon>{{ mesaDetalhe.data }}
+            </ion-item>
+            <ion-item *ngFor="let cliente of mesaDetalhe.detalhes">
+                <ion-avatar slot="start">
+                    <img [src]="cliente.foto">
+                </ion-avatar>
+                <ion-label>
+                    <h2>{{ cliente.nome }}</h2>
+                    <h3>R$ {{ cliente.valor }}</h3>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+</ion-content>
