@@ -13,6 +13,7 @@ export class TabsService {
 	hideTabBarPages = [
     '',
 		'tab1',
+    'tabs/tab1'
 	];
 
 	routeParamPages: string[] = [
