@@ -8,19 +8,29 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let pessoa of pessoas">
-      <ion-label>{{ pessoa.nome }}</ion-label>
-      <ion-button color="danger" size="small" type="submit" (click)="deletePessoa(pessoa.id)" >Deletar</ion-button>
-    </ion-item>
-  </ion-list>
   <section>
+    <form [formGroup]="gerenciarPessoa" (ngSubmit)="createPessoa(gerenciarPessoa)">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating"><ion-text>Escreva o nome aqui</ion-text></ion-label>
+              <ion-input formControlName="nome" required type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button type="submit"expand="block" class="add">Adicionar pessoa</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid> 
+    </form>
     <ion-list>
-      <ion-item>
-        <ion-label position="floating"><ion-text>Escreva o nome aqui</ion-text></ion-label>
-        <ion-input required type="text" oninput="handleLastNameValue(event)"></ion-input>
-      </ion-item>
-      <ion-button class="add" expand="block">Adicionar pessoa</ion-button>
-    </ion-list>
-  </section>
+        <ion-item *ngFor="let pessoa of pessoas">
+          <ion-label>{{ pessoa.name }}</ion-label>
+          <ion-button color="danger" size="small" type="submit" (click)="deletePessoa(pessoa.id)" >Deletar</ion-button>
+        </ion-item>
+      </ion-list> 
+  </section>  
 </ion-content>

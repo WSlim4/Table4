@@ -5,8 +5,7 @@ import { Observable } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-  })
+    'Content-Type':  'application/json'})
 };
 
 @Injectable({
@@ -14,17 +13,29 @@ const httpOptions = {
 })
 export class PessoaService {
 
-  url: string = "http://localhost:8000/api/pessoa";
+  private httpHeaders = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  }
+
+  url:string = "http://localhost:8000/api/pessoa";
 
   constructor(
     public http: HttpClient
   ) { }
 
   getPessoa():Observable<any>{
-    return this.http.get(this.url, httpOptions).pipe(map(res => res));
+    return this.http.get(this.url, this.httpHeaders).pipe(map(res => res));
   }
 
   deletePessoa(id: any):Observable<any>{
     return this.http.delete(this.url + "/" + id);
   }
+
+  createPessoa(nome: string): Observable<any> {
+    return this.http.post(this.url, {
+      'nome': nome,
+    }, this.httpHeaders).pipe(map(res => res));
+  }
+
+
 }
