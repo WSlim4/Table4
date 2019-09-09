@@ -1,5 +1,11 @@
+h1 {
+  margin-top: 25%;
+  font-family: 'PoetsenOne';
+  color:#fbfbfb;
+  padding: 5%;
+}
 
-#entrada{
+ion-input {
   background-color: #fbfbfb;
   border: 10%;
   margin-top: 10%;
@@ -9,31 +15,42 @@
   box-sizing: border-box;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
   width: 80%;
+  font-size: 0.9em;
 }
 
-
-.tituloTutorial{
- margin-top: 25%;
- font-family: 'PoetsenOne';
- font-size: 30px;
- color:#fbfbfb;
- padding: 5%;
+ion-button{
+  margin: 0 1em;
+  margin-top: 70%;
+  font-size: 0.9em;
+  text-align: center;
+  font-family:'PoetsenOne', sans-serif;
 }
 
-
-.swiper-pagination >>> .swiper-pagination-bullet {
+/*.swiper-pagination >>> .swiper-pagination-bullet {
     opacity: 1;
     border: white solid 1px;
     background-color: transparent;
-}
-.swiper-pagination >>> .swiper-pagination-bullet-active {
-    background-color: white;
+}*/
+
+ion-slides {
+  --bullet-background-active: white;
 }
 
-@media screen and (min-height: 600px){
+.fundoTutorial {
+  width: 100vw;
+  height:100vh;
+  --background: #981B26;
+}
+
+.botao{
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+/*@media screen and (min-height: 600px){
   .fundoTuorial{
-    width: 100%;
-    height:640px;
+    width: 100vw;
+    height:100vh;
     background-color: #981B26;
     }
 
@@ -45,30 +62,30 @@
     text-align: center;
     font-family:'PoetsenOne';
     }
-
 }
-    @media screen and (min-height: 1024px){
-      .fundoTuorial{
-        width: 100%;
-        height:1024px;
-        background-color: #981B26;
-        .botao{
-          position: absolute;
-          margin-top: 60%;
-          margin-left: 80%;
-        }
-        }
-      }
 
-      @media screen and (min-height: 1366px){
-        .fundoTuorial{
-          width: 100%;
-          height:1366px;
-          background-color: #981B26;
-          }
-          .botao{
-            position: absolute;
-            margin-top: 60%;
-            margin-left: 80%;
-          }
-        }
+@media screen and (min-height: 1024px){
+  .fundoTuorial{
+    width: 100%;
+    height:1024px;
+    background-color: #981B26;
+    .botao{
+      position: absolute;
+      margin-top: 60%;
+      margin-left: 80%;
+    }
+    }
+  }
+
+@media screen and (min-height: 1366px){
+  .fundoTuorial{
+    width: 100%;
+    height:1366px;
+    background-color: #981B26;
+    }
+    .botao{
+      position: absolute;
+      margin-top: 60%;
+      margin-left: 80%;
+    }
+}*/
