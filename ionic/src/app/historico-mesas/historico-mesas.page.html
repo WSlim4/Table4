@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
             <ion-back-button defaultHref="/"></ion-back-button>
         </ion-buttons>
-        <h1 class="titulo_historico"> Histórico de Mesas </h1>
+        <ion-title> Histórico de Mesas </ion-title>
     </ion-toolbar>
     <app-historico-list *ngFor="let mesa of mesas" [mesaInfo]="mesa" (mesaClicked)="detalheMesa($event)"></app-historico-list>
 </ion-content>

@@ -11,14 +11,16 @@ export class TabsService {
   // O objetivo do código abaixo é remover o menu tab da página home, sendo que a mesma está no menu tab.
 
 	hideTabBarPages = [
-    '',
+    	'',
 		'tab1',
+		'historico-mesas',
+		'historico-detalhe'
 	];
 
 	routeParamPages: string[] = [
 		'tabs/tab2',
 		'tabs/tab3',
-    'tabs/tab4'
+    	'tabs/tab4'
 	];
 
 	constructor(private router: Router, private platform: Platform) {
