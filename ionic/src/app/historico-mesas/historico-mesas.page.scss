@@ -2,12 +2,15 @@ ion-content {
     --ion-background-color: #f9f9f9;
 }
 
-ion-title {
+.title {
+    display: inline-block;
     font-family: 'PoetsenOne';
     font-size: 1.5em;
     color: #981B26;
     background-color: #f9f9f9;
     text-align: center;
+    padding: 0px;
+    vertical-align: bottom;
 }
 
 ion-toolbar {
@@ -17,6 +20,6 @@ ion-toolbar {
 
 ion-back-button {
     --icon-padding-top: 10px;
-    --icon-font-size: 30px;
+    --icon-font-size: 1.5em;
     --icon-font-weight: 10;
 }
