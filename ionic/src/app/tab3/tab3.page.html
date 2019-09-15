@@ -16,29 +16,5 @@
         e adicione um novo pedido.</h2>
   </section>
 
-  <section *ngFor="let pedido of pedidos">
-    <section class= "lista_pedido">
-      <div class="lista_container">
-        <div style="flex-grow: 6" class="lista_nome-pedido">
-            <ion-label id="lista_nome-pedido-editar">{{ pedido.nome }}</ion-label>
-        </div>
-        <div style="flex-grow: 5" class="lista_valor-pedido">
-          <ion-label>R$ {{ pedido.valor }}</ion-label>
-        </div>
-        <div style="flex-grow: 1" >
-            <ion-icon color="danger"class="lista_icon-pedido" (click)="dropdownConfiguracao()" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
-        </div>
-      </div>
-    </section>
-    <section class="lista_configuracao-pedido" id="lista_configuracao-pedido">
-      <ion-row >
-        <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
-            <ion-button (click)="editandoPedido()"> Editar </ion-button>
-        </div>
-        <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
-            <ion-button   fill="outline" (click)="pagandoPedido()"> Pagar </ion-button>
-        </div>
-      </ion-row>
-    </section>
-  </section>
+  <app-pedido-card > </app-pedido-card>
 </ion-content>

@@ -1,34 +1,15 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { AlertController } from '@ionic/angular';
 
-//components
-import { PedidoCardComponent } from './pedido-card/pedido-card.component';
-
-@NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild([{ path: '', component: Tab3Page }])
-  ],
-  declarations: [Tab3Page ,PedidoCardComponent]
+@Component({
+  selector: 'app-pedido-card',
+  templateUrl: './pedido-card.component.html',
+  styleUrls: ['./pedido-card.component.scss'],
 })
+export class PedidoCardComponent implements OnInit {
 
-export class Tab3PageModule {
-  pedidos = [
-    {id:1, nome:'Cerveja', valor:'10'},
-    {id:2, nome:'Batata Frita com Katshup e Salça com frango', valor:'10'},
-    {id:3, nome:'Palavra Enoooooooooooooooooooooooooooooorme', valor:'10'},
-    {id:4, nome:'Hamburguer', valor:'10'},
-    {id:5, nome:'Amendoim', valor:'10'}
-  ]
+
 
   configuracao:boolean=false;
 
@@ -113,4 +94,8 @@ export class Tab3PageModule {
     let result = await alert.onDidDismiss();
     console.log(result);
     }
-  }
+
+
+  ngOnInit() {}
+
+}
