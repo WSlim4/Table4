@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use App\Pedido;
 
 class Pessoa extends Model
 {
@@ -35,6 +36,11 @@ class Pessoa extends Model
         if($request->mesa_id)
             $this->mesa_id = $request->mesa_id;
         $this->save();
-        
     }
+    public function attachPedido($pedido_id){
+        $this->pedidos()->attach($pedido_id);
+        $this->save();
+    }
+
+  
 }

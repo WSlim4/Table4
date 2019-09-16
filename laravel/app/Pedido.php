@@ -13,7 +13,6 @@ class Pedido extends Model
     public function createPedido($request){
         $this->nome = $request->nome;
         $this->quantidade = $request->quantidade;
-        $this->pessoa_id = $request->pessoa_id;
         $this->preco = $request->preco;
         $this->save();
     }
@@ -28,4 +27,5 @@ class Pedido extends Model
             $this->preco = $request->preco;
         $this->save();
     }
+   
 }

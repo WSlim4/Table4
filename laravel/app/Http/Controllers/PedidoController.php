@@ -35,8 +35,15 @@ class PedidoController extends Controller
         return Pedido::all();
 
     }
-    public function show(Request $request, $id){
-        return Pedido::where('pessoa_id', $id)->get();
+    public function show(Request $pessoa_id){
+        $pessoa = Pessoa::find($pessoa_id);
+        return $pessoa->pedidos;
         
+    }
+    public function fazPedido($pedido_id,$pessoa_id){
+        $pessoa = Pessoa::find($pessoa_id);
+        $pessoa->attachPedido($pedido_id);
+
+        return response()->json(['Pedido feito com sucesso']);
     }
 }

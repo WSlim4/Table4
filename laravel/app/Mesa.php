@@ -11,6 +11,7 @@ class Mesa extends Model
     }
     public function createMesa($request){
         $this->estabelecimento = $request->estabelecimento;
+        $this->moeda = $request->moeda;
         $this->save();
     }   
     public function contaTotal($pessoas){
