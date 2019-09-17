@@ -8,7 +8,7 @@ use App\Pessoa;
 
 class MesaController extends Controller
 {
-    public function create(Request $request){
+    public function createMesa(Request $request){
         
         $mesa = new Mesa;
         $mesa->createMesa($request);
@@ -16,14 +16,23 @@ class MesaController extends Controller
         return response()->success($mesa);
     }
     public function listaPedidos($id){
+        /*Função que lista todos os pedidos de uma mesa 
+            entrada->id da mesa
+            saída->array de pedidos*/
         
         $mesa = Mesa::find($id);
-        $pessoas = $mesa->pessoas;
-        $pedidos = [];
+        
+        if($mesa){
+            $pessoas = $mesa->pessoas;
+            $pedidos = [];
 
-        foreach($pessoas as $pessoa){
+            foreach($pessoas as $pessoa){
             array_push($pedidos,$pessoa->pedidos);
+            }
+            return $pedidos;
+        } else{
+            $data = "Mesa não encontrada";
+            return response()->error($data, 400);
         }
-        return $pedidos;
     }
 }

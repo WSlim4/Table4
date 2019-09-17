@@ -9,7 +9,7 @@ use App\Pessoa;
 class PedidoController extends Controller
 {
 
-    public function create(Request $request){
+    public function createPedido(Request $request){
         
         $pedido = new Pedido;
         $pedido->createPedido($request);
@@ -18,26 +18,39 @@ class PedidoController extends Controller
 
     }
 
-    public function update(Request $request, $id){
+    public function updatePedido(Request $request, $id){
 
-        $pedido = Pedido::findOrFail($id);
-        $pedido->updatePedido($request);
+        $pedido = Pedido::find($id);
+        
+        if($pedido){
+            $pedido->updatePedido($request);
+            return response()->success($pedido);
+        } else{
+            $data = "Pedido não encontrado";
+            return response()->error($data, 400);
+        }
 
-        return response()->success($pedido);
+        
     }
 
-    public function delete($id){
+    public function deletePedido($id){
         Pedido::destroy($id);
         return response()->json(['Pedido excluido']);
     }
 
-    public function list(){
+    public function listPedidos(){
         return Pedido::all();
 
     }
-    public function show(Request $pessoa_id){
+    public function showPedido(Request $pessoa_id){
         $pessoa = Pessoa::find($pessoa_id);
-        return $pessoa->pedidos;
+        
+        if($pessoa){
+            return $pessoa->pedidos;
+        } else{
+            $data = "Pessoa não encontrada";
+            return response()->error($data, 400);
+        }
         
     }
     public function fazPedido($pedido_id,$pessoa_id){

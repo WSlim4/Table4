@@ -9,15 +9,18 @@ class Conta extends Model
    public function pessoa(){
        return $this->belongsTo('App\Pessoa');
    }
-   public function create($pessoa){
-    /*Função que cria uma conta*/
+   public function createConta($pessoa){
+    /*Função que cria uma conta
+        entrada->id da pessoa
+        saída->inteiro */
+
        $c = $pessoa->conta;
        $itens = [];
     
        if($pessoa){
             $pedidos = $pessoa->pedidos;
 
-            foreach($pedidos as $pedido){ //Pega o valor e salva num array
+            foreach($pedidos as $pedido){          //Pega o valor e salva num array
                 array_push($itens,($pedido->quantidade*$pedido->preco)); 
             
             }
@@ -25,7 +28,7 @@ class Conta extends Model
        $valor = array_sum($itens);
     
        if($c){
-           Conta::destroy($c->id); //Exclui uma conta caso ela exista e cria outra
+           Conta::destroy($c->id);          //Exclui uma conta caso ela exista e cria outra
            $this->pessoa_id = $pessoa->id;
            $this->valor = $valor;
            $this->save();

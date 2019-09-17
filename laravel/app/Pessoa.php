@@ -14,7 +14,7 @@ class Pessoa extends Model
         return $this->belongsToMany('App\Pedido');
     }
 
-    public function mesas(){
+    public function mesa(){
         return $this->belongsTo('App\Mesa');
     }
     
@@ -23,13 +23,20 @@ class Pessoa extends Model
     }
     
     public function createPessoa($request){
-        
+        /*Função que cria uma pessoa no BD
+            Entrada->request passada pela controller
+            Saída->pessoa salva no BD*/
+
         $this->nome = $request->nome;
         $this->mesa_id = $request->mesa_id;
         $this->save();
     }
     
     public function updatePessoa($request){
+        /*Função que atualiza uma pessoa no BD
+            Entrada->request passada pela controller
+            Saída->pessoa salva no BD*/
+
 
         if($request->nome)
             $this->nome = $request->nome;
@@ -38,6 +45,9 @@ class Pessoa extends Model
         $this->save();
     }
     public function attachPedido($pedido_id){
+        /*Função que adiciona o ID de uma pessoa
+        a um pedido específico*/
+
         $this->pedidos()->attach($pedido_id);
         $this->save();
     }

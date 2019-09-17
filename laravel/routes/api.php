@@ -19,20 +19,27 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/redirect', 'SocialAuthGoogleController@redirect');
 Route::get('/callback', 'SocialAuthGoogleController@callback');
 
-Route::post('/pessoa', 'PessoaController@create');
-Route::put('/pessoa/{id}','PessoaController@update');
-Route::get('/pessoa','PessoaController@list');
-Route::delete('/pessoa/{id}', 'PessoaController@delete');
+Route::post('/pessoa', 'PessoaController@createPessoa');
+Route::put('/pessoa/{id}', 'PessoaController@updatePessoa');
+Route::get('/pessoa', 'PessoaController@listPessoas');
+Route::delete('/pessoa/{id}', 'PessoaController@deletePessoa');
 
-Route::get('/pedido/{id}','PedidoController@show');
-Route::get('/pedido','PedidoController@list');
-Route::get('/pedido/{pedido_id}/{pessoa_id}','PedidoController@fazPedido');
-Route::post('/pedido','PedidoController@create');
-Route::put('/pedido/{id}','PedidoController@update');
-Route::delete('/pedido/{id}','PedidoController@delete');
+Route::get('/pedido/{id}', 'PedidoController@showPedido');
+Route::get('/pedido', 'PedidoController@listPedido');
+Route::get('/pedido/{pedido_id}/{pessoa_id}', 'PedidoController@fazPedido');
+Route::post('/pedido', 'PedidoController@createPedido');
+Route::put('/pedido/{id}', 'PedidoController@updatePedido');
+Route::delete('/pedido/{id}', 'PedidoController@deletePedido');
 
-Route::post('/mesa','MesaController@create');
+Route::post('/mesa','MesaController@createMesa');
 Route::get('listaPedidosMesa/{id}','MesaController@listaPedidos');
+
+Route::post('/estabelecimento', 'EstabelecimentoController@createEstabelecimento');
+Route::put('/estabelecimento/{id}', 'EstabelecimentoController@updateEstabelecimento');
+Route::get('/estabelecimento/{id}', 'EstabelecimentoController@showEstabelecimento');
+Route::get('/estabelecimento', 'EstabelecimentoController@listEstabelecimentos');
+Route::delete('/estabelecimento/{id}', 'EstabelecimentoController@deleteEstabelecimento');
 
 Route::get('/conta/{id}','ContaController@createConta');
 Route::get('/contas/{id}', 'ContaController@showContas');
+

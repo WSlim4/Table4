@@ -18,7 +18,10 @@ class Mesa extends Model
         $this->save();
     }   
     public function contaTotal($pessoas){
-        
+        /*Função que calcula a conta total de uma mesa
+            Entrada->array de pessoas na mesa
+            Saída->um inteiro que é adicionado ao atributo da mesa*/
+
         $contas = [];
 
         foreach($pessoas as $pessoa){

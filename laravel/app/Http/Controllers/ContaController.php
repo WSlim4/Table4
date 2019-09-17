@@ -18,9 +18,16 @@ class ContaController extends Controller
     }
     public function showContas($id){
         $mesa = Mesa::find($id);
-        $pessoas = $mesa->pessoas;
-        $mesa->contaTotal($pessoas);
+        
+        if($mesa){
+            $pessoas = $mesa->pessoas;
+            $mesa->contaTotal($pessoas);
+            return response()->success($mesa->valor_total);
+        } else{
+            $data = "Mesa não encontrada";
+            return response()->error($data, 400);
+        }
 
-        return response()->success($mesa->valor_total);
+        
     }
 }
