@@ -9,6 +9,9 @@ class Mesa extends Model
     public function pessoas(){
         return $this->hasMany('App\Pessoa');
     }
+    public function estabelecimento(){
+        return $this->belongsTo('App\Estabelecimento');
+    }
     public function createMesa($request){
         $this->estabelecimento = $request->estabelecimento;
         $this->moeda = $request->moeda;

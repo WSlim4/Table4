@@ -15,11 +15,19 @@ class CreateMesasTable extends Migration
     {
         Schema::create('mesas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('estabelecimento_id')->nullable()->unsigned();
             $table->string('estabelecimento');
             $table->string('moeda');
             $table->double('valor_total')->default(0)->nullable();
             $table->timestamps();
         });
+
+        Schema::table('mesas', function(Blueprint $table){
+            
+            $table->foreign('estabelecimento_id')->references('id')
+                  ->on('estabelecimentos')->onDelete('cascade');
+                
+         });
        
     }
 
