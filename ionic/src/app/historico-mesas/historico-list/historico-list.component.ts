@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'app-historico-card',
-    templateUrl: './historico-card.component.html',
-    styleUrls: ['./historico-card.component.scss'],
+    selector: 'app-historico-list',
+    templateUrl: './historico-list.component.html',
+    styleUrls: ['./historico-list.component.scss'],
 })
-export class HistoricoCardComponent implements OnInit {
+export class HistoricoListComponent implements OnInit {
 
     @Input() mesaInfo;
     @Output() mesaClicked = new EventEmitter<number>();

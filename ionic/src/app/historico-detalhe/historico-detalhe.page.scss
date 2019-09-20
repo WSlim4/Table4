@@ -1,28 +1,34 @@
 ion-content {
-    --ion-background-color: #981B26;
+    --ion-background-color: #f9f9f9;
 }
 
-.titulo_historico {
+.title {
+    display: inline-block;
     font-family: 'PoetsenOne';
-    font-size: 30px;
-    color: #f9f9f9;
+    font-size: 1.5em;
+    color: #981B26;
+    background-color: #f9f9f9;
     text-align: center;
+    padding: 0px;
+    vertical-align: bottom;
 }
 
 ion-toolbar {
     padding-bottom: 10px;
+    --background: #f9f9f9;
 }
 
 ion-back-button {
-    --color: #f9f9f9;
     --icon-padding-top: 10px;
-    --icon-font-size: 30px;
+    --icon-font-size: 1.5em;
     --icon-font-weight: 10;
 }
 
 ion-card {
     width: 85vw;
-    --background: #fff;
+    --background: #f9f9f9;
+    border: 1px solid #981B26;
+    box-shadow: none;
     margin-bottom: 5vh;
     margin-top: 2vh;
 }
@@ -41,9 +47,9 @@ ion-icon {
 }
 
 ion-item {
-    --background: #fff;
+    --background: #f9f9f9;
 }
 
 .list-md {
-    background: #fff;
+    background: #f9f9f9;
 }

@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HistoricoMesasPage } from './historico-mesas.page';
-import { HistoricoCardComponent } from './historico-card/historico-card.component';
+import { HistoricoListComponent } from './historico-list/historico-list.component';
 
 const routes: Routes = [
   {
@@ -22,6 +22,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HistoricoMesasPage, HistoricoCardComponent]
+  declarations: [HistoricoMesasPage, HistoricoListComponent]
 })
 export class HistoricoMesasPageModule {}
