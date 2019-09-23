@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as $ from 'jquery';
+//import * as $ from 'jquery';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -17,12 +17,12 @@ export class Tab3Page {
   ]
   constructor(public alertController: AlertController) {}
   
-    async dropdownConfiguracao(){
+    /*async dropdownConfiguracao(){
       $(document).ready(function() {
         $('#lista_configuracao-pedido').hide();
         });
       console.log("clicou");
-    }
+    }*/
 
     async editandoPedido(){
       const alert = await this.alertController.create({

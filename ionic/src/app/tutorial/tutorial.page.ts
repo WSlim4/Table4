@@ -6,6 +6,7 @@ import { IonSlides } from '@ionic/angular';
 
 //Service
 import { MesaService } from '../services/mesa/mesa.service';
+import { PessoaService } from '../services/pessoa/pessoa.service';
 
 @Component({
   selector: 'app-tutorial',
@@ -18,7 +19,7 @@ export class TutorialPage implements OnInit {
   quantPessoas: number;
   pessoas = [];
 
-  constructor(private mesaService: MesaService, private storage: Storage) { }
+  constructor(private mesaService: MesaService, private pessoaService: PessoaService, private storage: Storage) { }
 
   swipeNext(){
     this.slides.slideNext();
@@ -33,6 +34,10 @@ export class TutorialPage implements OnInit {
       (res) => {
         console.log(res);
         this.storage.set('mesa_id', res.data.id);
+        for(let i = 0; i < this.quantPessoas; i++){
+          //this.pessoaService.createPessoa();
+        }
+        
       },
       (error) => {
         console.log("Erro ao criar a mesa.");
