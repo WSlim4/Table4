@@ -10,11 +10,13 @@
 
   <section class="titulo">
     <h1 class="titulo_pedidos">Lista de pedidos realizados</h1>
-    <h2 class="titulo_subtitulo-tutorial"> Ops! Você ainda não tem nenhum pedido realizado.<br>
-       Clique em
-       <ion-icon class= "text_icon" color= "danger" ios="ios-add-circle" md="md-add-circle"></ion-icon>
-        e adicione um novo pedido.</h2>
+    <section *ngIf="pedidos">
+      <h2 class="titulo_subtitulo-tutorial"> Ops! Você ainda não tem nenhum pedido realizado.<br>
+         Clique em
+         <ion-icon class= "text_icon" color= "danger" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+          e adicione um novo pedido.</h2>
+    </section>
   </section>
 
-  <app-pedido-card > </app-pedido-card>
+  <app-pedido-card *ngFor="let pedido of pedidos" [pedido]="pedido" (configuracaoClicked)="goToConfiguracaoPedidoModal($event)"> </app-pedido-card>
 </ion-content>

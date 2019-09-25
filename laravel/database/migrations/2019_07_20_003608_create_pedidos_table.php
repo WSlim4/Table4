@@ -22,9 +22,9 @@ class CreatePedidosTable extends Migration
             $table->timestamps();
         });
         Schema::table('pedidos', function(Blueprint $table){
-            
+
             $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('cascade');
-                  
+
         });
 
     }

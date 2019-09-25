@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as $ from 'jquery';
-import { AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import{EditandoPedidoModalPage} from '../editando-pedido-modal/editando-pedido-modal.page';
+
+
+
 
 @Component({
   selector: 'app-pedido-card',
@@ -9,11 +13,12 @@ import { AlertController } from '@ionic/angular';
 })
 export class PedidoCardComponent implements OnInit {
 
-
+ @Input() pedido;
+ @Output() configuracaoClicked = new EventEmitter<number>();
 
   configuracao:boolean=false;
 
-  constructor(public alertController: AlertController) {}
+  constructor(public modalController: ModalController) {}
 
     async dropdownConfiguracao(){
       if (this.configuracao){
@@ -25,77 +30,14 @@ export class PedidoCardComponent implements OnInit {
     }
 
     async editandoPedido(){
-      const alert = await this.alertController.create({
-        header:'Editar Item',
-        subHeader:'Modifique os campos a baixo para modificar Item.',
-        message: 'Caso queira mudar a pessoa que esta pedindo o item vá até a aba de Pessoas.',
-        inputs:[
-          {
-            name: 'Nome',
-            type: 'text',
-            id:'lista_nome-pedido-editar',
-            placeholder:' Pedido'
-          },{
-            name: 'Valor',
-            type: 'number',
-            placeholder:' Valor'
-          }, {
-              name: 'Quantidade',
-              type: 'number',
-              min:'0',
-              max:'1000',
-              placeholder:'Quantidade'
-            },
-        ],
-        buttons:[
-          {
-            text:'Cancelar',
-            role:'cancel',
-            cssClass:'alert_editar-botao',
-            handler:(confirmar_cancelamento) => {
-              console.log('Confirmar cancelamento:blash');
-            }
-          },{
-            text:'Concluir',
-            handler:()=> {
-              console.log('Confirmar conclusão');
-            }
-          }
-        ]
-    });
-
-    await alert.present();
-    let result = await alert.onDidDismiss();
-    console.log(result);
+     this.configuracaoClicked.emit(this.pedido.id);
     }
 
-    async pagandoPedido(){
-      const alert = await this.alertController.create({
-        header:'Finalizar Pedido',
-        message: 'Tem certeza que gostaria de finalizar pedido?',
-        buttons:[
-          {
-            text:'Não',
-            role:'cancel',
-            cssClass:'alert_editar-botao',
-            handler:(confirmar_cancelamento) => {
-              console.log('Confirmar cancelamento:blash');
-            }
-          },{
-            text:'Sim',
-            handler:()=> {
-              console.log('Confirmar conclusão');
-            }
-          }
-        ]
-    });
+  ngOnInit() {
 
-    await alert.present();
-    let result = await alert.onDidDismiss();
-    console.log(result);
-    }
+  }
 
-
-  ngOnInit() {}
-
+  ionViewDidEnter(){
+    console.log(this.pedido[0]);
+  }
 }

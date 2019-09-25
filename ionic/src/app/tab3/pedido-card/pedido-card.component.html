@@ -2,12 +2,10 @@
   <section class= "lista_pedido" >
     <div class="lista_container">
       <div style="flex-grow: 6" class="lista_nome-pedido">
-          <ion-label id="lista_nome-pedido-editar"></ion-label>
-          <!-- {{ pedido.nome }} -->
+          <ion-label id="lista_nome-pedido-editar">{{ pedido.nome }}</ion-label>
       </div>
       <div style="flex-grow: 5" class="lista_valor-pedido">
-        <ion-label>R$ </ion-label>
-        <!-- {{ pedido.valor }} -->
+        <ion-label>R$ {{ pedido.preco }}</ion-label>
       </div>
       <div style="flex-grow: 1" >
         <ion-icon color="danger"class="lista_icon-pedido" (click)="dropdownConfiguracao()" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
@@ -23,3 +21,4 @@
           <ion-button   fill="outline" (click)="pagandoPedido()"> Pagar </ion-button>
       </div>
     </ion-row>
+  </section>
