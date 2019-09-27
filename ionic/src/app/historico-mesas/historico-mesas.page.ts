@@ -18,24 +18,38 @@ export class HistoricoMesasPage implements OnInit {
                 estabelecimento: "Estabelecimento 1",
                 data: "01/01/01",
                 total: "100,00",
+                pedidos: [
+                    {
+                        pedido: "Batata frita",
+                        valor: "10,00"
+                    },
+                    {
+                        pedido: "Chá",
+                        valor: "15,00"
+                    },
+                    {
+                        pedido: "Picanha especial",
+                        valor: "20,00"
+                    }
+                ],
                 detalhes: [
                     {
-                        nome: "cliente 1.1",
+                        nome: "Mario",
                         foto: "https://image.flaticon.com/icons/svg/131/131040.svg",
                         valor: "10,00"
                     },
                     {
-                        nome: "cliente 1.2",
+                        nome: "Jordy",
                         foto: "https://image.flaticon.com/icons/svg/131/131040.svg",
                         valor: "20,00"
                     },
                     {
-                        nome: "cliente 1.3",
+                        nome: "Bruna",
                         foto: "https://image.flaticon.com/icons/svg/131/131040.svg",
                         valor: "30,00"
                     },
                     {
-                        nome: "cliente 1.4",
+                        nome: "Fábio",
                         foto: "https://image.flaticon.com/icons/svg/131/131040.svg",
                         valor: "40,00"
                     }
@@ -46,6 +60,20 @@ export class HistoricoMesasPage implements OnInit {
                 estabelecimento: "Estabelecimento 2",
                 data: "02/02/02",
                 total: "200,00",
+                pedidos: [
+                    {
+                        pedido: "Batata frita",
+                        valor: "20,00"
+                    },
+                    {
+                        pedido: "Chá",
+                        valor: "25,00"
+                    },
+                    {
+                        pedido: "Picanha especial",
+                        valor: "30,00"
+                    }
+                ],
                 detalhes: [
                     {
                         nome: "cliente 2.1",
@@ -74,6 +102,20 @@ export class HistoricoMesasPage implements OnInit {
                 estabelecimento: "Estabelecimento 3",
                 data: "03/03/03",
                 total: "300,00",
+                pedidos: [
+                    {
+                        pedido: "Batata frita",
+                        valor: "30,00"
+                    },
+                    {
+                        pedido: "Chá",
+                        valor: "35,00"
+                    },
+                    {
+                        pedido: "Picanha especial",
+                        valor: "40,00"
+                    }
+                ],
                 detalhes: [
                     {
                         nome: "cliente 3.1",
@@ -102,6 +144,20 @@ export class HistoricoMesasPage implements OnInit {
                 estabelecimento: "Estabelecimento 4",
                 data: "04/04/04",
                 total: "400,00",
+                pedidos: [
+                    {
+                        pedido: "Batata frita",
+                        valor: "40,00"
+                    },
+                    {
+                        pedido: "Chá",
+                        valor: "45,00"
+                    },
+                    {
+                        pedido: "Picanha especial",
+                        valor: "50,00"
+                    }
+                ],
                 detalhes: [
                     {
                         nome: "cliente 4.1",
