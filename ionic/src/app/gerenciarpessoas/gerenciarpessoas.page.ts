@@ -8,10 +8,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./gerenciarpessoas.page.scss'],
 })
 export class GerenciarpessoasPage implements OnInit {
-  
+
   gerenciarPessoa: FormGroup;
   pessoas;
-  
+
 
   constructor(
     public service: PessoaService,
@@ -23,7 +23,7 @@ export class GerenciarpessoasPage implements OnInit {
 
   createPessoa(form){
     console.log(form.value);
-    this.service.createPessoa(form.value.nome).subscribe( (res) => { console.log(res); }, (error) => { console.log(error); })
+    //this.service.createPessoa(form.value.nome).subscribe( (res) => { console.log(res); }, (error) => { console.log(error); })
   }
 
   getPessoa():void{

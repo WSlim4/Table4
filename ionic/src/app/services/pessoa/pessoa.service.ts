@@ -31,9 +31,10 @@ export class PessoaService {
     return this.http.delete(this.url + "/" + id);
   }
 
-  createPessoa(nome: string): Observable<any> {
+  createPessoa(nome: string, id: number): Observable<any> {
     return this.http.post(this.url, {
       'nome': nome,
+      'id': id,
     }, this.httpHeaders).pipe(map(res => res));
   }
 

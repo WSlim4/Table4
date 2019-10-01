@@ -35,9 +35,11 @@ export class TutorialPage implements OnInit {
         console.log(res);
         this.storage.set('mesa_id', res.data.id);
         for(let i = 0; i < this.quantPessoas; i++){
-          //this.pessoaService.createPessoa();
+          let var = 'pessoa' + (i+1);
+          console.log(form.value[var]);
+          //this.pessoaService.createPessoa(, res.data.id);
         }
-        
+
       },
       (error) => {
         console.log("Erro ao criar a mesa.");
