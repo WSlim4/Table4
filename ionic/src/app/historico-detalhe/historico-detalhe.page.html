@@ -4,7 +4,7 @@
             <ion-col size="2">
                 <div>
                     <ion-buttons slot="start">
-                        <ion-back-button text="" icon="close" defaultHref="/historico-mesas"></ion-back-button>
+                        <ion-back-button text="" defaultHref="/historico-mesas"></ion-back-button>
                     </ion-buttons>
                 </div>
             </ion-col>
@@ -16,7 +16,7 @@
     <ion-item lines="none">
         <ion-label class="ion-text-wrap">
             <ion-text>
-                <h2>{{ mesaDetalhe.estabelecimento }}</h2>
+                <h2 class="subtitle">{{ mesaDetalhe.estabelecimento }}</h2>
                 <p><strong>Total: </strong>R$ {{ mesaDetalhe.total}}</p>
             </ion-text>
         </ion-label>
@@ -25,7 +25,7 @@
     <ion-item lines="full">
         <ion-label class="ion-text-wrap">
             <ion-text>
-                <h3>Pessoas</h3>
+                <h2>Pessoas</h2>
             </ion-text>
         </ion-label>
     </ion-item>
@@ -34,7 +34,7 @@
         <ion-item *ngFor="let pessoa of mesaDetalhe.detalhes">
             <ion-label class="ion-text-wrap">
                 <ion-text>
-                    <p>{{ pessoa.nome }} R$ {{ pessoa.valor }}</p>
+                    <p>{{ pessoa.nome }}: R$ {{ pessoa.valor }}</p>
                 </ion-text>
             </ion-label>
         </ion-item>
@@ -43,7 +43,7 @@
     <ion-item lines="full">
         <ion-label class="ion-text-wrap">
             <ion-text>
-                <h3>Pedidos</h3>
+                <h2>Pedidos</h2>
             </ion-text>
         </ion-label>
     </ion-item>
@@ -51,7 +51,7 @@
         <ion-item *ngFor="let pedido of mesaDetalhe.pedidos">
             <ion-label class="ion-text-wrap">
                 <ion-text>
-                    <p>{{ pedido.pedido }} R$ {{ pedido.valor }}</p>
+                    <p>{{ pedido.pedido }}: R$ {{ pedido.valor }}</p>
                 </ion-text>
             </ion-label>
         </ion-item>
