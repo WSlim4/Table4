@@ -17,9 +17,10 @@ export class MesaService {
 
   constructor(public http: HttpClient, /*private storage: Storage*/) { }
 
-  createTable(estabelecimento: string):Observable<any> {
+  createTable(estabelecimento: string, moeda: string):Observable<any> {
     return this.http.post(this.url, {
       'estabelecimento': estabelecimento,
+      'moeda': moeda
     }, this.httpHeaders).pipe(map(res => res));
   }
 }

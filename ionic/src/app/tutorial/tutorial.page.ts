@@ -1,4 +1,5 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
+import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
 // Slide import
@@ -19,7 +20,7 @@ export class TutorialPage implements OnInit {
   quantPessoas: number;
   pessoas = [];
 
-  constructor(private mesaService: MesaService, private pessoaService: PessoaService, private storage: Storage) { }
+  constructor(private mesaService: MesaService, private pessoaService: PessoaService, private storage: Storage, public router: Router) { }
 
   swipeNext(){
     this.slides.slideNext();
@@ -30,14 +31,23 @@ export class TutorialPage implements OnInit {
 
   onSubmit(form) {
     console.log(form.value);
-    this.mesaService.createTable(form.value.estabelecimento).subscribe(
+    this.mesaService.createTable(form.value.estabelecimento, 'real').subscribe(
       (res) => {
-        console.log(res);
+        //Guarda id da mesa no Storage
         this.storage.set('mesa_id', res.data.id);
+
+        //Cria as pessoas na mesa
         for(let i = 0; i < this.quantPessoas; i++){
-          let var = 'pessoa' + (i+1);
-          console.log(form.value[var]);
-          //this.pessoaService.createPessoa(, res.data.id);
+          var pessoa = 'pessoa' + (i+1);
+          console.log(form.value[pessoa]);
+          this.pessoaService.createPessoa(form.value[pessoa], res.data.id).subscribe( 
+            (res) => {
+              console.log(res);
+              this.router.navigate(['tabs/tab2']);
+            },
+            (error) => {
+              console.log("Erro ao criar pessoa.");
+            });
         }
 
       },

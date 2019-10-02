@@ -34,7 +34,7 @@ export class PessoaService {
   createPessoa(nome: string, id: number): Observable<any> {
     return this.http.post(this.url, {
       'nome': nome,
-      'id': id,
+      'mesa_id': id,
     }, this.httpHeaders).pipe(map(res => res));
   }
 
