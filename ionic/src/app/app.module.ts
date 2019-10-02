@@ -11,22 +11,26 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
+import { AppComponent } from './app.component';
 //Services
 import { TabsService } from './services/core/tabs.service';
 import { PessoaService } from './services/pessoa/pessoa.service';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
+  entryComponents: [
+
+
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     AppRoutingModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [
     TabsService,

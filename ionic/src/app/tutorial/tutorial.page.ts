@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { AlertController } from '@ionic/angular';
 
 // Slide import
 import { IonSlides } from '@ionic/angular';
