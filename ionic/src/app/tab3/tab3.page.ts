@@ -15,6 +15,7 @@ export class Tab3Page {
 constructor(private pedidoService: PedidoService, public modalController: ModalController) { }
 
   pedidos = [];
+  pedidosVazio = true;
 
   async goToConfiguracaoPedidoModal(id){
      console.log('Mostrar Modal',id);
@@ -30,6 +31,12 @@ constructor(private pedidoService: PedidoService, public modalController: ModalC
     this.pedidoService.getPedido().subscribe( (res) => {
       this.pedidos = res;
       console.log(res);
+      if(this.pedidos.length == 0){
+        this.pedidosVazio = true;
+      }
+      else{
+        this.pedidosVazio = false;
+      }
     });
   }
 

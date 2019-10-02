@@ -1,9 +1,20 @@
-ion-toolbar{
-    --background: #981B26;
-}
-
-.gerenciar{
-    margin-left:10vw;
-    margin-right:10vw;
-    --background: #981B26;
-}
+ion-button{
+    --border-radius: 10px;
+  }
+  
+  // Área do titulo e texto de apoio ao usuário
+  .titulo{
+    text-align:center;
+    padding: 2%;
+  }
+  .titulo_pedidos{
+   margin-top: 10%;
+   font-family: 'PoetsenOne';
+   font-size: 25px;
+   color:#981B26;
+  }
+  .titulo_subtitulo-tutorial{
+    font-size: 1em;
+    margin: 10%;
+  }
+  

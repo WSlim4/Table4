@@ -1,5 +1,3 @@
-
-
 <ion-content>
   <!-- Botão para adicionar item de pedido -->
   <ion-fab horizontal="end"  vertical="bottom" slot="fixed">
@@ -10,7 +8,7 @@
 
   <section class="titulo">
     <h1 class="titulo_pedidos">Lista de pedidos realizados</h1>
-    <section *ngIf="pedidos">
+    <section *ngIf="pedidosVazio">
       <h2 class="titulo_subtitulo-tutorial"> Ops! Você ainda não tem nenhum pedido realizado.<br>
          Clique em
          <ion-icon class= "text_icon" color= "danger" ios="ios-add-circle" md="md-add-circle"></ion-icon>
