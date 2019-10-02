@@ -1,6 +1,11 @@
-ion-inpu{
+ion-input{
   color:black;
 }
+
+ion-content {
+  --ion-background-color: #fbfbfb;
+}
+
 #entrada{
   border: 10%;
   margin-top: 10%;
@@ -33,11 +38,15 @@ font-family:'PoetsenOne';
   text-align: right;
 }
 
-.titulo_criando_item{
-  font-family: 'PoetsenOne';
-  font-size: 30px;
-  color:#981B26;
-  text-align: center;
+.title {
+    display: inline-block;
+    font-family: 'PoetsenOne';
+    font-size: 1.5em;
+    color: #981B26;
+    background-color: #fbfbfb;
+    text-align: center;
+    padding: 0px;
+    vertical-align: bottom;
 }
 
 .titulo_dicisao{
@@ -47,6 +56,12 @@ font-family:'PoetsenOne';
   text-align: left;
   margin-left: 10%;
 }
-.estilo_form{
-  margin-top: 10%;
+
+ion-toggle {
+  --handle-background-checked: #981B26;
+  --background-checked: #CD9195;
+}
+
+ion-toolbar {
+    --background: #fbfbfb;
 }
