@@ -24,32 +24,20 @@ ion-back-button {
     --icon-font-weight: 10;
 }
 
-ion-card {
-    width: 85vw;
-    --background: #f9f9f9;
-    border: 1px solid #981B26;
-    box-shadow: none;
-    margin-bottom: 5vh;
-    margin-top: 2vh;
-}
-
-ion-card-title {
-    display: flex;
-    justify-content: flex-start;
-    font-size: 6vw;
-    margin-top: 1vw;
-    padding-top: 5px;
-}
-
-ion-icon {
-    height: 6vh;
-    width: 8vw;
-}
-
 ion-item {
     --background: #f9f9f9;
 }
 
 .list-md {
     background: #f9f9f9;
+}
+
+h2 {
+    font-family: 'PoetsenOne';
+    color: #981B26;
+    font-weight: bold;
+}
+
+.subtitle {
+    margin-bottom: 10px;
 }
