@@ -7,7 +7,7 @@ use App\Pessoa;
 
 class PessoaController extends Controller
 {
-    public function create(Request $request){
+    public function createPessoa(Request $request){
 
         $pessoa = new Pessoa;
         $pessoa->createPessoa($request);
@@ -15,21 +15,26 @@ class PessoaController extends Controller
         return response()->success($pessoa);
     }
 
-    public function update(Request $request, $id){
+    public function updatePessoa(Request $request, $id){
 
-        $pessoa = Pessoa::findOrFail($id);
-        $pessoa->updatePessoa($request);
-
-        return response()->success($pessoa);
+        $pessoa = Pessoa::find($id);
+        
+        if($pessoa){
+            $pessoa->updatePessoa($request);
+            return response()->success($pessoa);
+        } else{
+            $data = "Pessoa não encontrada";
+            return response()->error($data, 400);
+        }
     }
 
-    public function delete($id){
+    public function deletePessoa($id){
 
         Pessoa::destroy($id);
         return response()->json(['Pessoa deletada da mesa']);
     }
 
-    public function list(){
+    public function listPessoas(){
         return Pessoa::all();
     }
     

@@ -7,17 +7,24 @@ use App\Pessoa;
 
 class Pedido extends Model
 {
-    public function pessoa(){
+    public function pessoas(){
         return $this->belongsToMany('App\Pessoa');
     }
     public function createPedido($request){
+        /*Função que cria um pedido no BD
+            Entrada->uma request passada pela controller
+            Saída->pedido salvo no BD*/
+        
         $this->nome = $request->nome;
         $this->quantidade = $request->quantidade;
-        $this->pessoa_id = $request->pessoa_id;
         $this->preco = $request->preco;
         $this->save();
     }
     public function updatePedido($request){
+        /*Função que atualiza um pedido no BD
+            Entrada->uma request passada pela controller
+            Saída->pedido salvo no BD*/
+       
         if($request->nome)
             $this->nome = $request->nome;
         if($request->quantidade)
@@ -28,4 +35,5 @@ class Pedido extends Model
             $this->preco = $request->preco;
         $this->save();
     }
+   
 }
