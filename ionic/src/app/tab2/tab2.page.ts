@@ -7,7 +7,7 @@ import { PessoaService } from '../services/pessoa/pessoa.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  pessoas;
+  pessoas = [];
 
   constructor(
     public service: PessoaService

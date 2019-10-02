@@ -1,20 +1,29 @@
-    <!-- Inicio do form  -->
-<ion-content color="#000000">
-  <form class="estilo_form" action="index.html" method="post">
-    <h1 class="titulo_criando_item"> Novo Pedido </h1>
-    <ion-item>
-      <ion-label position="floating">Nome do item</ion-label>
+<ion-content class="ion-padding">
+  <ion-row class="ion-justify-content-between">
+      <ion-col size="3">
+        <div>
+          <ion-buttons class="ion-justify-content-center">
+            <ion-back-button text="" defaultHref="/tabs/tab3"></ion-back-button>
+          </ion-buttons>
+        </div>
+      </ion-col>
+      <ion-col class="ion-align-self-center title"> Novo Pedido </ion-col>
+      <ion-col size="3"></ion-col>
+    </ion-row>
+  <form>
+    <ion-item class="input">
+      <ion-label position="floating">Nome</ion-label>
       <ion-input required type="text"></ion-input>
     </ion-item>
-    <ion-item>
-        <ion-label position="floating">Valor do item</ion-label>
-        <ion-input required type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label position="floating">Quantidade</ion-label>
-          <ion-input required type="number"></ion-input>
-        </ion-item>
-    <h4 class="titulo_dicisao"> Quem vai dividir esse pedido? </h4>
+    <ion-item class="input"> 
+      <ion-label position="floating">Valor</ion-label>
+      <ion-input required type="text"></ion-input>
+    </ion-item>
+    <ion-item class="input">
+        <ion-label position="floating">Quantidade</ion-label>
+        <ion-input required type="number"></ion-input>
+    </ion-item>
+    <h4> Quem vai dividir esse pedido? </h4>
     <ion-row id= "entrada_checkbox" *ngFor="let pessoa of pessoas; let i = index">
       <ion-col size="8">
         <ion-item >
@@ -23,12 +32,12 @@
         </ion-item>
       </ion-col>
       <ion-col size="4">
-        <ion-input *ngIf="pessoa.checked" id="peso" type="number" placeholder= "Peso do valor"></ion-input>
+        <ion-input *ngIf="pessoa.checked" id="peso" type="number" placeholder= "Insira o valor"></ion-input>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12">
-        <ion-button class = "estilo_botao" shape = "round" expand="block" color="danger"> Adicionar Item</ion-button>
+        <ion-button class = "estilo_botao" shape = "round" expand="block" color="danger" fill="outline"> Adicionar Item</ion-button>
       </ion-col>
     </ion-row>
   </form>

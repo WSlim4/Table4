@@ -9,11 +9,6 @@
   <section class="titulo">
     <h1 class="titulo_pedidos">Lista de pessoas na mesa</h1>
   </section>
-  <ion-list>
-    <ion-item *ngFor="let pessoa of pessoas">
-      <ion-label>{{ pessoa.nome }}</ion-label>
-    </ion-item>
-  </ion-list> 
 
-  <!-- <app-pedido-card *ngFor="let pedido of pedidos" [pedido]="pedido" (configuracaoClicked)="goToConfiguracaoPedidoModal($event)"> </app-pedido-card> -->
+  <app-pessoa-card *ngFor="let pessoa of pessoas" [pessoa]="pessoa"></app-pessoa-card>
 </ion-content>

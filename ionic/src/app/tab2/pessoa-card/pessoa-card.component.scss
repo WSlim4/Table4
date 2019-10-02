@@ -1,0 +1,40 @@
+// Área da lista de pedidos
+
+.lista_container {
+    display: flex;
+  }
+  
+  .lista_pessoa{
+    margin: 5%;
+    margin-top: 5vh;
+  
+  }
+  .lista_icon-pessoa{
+    text-align: right;
+  }
+  
+  .lista_nome-pessoa{
+      text-align: left;
+      width:70%;
+      max-height:20px;
+      overflow: hidden;
+  }
+  
+  .lista_valor-pessoa{
+    text-align: center;
+  }
+  
+  .lista_configuracao-pessoa{
+    background: #f5f5f5;
+    border-top: 1px solid #c6c6c6;
+    padding:5%;
+  }
+  .lista_botao-configuracao-pessoa{
+    text-align: center;
+  }
+  .lista_botao_pagar-configuracao-pessoa{
+  }
+  
+  .lista_botao_editar-configuracao-pessoa{
+  }
+  

@@ -13,25 +13,25 @@ import{EditandoPedidoModalPage} from '../editando-pedido-modal/editando-pedido-m
 })
 export class PedidoCardComponent implements OnInit {
 
- @Input() pedido;
- @Output() configuracaoClicked = new EventEmitter<number>();
+  @Input() pedido;
+  @Output() configuracaoClicked = new EventEmitter<number>();
 
   configuracao:boolean=false;
 
   constructor(public modalController: ModalController) {}
 
-    async dropdownConfiguracao(){
-      if (this.configuracao){
-        this.configuracao=false;
-      }else{
-        this.configuracao=true;
-      }
-      console.log("clicou");
+  async dropdownConfiguracao(){
+    if (this.configuracao){
+      this.configuracao=false;
+    }else{
+      this.configuracao=true;
     }
+    console.log("clicou");
+  }
 
-    async editandoPedido(){
-     this.configuracaoClicked.emit(this.pedido.id);
-    }
+  async editandoPedido(){
+    this.configuracaoClicked.emit(this.pedido.id);
+  }
 
   ngOnInit() {
 

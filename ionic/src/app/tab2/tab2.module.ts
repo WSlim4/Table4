@@ -5,6 +5,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 
+//Components
+import { PessoaCardComponent } from './pessoa-card/pessoa-card.component';
+
 @NgModule({
   imports: [
     IonicModule,
@@ -12,6 +15,6 @@ import { Tab2Page } from './tab2.page';
     FormsModule,
     RouterModule.forChild([{ path: '', component: Tab2Page }])
   ],
-  declarations: [Tab2Page]
+  declarations: [Tab2Page, PessoaCardComponent]
 })
 export class Tab2PageModule {}
