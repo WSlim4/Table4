@@ -9,15 +9,6 @@ use App\Pessoa;
 class PedidoController extends Controller
 {
 
-    /*public function createPedido(Request $request){
-        
-        $pedido = new Pedido;
-        $pedido->createPedido($request);
-
-        return response()->success($pedido);
-
-    }*/
-
     public function updatePedido(Request $request, $id){
 
         $pedido = Pedido::find($id);
@@ -28,16 +19,12 @@ class PedidoController extends Controller
         } else{
             $data = "Pedido não encontrado";
             return response()->error($data, 400);
-        }
-
-        
+        }    
     }
-
     public function deletePedido($id){
         Pedido::destroy($id);
         return response()->json(['Pedido excluido']);
     }
-
     public function listPedidos(){
         return Pedido::all();
 

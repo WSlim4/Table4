@@ -26,7 +26,6 @@ Route::delete('/pessoa/{id}', 'PessoaController@deletePessoa');
 
 Route::get('/pedido/{id}', 'PedidoController@showPedido');
 Route::get('/pedido', 'PedidoController@listPedido');
-//Route::get('/pedido/{pedido_id}/{pessoa_id}', 'PedidoController@fazPedido');
 Route::post('/pedido', 'PedidoController@createPedido');
 Route::put('/pedido/{id}', 'PedidoController@updatePedido');
 Route::delete('/pedido/{id}', 'PedidoController@deletePedido');
