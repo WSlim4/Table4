@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json'})
-};
+import { environment, SERVER_URL } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +13,7 @@ export class PessoaService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
 
-  url:string = "http://localhost:8000/api/pessoa";
+  url:string = SERVER_URL + 'pessoa';
 
   constructor(
     public http: HttpClient

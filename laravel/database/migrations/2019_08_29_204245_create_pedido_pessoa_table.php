@@ -14,7 +14,7 @@ class CreatePedidoPessoaTable extends Migration
     public function up()
     {
         Schema::create('pedido_pessoa', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('pedido_id')->unsigned();
             $table->integer('pessoa_id')->unsigned();
             $table->timestamps();

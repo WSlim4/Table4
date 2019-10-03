@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment, SERVER_URL } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PedidoService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-  url:string = "http://localhost:8000/api/pedido";
+  url:string = SERVER_URL + 'pedido';
 
   constructor(public http: HttpClient) { }
 

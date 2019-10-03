@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Storage } from '@ionic/storage';
+import { environment, SERVER_URL } from '../../../environments/environment';
+//import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MesaService {
 
-  url: string = "http://localhost:8000/api/mesa";
+  url: string = SERVER_URL + 'mesa';
 
   private httpHeaders = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
