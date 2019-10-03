@@ -15,6 +15,7 @@ class CreatePessoasTable extends Migration
     {
         Schema::create('pessoas', function (Blueprint $table) {
             $table->increments('id');
+            $table->float('valorDividindo')->nullable();
             $table->string('nome');
             $table->integer('mesa_id')->unsigned()->nullable();
             $table->timestamps();

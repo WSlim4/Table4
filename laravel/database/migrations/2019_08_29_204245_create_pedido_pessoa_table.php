@@ -15,6 +15,7 @@ class CreatePedidoPessoaTable extends Migration
     {
         Schema::create('pedido_pessoa', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->float('valor_divisao')->nullable();
             $table->integer('pedido_id')->unsigned();
             $table->integer('pessoa_id')->unsigned();
             $table->timestamps();

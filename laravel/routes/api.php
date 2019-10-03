@@ -26,13 +26,13 @@ Route::delete('/pessoa/{id}', 'PessoaController@deletePessoa');
 
 Route::get('/pedido/{id}', 'PedidoController@showPedido');
 Route::get('/pedido', 'PedidoController@listPedido');
-Route::get('/pedido/{pedido_id}/{pessoa_id}', 'PedidoController@fazPedido');
+//Route::get('/pedido/{pedido_id}/{pessoa_id}', 'PedidoController@fazPedido');
 Route::post('/pedido', 'PedidoController@createPedido');
 Route::put('/pedido/{id}', 'PedidoController@updatePedido');
 Route::delete('/pedido/{id}', 'PedidoController@deletePedido');
 
 Route::post('/mesa','MesaController@createMesa');
-Route::get('listaPedidosMesa/{id}','MesaController@listaPedidos');
+Route::get('/listaPedidosMesa/{id}','MesaController@listaPedidos');
 
 Route::post('/estabelecimento', 'EstabelecimentoController@createEstabelecimento');
 Route::put('/estabelecimento/{id}', 'EstabelecimentoController@updateEstabelecimento');

@@ -37,18 +37,16 @@ class Pessoa extends Model
             Entrada->request passada pela controller
             Saída->pessoa salva no BD*/
 
-
         if($request->nome)
             $this->nome = $request->nome;
         if($request->mesa_id)
             $this->mesa_id = $request->mesa_id;
         $this->save();
     }
-    public function attachPedido($pedido_id){
-        /*Função que adiciona o ID de uma pessoa
-        a um pedido específico*/
-
-        $this->pedidos()->attach($pedido_id);
+    
+    public function valorDivisao($valor_divisao, $pedido_id){
+        $this->pedidos()->sync([$pedido_id => [ 'valor_divisao' => $valor_divisao] ], false);
+        $this->valorDividindo = $valor_divisao;
         $this->save();
     }
 
