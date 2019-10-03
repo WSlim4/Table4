@@ -20,6 +20,7 @@ export class TutorialPage implements OnInit {
 
   quantPessoas: number;
   pessoas = [];
+  muitasPessoas: boolean = false;
 
   constructor(private mesaService: MesaService, private pessoaService: PessoaService, private storage: Storage, public router: Router) { }
 
@@ -60,10 +61,16 @@ export class TutorialPage implements OnInit {
 
   criaArray(quant){
     this.pessoas=[];
-    for( let i=0; i < quant; i++){
-      this.pessoas.push('');
+    if(quant < 21){
+      this.muitasPessoas = false;
+      for( let i=0; i < quant; i++){
+        this.pessoas.push('');
+      }
+      console.log(this.pessoas);
     }
-    console.log(this.pessoas);
+    else{
+      this.muitasPessoas = true;
+    }
   }
 
 }

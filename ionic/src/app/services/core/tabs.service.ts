@@ -16,7 +16,8 @@ export class TabsService {
     	'tabs/tab1',
 		'historico-mesas',
 		'historico-detalhe',
-		'fazendo-pedido'
+		'fazendo-pedido',
+		'tutorial'
 	];
 
 	routeParamPages: string[] = [
