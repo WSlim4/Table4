@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PedidoService } from '../services/pedido/pedido.service';
 import { PessoaService } from '../services/pessoa/pessoa.service';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-fazendo-pedido',
@@ -18,7 +19,7 @@ export class FazendoPedidoPage {
 
     form: FormGroup;
 
-    constructor(public formBuilder: FormBuilder, private PedidoService: PedidoService, private PessoaService: PessoaService, private toastController: ToastController) {
+    constructor(public formBuilder: FormBuilder, private PedidoService: PedidoService, private PessoaService: PessoaService, private toastController: ToastController, private router: Router) {
         this.form = this.formBuilder.group({
             nome: [null, [Validators.required]],
             valor: [null, [Validators.required]],
@@ -45,20 +46,28 @@ export class FazendoPedidoPage {
 
     ionViewWillEnter() {
         this.getPessoa();
-        this.consumidores = [];
     }
 
     onSubmit(form) {
         console.log(form);
+        //esvazia o array de consumidores;
         this.consumidores = [];
+        if (!form.valid) {
+          this.preencherCampos();
+          console.log("inválido");
+          return
+        }
+        console.log("válido");
+        //checa se a pessoa está marcada e envia para o array de consumidores
         for (let i = 0; i < this.pessoas.length; i++) {
             if (this.pessoas[i].checked) {
                 this.consumidores.push(this.pessoas[i]);
             }
         }
-        let preco = form.value.quantidade * form.value.valor;
-        console.log(this.consumidores);
+        //calcula o valor total do pedido
+        let preco: number = form.value.quantidade * form.value.valor;
         console.log(preco);
+        //divisão igualitária
         if (!this.toggle) {
             let dividido = preco / this.consumidores.length;
             for (let i = 0; i < this.consumidores.length; i++) {
@@ -66,7 +75,9 @@ export class FazendoPedidoPage {
             }
             //Chamar a função da service
             console.log(this.consumidores);
+            this.router.navigate(['/tabs/tab3']);
         }
+        //divisão customizada
         else {
             let soma = 0;
             for (let i = 0; i < this.pessoas.length; i++) {
@@ -78,18 +89,17 @@ export class FazendoPedidoPage {
                     console.log(soma);
                 }
             }
-            console.log(this.pessoas);
             console.log(this.consumidores);
+            //checa se o total pago é igual ao preço total do pedido
             if (soma == preco) {
                 //Chamar a função da Service
                 console.log("Yay");
+                this.router.navigate(['/tabs/tab3']);
             }
             else {
-                //Criar um toast
                 this.contaErrada();
                 console.log("Vai calcular de novoooo");
             }
-            // console.log(this.consumidores);
         }
         /*this.PedidoService.postPedido(form.value.nome, form.value.quantidade,
           form.value.valor, 1).subscribe(
@@ -106,6 +116,15 @@ export class FazendoPedidoPage {
         const toast = await this.toastController.create({
             position: "middle",
             message: "A conta não está batendo!",
+            duration: 2000
+        });
+        toast.present();
+    }
+
+    async preencherCampos() {
+        const toast = await this.toastController.create({
+            position: "middle",
+            message: "Preencha todos os campos corretamente!",
             duration: 2000
         });
         toast.present();
