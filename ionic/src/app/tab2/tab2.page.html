@@ -1,3 +1,4 @@
+<app-header-total-fechar></app-header-total-fechar>
 <ion-content>
   <!-- Botão para adicionar item de pedido -->
   <ion-fab horizontal="end"  vertical="bottom" slot="fixed">
@@ -13,7 +14,7 @@
     <ion-item *ngFor="let pessoa of pessoas">
       <ion-label>{{ pessoa.nome }}</ion-label>
     </ion-item>
-  </ion-list> 
+  </ion-list>
 
   <!-- <app-pedido-card *ngFor="let pedido of pedidos" [pedido]="pedido" (configuracaoClicked)="goToConfiguracaoPedidoModal($event)"> </app-pedido-card> -->
 </ion-content>
