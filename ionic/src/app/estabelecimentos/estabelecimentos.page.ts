@@ -18,7 +18,8 @@ export class EstabelecimentosPage implements OnInit {
         nome: "Outback",
         cozinha: "Steakhouse",
         distancia: "0,4",
-        imagem: "https://i1.wp.com/douglaspinturas.com.br/wp-content/uploads/2018/05/outback-logo.jpg?fit=673%2C504&ssl=1",
+        logo: "https://i1.wp.com/douglaspinturas.com.br/wp-content/uploads/2018/05/outback-logo.jpg?fit=673%2C504&ssl=1",
+        fundo: "https://i1.wp.com/douglaspinturas.com.br/wp-content/uploads/2018/05/outback-logo.jpg?fit=673%2C504&ssl=1",
         endereco: "Av. Dom Hélder Câmara, 1111 - Cachambi, Rio de Janeiro",
         telefone: "(11) 1111-1111",
         funcionamento: [
@@ -107,7 +108,8 @@ export class EstabelecimentosPage implements OnInit {
         nome: "Domino's",
         cozinha: "Pizza",
         distancia: "0,6",
-        imagem: "https://i.pinimg.com/originals/09/50/3f/09503f43a3206c155821fc0937885c5e.png",
+        logo: "https://i.pinimg.com/originals/09/50/3f/09503f43a3206c155821fc0937885c5e.png",
+        fundo: "https://i.pinimg.com/originals/09/50/3f/09503f43a3206c155821fc0937885c5e.png",
         endereco: "Av. Dom Hélder Câmara, 2222 - Cachambi, Rio de Janeiro",
         telefone: "(22) 2222-2222",
         funcionamento: [
@@ -196,7 +198,8 @@ export class EstabelecimentosPage implements OnInit {
         nome: "Get Bar Bar",
         cozinha: "Bar",
         distancia: "1,3",
-        imagem: "https://image.shutterstock.com/image-vector/bar-lettering-illustration-label-badge-260nw-1034296870.jpg",
+        logo: "https://image.shutterstock.com/image-vector/bar-lettering-illustration-label-badge-260nw-1034296870.jpg",
+        fundo: "https://image.shutterstock.com/image-vector/bar-lettering-illustration-label-badge-260nw-1034296870.jpg",
         endereco: "Av. Dom Hélder Câmara, 3333 - Cachambi, Rio de Janeiro",
         telefone: "(33) 3333-3333",
         funcionamento: [
@@ -285,7 +288,8 @@ export class EstabelecimentosPage implements OnInit {
         nome: "Explorer Bar",
         cozinha: "Variada",
         distancia: "1,4",
-        imagem: "https://itmidia.com/wp-content/uploads/sites/5/2015/06/internetexplorerlogo_625.jpg",
+        logo: "https://itmidia.com/wp-content/uploads/sites/5/2015/06/internetexplorerlogo_625.jpg",
+        fundo: "https://itmidia.com/wp-content/uploads/sites/5/2015/06/internetexplorerlogo_625.jpg",
         endereco: "Av. Dom Hélder Câmara, 4444 - Cachambi, Rio de Janeiro",
         telefone: "(44) 4444-4444",
         funcionamento: [
@@ -374,7 +378,8 @@ export class EstabelecimentosPage implements OnInit {
         nome: "Bar do David",
         cozinha: "Brasileira",
         distancia: "1,5",
-        imagem: "https://static.vecteezy.com/system/resources/previews/000/061/183/non_2x/bar-logo-vector.jpg",
+        logo: "https://static.vecteezy.com/system/resources/previews/000/061/183/non_2x/bar-logo-vector.jpg",
+        fundo: "https://static.vecteezy.com/system/resources/previews/000/061/183/non_2x/bar-logo-vector.jpg",
         endereco: "Av. Dom Hélder Câmara, 5555 - Cachambi, Rio de Janeiro",
         telefone: "(55) 5555-5555",
         funcionamento: [
