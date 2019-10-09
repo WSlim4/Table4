@@ -1,0 +1,19 @@
+ion-content {
+    --ion-background-color: #fbfbfb;
+}
+
+.title {
+    display: inline-block;
+    font-family: 'PoetsenOne';
+    font-size: 1.5em;
+    color: #981B26;
+    background-color: #fbfbfb;
+    text-align: center;
+    padding: 0px;
+    vertical-align: bottom;
+}
+
+ion-toolbar {
+    padding-bottom: 10px;
+    --background: #fbfbfb;
+}
