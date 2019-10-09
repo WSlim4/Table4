@@ -11,6 +11,7 @@
     <ion-col size="3"></ion-col>
   </ion-row>
 </ion-toolbar>
+
 <ion-content class="ion-padding">
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <ion-item>
@@ -23,9 +24,9 @@
       </ion-item>
       <ion-item>
           <ion-label position="floating">Quantidade</ion-label>
-          <ion-input required type="number" name="quantidade" [(ngModel)]="quantidade"></ion-input>
+          <ion-input required type="number" pattern="[0-9]" name="quantidade" [(ngModel)]="quantidade"></ion-input>
         </ion-item>
-    <h4 class="titulo_dicisao"> Quem vai dividir esse pedido? </h4>
+    <h4 class="titulo_decisao"> Quem vai dividir esse pedido? </h4>
     <ion-row id= "entrada_checkbox" *ngFor="let pessoa of pessoas; let i = index">
       <ion-col size="8">
         <ion-item lines="none">

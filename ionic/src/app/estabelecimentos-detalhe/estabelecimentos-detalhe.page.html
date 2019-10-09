@@ -1,15 +1,17 @@
+<ion-toolbar>
+    <ion-row class="ion-justify-content-between">
+        <ion-col size="2">
+            <div>
+                <ion-buttons slot="start">
+                    <ion-back-button text="" defaultHref="/estabelecimentos"></ion-back-button>
+                </ion-buttons>
+            </div>
+        </ion-col>
+        <ion-col class="ion-align-self-center title" *ngIf="estabelecimentoDetalhe">{{ estabelecimentoDetalhe.nome }}</ion-col>
+        <ion-col size="2"></ion-col>
+    </ion-row>
+</ion-toolbar>
+
 <ion-content *ngIf="estabelecimentoDetalhe">
-    <ion-toolbar>
-        <ion-row class="ion-justify-content-between">
-            <ion-col size="2">
-                <div>
-                    <ion-buttons slot="start">
-                        <ion-back-button text="" defaultHref="/estabelecimentos"></ion-back-button>
-                    </ion-buttons>
-                </div>
-            </ion-col>
-            <ion-col class="ion-align-self-center title">{{ estabelecimentoDetalhe.nome }}</ion-col>
-            <ion-col size="2"></ion-col>
-        </ion-row>
-    </ion-toolbar>
+  
 </ion-content>
