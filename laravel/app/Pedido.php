@@ -8,8 +8,14 @@ use App\Pessoa;
 class Pedido extends Model
 {
     public function pessoas(){
-        return $this->belongsToMany('App\Pessoa');
+        return $this->belongsToMany('App\Pessoa')
+                    ->withPivot('valor_divisao')
+                    ->withTimestamps();
     }
+    protected $casts = [
+        'dividindo' => 'array'
+    ];
+
     public function createPedido($request){
         /*Função que cria um pedido no BD
             Entrada->uma request passada pela controller
@@ -18,6 +24,7 @@ class Pedido extends Model
         $this->nome = $request->nome;
         $this->quantidade = $request->quantidade;
         $this->preco = $request->preco;
+        $this->dividindo = $request->dividindo;
         $this->save();
     }
     public function updatePedido($request){
@@ -35,5 +42,12 @@ class Pedido extends Model
             $this->preco = $request->preco;
         $this->save();
     }
-   
+    public function attachPedido($pessoas_id){
+        /*Função que adiciona o ID de uma pessoa
+        a um pedido específico*/
+
+        $this->pessoas()->attach($pessoas_id);
+        $this->save();
+    }
+    
 }

@@ -30,7 +30,7 @@ Route::put('/pedido/{id}', 'PedidoController@updatePedido');
 Route::delete('/pedido/{id}', 'PedidoController@deletePedido');
 
 Route::post('/mesa','MesaController@createMesa');
-Route::get('listaPedidosMesa/{id}','MesaController@listaPedidos');
+Route::get('/listaPedidosMesa/{id}','MesaController@listaPedidos');
 
 Route::post('/estabelecimento', 'EstabelecimentoController@createEstabelecimento');
 Route::put('/estabelecimento/{id}', 'EstabelecimentoController@updateEstabelecimento');

@@ -9,15 +9,6 @@ use App\Pessoa;
 class PedidoController extends Controller
 {
 
-    public function createPedido(Request $request){
-        
-        $pedido = new Pedido;
-        $pedido->createPedido($request);
-
-        return response()->success($pedido);
-
-    }
-
     public function updatePedido(Request $request, $id){
 
         $pedido = Pedido::find($id);
@@ -28,16 +19,12 @@ class PedidoController extends Controller
         } else{
             $data = "Pedido não encontrado";
             return response()->error($data, 400);
-        }
-
-        
+        }    
     }
-
     public function deletePedido($id){
         Pedido::destroy($id);
         return response()->json(['Pedido excluido']);
     }
-
     public function listPedidos(){
         return Pedido::all();
 
@@ -53,10 +40,25 @@ class PedidoController extends Controller
         }
         
     }
-    public function fazPedido($pedido_id,$pessoa_id){
-        $pessoa = Pessoa::find($pessoa_id);
-        $pessoa->attachPedido($pedido_id);
+    public function createPedido(Request $request){
+        /*Essa função recebe como parâmetro os dados do pedido
+        incluindo um array de ids de clientes que dividirão os pedidos,
+        depois salva um valor da divisão INDIVIDUAL que também é recebindo como $request,
+        salva na Pivot e na table de Pessoas*/
+        
+        
+        $pedido = new Pedido;
+        $pedido->createPedido($request);     
+        $pessoas_ids = explode(",", $pedido->dividindo);
+        $pedido->attachPedido($pessoas_ids);
 
-        return response()->json(['Pedido feito com sucesso']);
+        $valor_divisao = $request->divisao;
+
+        foreach($pessoas_ids as $pessoa_id){                          
+            $pessoa = Pessoa::find($pessoa_id); 
+            $pessoa->valorDivisao($valor_divisao, $pedido->id);
+        }
+
+        return response()->success($pedido);
     }
 }

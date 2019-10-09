@@ -16,7 +16,8 @@ class Conta extends Model
 
        $c = $pessoa->conta;
        $itens = [];
-    
+       
+       
        if($pessoa){
             $pedidos = $pessoa->pedidos;
 
