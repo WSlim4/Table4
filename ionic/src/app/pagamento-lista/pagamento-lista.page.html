@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row class="ion-justify-content-between">
+        <ion-col size="2">
+            <div>
+                <ion-buttons slot="start">
+                    <ion-back-button text="" defaultHref="/tabs/tab2"></ion-back-button>
+                </ion-buttons>
+            </div>
+        </ion-col>
+        <ion-col class="ion-align-self-center">
+          <ion-title>
+            Pagamento
+          </ion-title>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>Escolha uma pessoa</h2>
+  <ion-list lines="full">
+    <ion-item detail="true" *ngFor="let pessoa of pessoas" [id]="pessoa.id" routerLink="/pagamento-info">
+      {{ pessoa.nome }}
+    </ion-item>
+  </ion-list>
+</ion-content>

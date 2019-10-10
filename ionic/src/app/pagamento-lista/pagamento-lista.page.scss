@@ -1,0 +1,21 @@
+*{
+  background: #fcfcfc;
+  --background: #fcfcfc;
+}
+
+h2{
+  font-family: 'PoetsenOne';
+  font-size: 1.2em;
+  padding-left: 1em;
+}
+
+ion-title{
+  font-family: 'PoetsenOne';
+  font-size: 1.5em;
+  color: #981B26;
+  text-align: center;
+}
+
+.header-md:after, .header-ios:after{
+  height: 0px;
+}

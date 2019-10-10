@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row class="ion-justify-content-between">
+        <ion-col size="2">
+            <div>
+                <ion-buttons slot="start">
+                    <ion-back-button text="" defaultHref="/pagamento-lista"></ion-back-button>
+                </ion-buttons>
+            </div>
+        </ion-col>
+        <ion-col class="ion-align-self-center">
+          <ion-title>
+            Pagamento
+          </ion-title>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-justify-content-center">
+  <section id="nota-fiscal">
+    <ion-row class="ion-justify-content-center backgroundCinza">
+      <h3>Consumido por <span>Bruna</span></h3>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-justify-content-center titulo backgroundCinza">
+        Pedido
+      </ion-col>
+      <ion-col class="ion-justify-content-center titulo backgroundCinza">
+        Valor
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let pedido of pedidos" class="backgroundCinza">
+      <ion-col class="ion-justify-content-center backgroundCinza">
+        <p class="ion-text-center">{{ pedido.nome }}</p>
+      </ion-col>
+      <ion-col class="ion-justify-content-center backgroundCinza">
+        <p>R$ {{ pedido.valor }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center taxa backgroundCinza">
+      Taxa de serviço
+    </ion-row>
+    <ion-row>
+      <ion-range class="backgroundCinza" mode="md" pin="true" min="0" max="15" name="taxaServico" snaps="true" value="10" [(ngModel)]="taxa" (ionChange)="calculaTotal(taxa)">Taxa</ion-range>
+    </ion-row>
+    <ion-row class="ion-justify-content-center backgroundCinza">
+      {{ taxa }}%
+    </ion-row>
+    <ion-row class="ion-justify-content-center taxa backgroundCinza">
+      Total a pagar
+    </ion-row>
+    <ion-row class="ion-justify-content-center backgroundCinza">
+      <p>R$ {{ totalNovo }}</p>
+    </ion-row>
+  </section>
+</ion-content>

@@ -1,0 +1,66 @@
+*{
+  background: #fcfcfc;
+  --background: #fcfcfc;
+}
+
+h3{
+  font-family: 'PoetsenOne';
+  font-size: 1.2em;
+  margin-bottom: 1.3em;
+}
+
+ion-title{
+  font-family: 'PoetsenOne';
+  font-size: 1.5em;
+  color: #981B26;
+  text-align: center;
+}
+
+span, .taxa{
+  font-family: 'PoetsenOne';
+  color: #981B26;
+}
+
+ion-col{
+  display: flex;
+  font-size: 0.9em;
+}
+
+p{
+  margin: 0;
+}
+
+ion-range{
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+ion-row{
+  border-radius: 25px;
+}
+
+.header-md:after, .header-ios:after{
+  height: 0px;
+}
+
+.titulo{
+  font-family: 'PoetsenOne';
+}
+
+.taxa{
+  margin-top: 1.3em;
+}
+
+.backgroundCinza, #nota-fiscal, h3, span, p {
+  background: #fbfbfb;
+  --background: #fbfbfb;
+}
+
+#nota-fiscal{
+  margin: auto;
+  max-width: 80vw;
+  min-height: 50vh;
+  border: 1px solid #981B26;
+  border-radius: 25px;
+  padding-bottom: 1em;
+}
