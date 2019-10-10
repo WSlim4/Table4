@@ -13,33 +13,22 @@
 </ion-toolbar>
 
 <ion-content *ngIf="estabelecimentoDetalhe">
-    <ion-row>
+    <ion-row id="background">
     </ion-row>
-    <ion-row></ion-row>
-    <ion-item></ion-item>
-    <ion-item>
-        </ion-item>
-            <ion-item></ion-item>
-            <ion-item lines="none"><h3>Horário de Funcionamento</h3></ion-item>
-                <ion-list lines="none">
-                    <ion-item *ngFor="let data of estabelecimentoDetalhe.funcionamento">
-                        <ion-label class="ion-text-wrap">
-                            <ion-row class="align-items-baseline">
-                                <ion-col size="4">{{ data.dia }}</ion-col>
-                                <ion-col size="6">{{ data.hora }}</ion-col>
-                                </ion-row>
-                        </ion-label>
-                    </ion-item>
-                </ion-list>
-                <ion-item lines="none"><h3>Características</h3></ion-item>
-                    <ion-list>
-                        <ion-item lines="none" class="list" *ngFor="let dado of estabelecimentoDetalhe.caracteristicas">
-                            <ion-label class="ion-text-wrap">
-                                <ion-row class="justify-content-between">
-                                    <ion-col size="9">{{ dado.nome }}</ion-col>
-                                    <ion-col class="check" size="3">{{ dado.checked }}</ion-col>
-                                    </ion-row>
-                            </ion-label>
-                        </ion-item>
-                    </ion-list>
+    <ion-row id="logo"></ion-row>
+    <section class="ion-padding">
+        <ion-item></ion-item>
+        <ion-item></ion-item>
+        <ion-item></ion-item>
+        <ion-row lines="none"><h3>Horário de Funcionamento</h3></ion-row>
+        <ion-row *ngFor="let data of estabelecimentoDetalhe.funcionamento">
+            <ion-col>{{ data.dia }}</ion-col>
+            <ion-col>{{ data.hora }}</ion-col>
+        </ion-row>
+        <ion-row><h3>Características</h3></ion-row>
+        <ion-row class="list justify-content-between" *ngFor="let dado of estabelecimentoDetalhe.caracteristicas">
+            <ion-col size="9">{{ dado.nome }}</ion-col>
+            <ion-col class="check" size="3">{{ dado.checked }}</ion-col>
+        </ion-row>
+    </section>
 </ion-content>

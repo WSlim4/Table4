@@ -2,6 +2,22 @@ ion-content {
     --ion-background-color: #fbfbfb;
 }
 
+ion-toolbar {
+    padding-bottom: 10px;
+    --background: #fbfbfb;
+}
+
+h3 {
+    font-family: 'PoetsenOne';
+    color: #981B26;
+    margin-top: 1em;
+    margin-bottom: 8px;
+}
+
+ion-item {
+    border-bottom: 1px solid #981B26;
+}
+
 .title {
     display: inline-block;
     font-family: 'PoetsenOne';
@@ -13,22 +29,27 @@ ion-content {
     vertical-align: bottom;
 }
 
-ion-toolbar {
-    padding-bottom: 10px;
-    --background: #fbfbfb;
-}
-
-h2, h3 {
-    font-family: 'PoetsenOne';
-    color: #981B26;
-    margin-bottom: 0px;
+.check {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .list {
     border-bottom: 1px solid #981B26;
 }
 
-.check {
-    display: flex;
-    justify-content: flex-end;
+#background {
+    border-top: 5px solid #981B26;
+    border-bottom: 5px solid #981B26;
+    height: 20vh;
+    background: url('https://media-cdn.tripadvisor.com/media/photo-w/12/ad/82/fa/outside-sitting-areas.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top;
+}
+
+#logo {
+    height: 20vh;
+    background-color:rgba(0, 0, 0, 0);
 }
