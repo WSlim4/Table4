@@ -18,6 +18,22 @@ ion-item {
     border-bottom: 1px solid #981B26;
 }
 
+ion-avatar {
+    height: 15vh;
+    width: 15vh;
+    border: 4px solid #981B26;
+}
+
+section {
+    position: relative;
+    top: -15vh;
+}
+
+p {
+    margin-top: -0.5px;
+    margin-bottom: -0.5px;
+}
+
 .title {
     display: inline-block;
     font-family: 'PoetsenOne';
@@ -43,7 +59,7 @@ ion-item {
     border-bottom: 5px solid #981B26;
     height: 20vh;
     background: url('https://media-cdn.tripadvisor.com/media/photo-w/12/ad/82/fa/outside-sitting-areas.jpg');
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: top;
@@ -51,5 +67,24 @@ ion-item {
 
 #logo {
     height: 20vh;
+    position: relative;
+    top: -10vh;
     background-color:rgba(0, 0, 0, 0);
+}
+
+#avatar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#instagram {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#line {
+    margin-top: 1em;
+    border-top: 5px solid #981B26;
 }
