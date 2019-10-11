@@ -15,24 +15,14 @@ class MesaController extends Controller
    
         return response()->success($mesa);
     }
-    public function listaPedidos($id){
-        /*Função que lista todos os pedidos de uma mesa 
-            entrada->id da mesa
-            saída->array de pedidos*/
+    public function pedidosMesa($mesa_id){
+        $mesa = Mesa::find($mesa_id);
+        return $mesa->pedidos;
         
-        $mesa = Mesa::find($id);
-        
-        if($mesa){
-            $pessoas = $mesa->pessoas;
-            $pedidos = [];
+    }
 
-            foreach($pessoas as $pessoa){
-            array_push($pedidos,$pessoa->pedidos);
-            }
-            return $pedidos;
-        } else{
-            $data = "Mesa não encontrada";
-            return response()->error($data, 400);
-        }
+    public function pessoasMesa($mesa_id){
+        $mesa = Mesa::find($mesa_id);
+        return $mesa->pessoas;
     }
 }
