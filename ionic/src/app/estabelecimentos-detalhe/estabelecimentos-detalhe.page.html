@@ -48,7 +48,8 @@
         </ion-row>
         <ion-row class="list justify-content-between" *ngFor="let dado of estabelecimentoDetalhe.caracteristicas">
             <ion-col size="9">{{ dado.nome }}</ion-col>
-            <ion-col class="check" size="3">{{ dado.checked }}</ion-col>
+            <ion-col class="checkCol" size="3" *ngIf="dado.checked; else notChecked"><img class="check" src="https://image.flaticon.com/icons/svg/179/179372.svg"></ion-col>
+            <ng-template #notChecked><ion-col class="checkCol" size="3"><img class="check" src="https://image.flaticon.com/icons/svg/447/447119.svg"></ion-col></ng-template>
         </ion-row>
     </section>
 </ion-content>

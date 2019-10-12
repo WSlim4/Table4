@@ -46,15 +46,20 @@ p {
     vertical-align: bottom;
 }
 
-.check {
+.checkCol {
     display: flex;
     justify-content: flex-end;
+    height: 4.7vh;
+}
+
+.check {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .list {
     border-bottom: 1px solid #981B26;
 }
-
 #background {
     border-top: 5px solid #981B26;
     border-bottom: 5px solid #981B26;

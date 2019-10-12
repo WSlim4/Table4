@@ -11,26 +11,60 @@ import { Router } from '@angular/router';
     styleUrls: ['./fazendo-pedido.page.scss'],
 })
 export class FazendoPedidoPage {
-    pessoas;
-    show: boolean;
-    checked: boolean;
-    toggle: boolean = false;
+
+    pessoas: any[];
     consumidores = [];
+
+    checked: boolean;
+    masterChecked: boolean;
+    isIndeterminate: boolean;
+    toggle: boolean = false;
 
     form: FormGroup;
 
     constructor(public formBuilder: FormBuilder, private PedidoService: PedidoService, private PessoaService: PessoaService, private toastController: ToastController, private router: Router) {
+
         this.form = this.formBuilder.group({
             nome: [null, [Validators.required]],
             valor: [null, [Validators.required]],
             quantidade: [null, [Validators.required]],
             pessoa_id: [null, [Validators.required]],
         });
+
     }
 
-    changeChecked(index) {
-        this.pessoas[index].checked = !this.pessoas[index].checked;
-        console.log(this.pessoas[index].checked);
+    checkMaster() {
+        setTimeout(() => {
+            this.pessoas.forEach(obj => {
+                obj.checked = this.masterChecked;
+            });
+        });
+    }
+
+    checkEvent() {
+        const totalItems = this.pessoas.length;
+        let checked = 0;
+        //checa quantas pessoas foram selecionadas
+        this.pessoas.map(obj => {
+            if (obj.checked) checked++;
+        });
+        if (checked > 0 && checked < totalItems) {
+            //se pelo menos uma foi selecionada (mas não todas)
+            this.isIndeterminate = true;
+            this.masterChecked = false;
+        } else if (checked == totalItems) {
+            //se todas foram selecionada
+            this.masterChecked = true;
+            this.isIndeterminate = false;
+        } else {
+            //se nenhuma foi selecionada
+            this.isIndeterminate = false;
+            this.masterChecked = false;
+        }
+    }
+
+    changeToggle() {
+        this.toggle = !this.toggle;
     }
 
     getPessoa(): void {
@@ -53,9 +87,9 @@ export class FazendoPedidoPage {
         //esvazia o array de consumidores;
         this.consumidores = [];
         if (!form.valid) {
-          this.preencherCampos();
-          console.log("inválido");
-          return
+            this.preencherCampos();
+            console.log("inválido");
+            return
         }
         console.log("válido");
         //checa se a pessoa está marcada e envia para o array de consumidores

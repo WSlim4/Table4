@@ -6,23 +6,13 @@ ion-content {
   --ion-background-color: #fbfbfb;
 }
 
-#entrada{
-  border: 10%;
-  margin-top: 10%;
-  margin-left: 10%;
-  color:black;
+ion-toggle {
+  --handle-background-checked: #981B26;
+  --background-checked: #CD9195;
 }
 
-
-#entrada_checkbox{
-  border: 10%;
-  margin-top: 5%;
-  width: 100%;
-  color:black;
-}
-
-#peso{
-  font-size:0.8em;
+ion-toolbar {
+    --background: #fbfbfb;
 }
 
 .estilo_botao{
@@ -57,11 +47,20 @@ font-family:'PoetsenOne';
   margin-left: 10%;
 }
 
-ion-toggle {
-  --handle-background-checked: #981B26;
-  --background-checked: #CD9195;
+#entrada{
+  border: 10%;
+  margin-top: 10%;
+  margin-left: 10%;
+  color:black;
 }
 
-ion-toolbar {
-    --background: #fbfbfb;
+#entrada_checkbox{
+  border: 10%;
+  margin-top: 5%;
+  width: 100%;
+  color:black;
+}
+
+#peso{
+  font-size:0.8em;
 }
