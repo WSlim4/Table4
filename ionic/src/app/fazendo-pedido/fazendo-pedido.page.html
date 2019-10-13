@@ -1,44 +1,62 @@
+<ion-toolbar>
+    <ion-row class="ion-justify-content-between">
+        <ion-col size="3">
+            <div>
+                <ion-buttons class="ion-justify-content-center">
+                    <ion-back-button text="" defaultHref="/tabs/tab3"></ion-back-button>
+                </ion-buttons>
+            </div>
+        </ion-col>
+        <ion-col class="ion-align-self-center title"> Novo Pedido </ion-col>
+        <ion-col size="3"></ion-col>
+    </ion-row>
+</ion-toolbar>
 <ion-content class="ion-padding">
-  <ion-row class="ion-justify-content-between">
-      <ion-col size="3">
-        <div>
-          <ion-buttons class="ion-justify-content-center">
-            <ion-back-button text="" defaultHref="/tabs/tab3"></ion-back-button>
-          </ion-buttons>
-        </div>
-      </ion-col>
-      <ion-col class="ion-align-self-center title"> Novo Pedido </ion-col>
-      <ion-col size="3"></ion-col>
-    </ion-row>
-  <form>
-    <ion-item class="input">
-      <ion-label position="floating">Nome</ion-label>
-      <ion-input required type="text"></ion-input>
-    </ion-item>
-    <ion-item class="input"> 
-      <ion-label position="floating">Valor</ion-label>
-      <ion-input required type="text"></ion-input>
-    </ion-item>
-    <ion-item class="input">
-        <ion-label position="floating">Quantidade</ion-label>
-        <ion-input required type="number"></ion-input>
-    </ion-item>
-    <h4> Quem vai dividir esse pedido? </h4>
-    <ion-row id= "entrada_checkbox" *ngFor="let pessoa of pessoas; let i = index">
-      <ion-col size="8">
-        <ion-item >
-          <ion-checkbox (ionChange)="changeChecked(i)" id="pessoa" slot="start"></ion-checkbox>
-          <ion-label position="fixed">{{ pessoa.nome }}</ion-label>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <ion-item>
+            <ion-label position="floating">Nome do item</ion-label>
+            <ion-input required type="text" name="nome" [(ngModel)]="nome"></ion-input>
         </ion-item>
-      </ion-col>
-      <ion-col size="4">
-        <ion-input *ngIf="pessoa.checked" id="peso" type="number" placeholder= "Insira o valor"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-button class = "estilo_botao" shape = "round" expand="block" color="danger" fill="outline"> Adicionar Item</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
+        <ion-item>
+            <ion-label position="floating">Valor do item</ion-label>
+            <ion-input required type="number" name="valor" [(ngModel)]="valor"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Quantidade</ion-label>
+            <ion-input required type="number" pattern="[0-9]" name="quantidade" [(ngModel)]="quantidade"></ion-input>
+        </ion-item>
+        <h4 class="titulo_decisao"> Quem vai dividir esse pedido? </h4>
+        <ion-list>
+            <ion-row class="list">
+                <ion-col>
+                    <ion-item lines="none">
+                        <ion-checkbox slot="start" name="todos" [(ngModel)]="masterChecked" [indeterminate]="isIndeterminate" (click)="checkMaster($event)"></ion-checkbox>
+                        <ion-label position=" fixed">Todos</ion-label>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row id="entrada_checkbox" *ngFor="let pessoa of pessoas; let i = index">
+                <ion-col size="8">
+                    <ion-item lines="none">
+                        <ion-checkbox id="pessoa" slot="start" name="check" [(ngModel)]="pessoa.checked" (ionChange)="checkEvent()"></ion-checkbox>
+                        <ion-label position="fixed">{{ pessoa.nome }}</ion-label>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="4">
+                    <ion-input *ngIf="pessoa.checked && toggle" id="peso" type="number" placeholder="Peso do valor" name="peso{{i+1}}" ngModel></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+        <ion-row>
+            <ion-item lines="none">
+                <ion-label (click)="changeToggle()">Opções avançadas</ion-label>
+                <ion-toggle [(ngModel)]="toggle" name="toggle" slot="start"></ion-toggle>
+            </ion-item>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-button class="estilo_botao" shape="round" expand="block" color="danger" type="submit"> Adicionar Item</ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
 </ion-content>

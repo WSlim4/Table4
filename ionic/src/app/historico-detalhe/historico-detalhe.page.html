@@ -1,18 +1,17 @@
+<ion-toolbar>
+    <ion-row class="ion-justify-content-between">
+        <ion-col size="2">
+            <div>
+                <ion-buttons slot="start">
+                    <ion-back-button text="" defaultHref="/historico-mesas"></ion-back-button>
+                </ion-buttons>
+            </div>
+        </ion-col>
+        <ion-col class="ion-align-self-center title"> Detalhes da Mesa </ion-col>
+        <ion-col size="2"></ion-col>
+    </ion-row>
+</ion-toolbar>
 <ion-content class="ion-padding" *ngIf="mesaDetalhe">
-    <ion-toolbar>
-        <ion-row class="ion-justify-content-between">
-            <ion-col size="2">
-                <div>
-                    <ion-buttons slot="start">
-                        <ion-back-button text="" defaultHref="/historico-mesas"></ion-back-button>
-                    </ion-buttons>
-                </div>
-            </ion-col>
-            <ion-col class="ion-align-self-center title"> Detalhes da Mesa </ion-col>
-            <ion-col size="2"></ion-col>
-        </ion-row>
-    </ion-toolbar>
-
     <ion-item lines="none">
         <ion-label class="ion-text-wrap">
             <ion-text>

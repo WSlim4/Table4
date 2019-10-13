@@ -7,10 +7,11 @@
                 </ion-buttons>
             </div>
         </ion-col>
-        <ion-col class="ion-align-self-center title"> Histórico de Mesas </ion-col>
+        <ion-col class="ion-align-self-center title"> Estabelecimentos </ion-col>
         <ion-col size="2"></ion-col>
     </ion-row>
 </ion-toolbar>
+
 <ion-content class="ion-padding">
-    <app-historico-list *ngFor="let mesa of mesas" [mesaInfo]="mesa" (mesaClicked)="detalheMesa($event)"></app-historico-list>
+    <app-estabelecimentos-list *ngFor="let estabelecimento of estabelecimentos" [estabelecimentoInfo]="estabelecimento" (estabelecimentoClicked)="detalheEstabelecimento($event)"></app-estabelecimentos-list>
 </ion-content>

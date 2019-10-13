@@ -1,0 +1,55 @@
+<ion-toolbar>
+    <ion-row class="ion-justify-content-between">
+        <ion-col size="2">
+            <div>
+                <ion-buttons slot="start">
+                    <ion-back-button text="" defaultHref="/estabelecimentos"></ion-back-button>
+                </ion-buttons>
+            </div>
+        </ion-col>
+        <ion-col class="ion-align-self-center title" *ngIf="estabelecimentoDetalhe">{{ estabelecimentoDetalhe.nome }}</ion-col>
+        <ion-col size="2"></ion-col>
+    </ion-row>
+</ion-toolbar>
+
+<ion-content *ngIf="estabelecimentoDetalhe">
+    <ion-row id="background">
+    </ion-row>
+    <ion-row id="logo">
+        <ion-col id="avatar">
+            <ion-avatar class="ion-margin-start"><img [src]="estabelecimentoDetalhe.logo" alt="Logo do Estabelecimento"></ion-avatar>
+        </ion-col>
+        <ion-col id="instagram">
+            <ion-thumbnail class="ion-margin-end" *ngIf="estabelecimentoDetalhe.instagram"><img src="https://i.pinimg.com/originals/85/4c/3c/854c3cc1d194fd096a0994eab26b864c.jpg" alt="Instagram"></ion-thumbnail>
+        </ion-col>
+    </ion-row>
+    <section class="ion-padding">
+        <ion-row>
+            <h3>Endereço</h3>
+        </ion-row>
+        <ion-row>
+            <p>{{ estabelecimentoDetalhe.endereco }}</p>
+        </ion-row>
+        <ion-row>
+            <h3>Telefone</h3>
+        </ion-row>
+        <ion-row>
+            <p>{{ estabelecimentoDetalhe.telefone }}</p>
+        </ion-row>
+        <ion-row lines="none">
+            <h3>Horário de Funcionamento</h3>
+        </ion-row>
+        <ion-row *ngFor="let data of estabelecimentoDetalhe.funcionamento">
+            <ion-col>{{ data.dia }}</ion-col>
+            <ion-col>{{ data.hora }}</ion-col>
+        </ion-row>
+        <ion-row id="line">
+            <h3>Características</h3>
+        </ion-row>
+        <ion-row class="list justify-content-between" *ngFor="let dado of estabelecimentoDetalhe.caracteristicas">
+            <ion-col size="9">{{ dado.nome }}</ion-col>
+            <ion-col class="checkCol" size="3" *ngIf="dado.checked; else notChecked"><img class="check" src="https://image.flaticon.com/icons/svg/179/179372.svg"></ion-col>
+            <ng-template #notChecked><ion-col class="checkCol" size="3"><img class="check" src="https://image.flaticon.com/icons/svg/447/447119.svg"></ion-col></ng-template>
+        </ion-row>
+    </section>
+</ion-content>

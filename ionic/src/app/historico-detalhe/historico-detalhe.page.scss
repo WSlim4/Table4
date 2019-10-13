@@ -1,5 +1,5 @@
 ion-content {
-    --ion-background-color: #f9f9f9;
+    --ion-background-color: #fbfbfb;
 }
 
 .title {
@@ -7,7 +7,7 @@ ion-content {
     font-family: 'PoetsenOne';
     font-size: 1.5em;
     color: #981B26;
-    background-color: #f9f9f9;
+    background-color: #fbfbfb;
     text-align: center;
     padding: 0px;
     vertical-align: bottom;
@@ -15,21 +15,15 @@ ion-content {
 
 ion-toolbar {
     padding-bottom: 10px;
-    --background: #f9f9f9;
-}
-
-ion-back-button {
-    --icon-padding-top: 10px;
-    --icon-font-size: 1.5em;
-    --icon-font-weight: 10;
+    --background: #fbfbfb;
 }
 
 ion-item {
-    --background: #f9f9f9;
+    --background: #fbfbfb;
 }
 
 .list-md {
-    background: #f9f9f9;
+    background: #fbfbfb;
 }
 
 h2 {
