@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MesaService } from '../../services/mesa/mesa.service';
 
 @Component({
     selector: 'app-header-total-fechar',
@@ -9,8 +10,14 @@ export class HeaderTotalFecharComponent implements OnInit {
 
     preco: number;
 
-    constructor() { }
+    constructor(private mesaService: MesaService) { }
 
     ngOnInit() { }
+
+    ionViewWillEnter(){
+      this.mesaService.getContaTotal().subscribe( (res) => {
+        console.log(res);
+      });
+    }
 
 }
