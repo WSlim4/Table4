@@ -7,6 +7,10 @@ use App\Pessoa;
 
 class Pedido extends Model
 {
+    public function mesa(){
+        return $this->belongsTo('App\Mesa');
+    }
+    
     public function pessoas(){
         return $this->belongsToMany('App\Pessoa')
                     ->withPivot('valor_divisao')
@@ -20,11 +24,13 @@ class Pedido extends Model
         /*Função que cria um pedido no BD
             Entrada->uma request passada pela controller
             Saída->pedido salvo no BD*/
+        $arr = json_decode($request->dividindo, true);
         
         $this->nome = $request->nome;
         $this->quantidade = $request->quantidade;
         $this->preco = $request->preco;
-        $this->dividindo = $request->dividindo;
+        $this->dividindo = $arr;
+        $this->mesa_id = $request->mesa_id;
         $this->save();
     }
     public function updatePedido($request){

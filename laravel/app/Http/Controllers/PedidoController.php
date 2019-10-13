@@ -43,20 +43,16 @@ class PedidoController extends Controller
     public function createPedido(Request $request){
         /*Essa função recebe como parâmetro os dados do pedido
         incluindo um array de ids de clientes que dividirão os pedidos,
-        depois salva um valor da divisão INDIVIDUAL que também é recebindo como $request,
+        depois salva um valor da divisão INDIVIDUAL que também é recebindo dentro do array,
         salva na Pivot e na table de Pessoas*/
         
-        
         $pedido = new Pedido;
-        $pedido->createPedido($request);     
-        $pessoas_ids = explode(",", $pedido->dividindo);
-        $pedido->attachPedido($pessoas_ids);
+        $pedido->createPedido($request);
 
-        $valor_divisao = $request->divisao;
-
-        foreach($pessoas_ids as $pessoa_id){                          
-            $pessoa = Pessoa::find($pessoa_id); 
-            $pessoa->valorDivisao($valor_divisao, $pedido->id);
+        foreach($pedido->dividindo as $p){
+            $pessoa = Pessoa::find($p["id"]);
+            $pedido->attachPedido($p["id"]);
+            $pessoa->valorDivisao($p["valor"], $pedido->id);
         }
 
         return response()->success($pedido);

@@ -37,5 +37,10 @@ class PessoaController extends Controller
     public function listPessoas(){
         return Pessoa::all();
     }
+
+    public function showConta($pessoa_id){
+            $pessoa = Pessoa::find($pessoa_id);
+            return response()->success($pessoa->valorConta);
+    }
     
-}
+}  
