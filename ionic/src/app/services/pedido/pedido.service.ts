@@ -17,12 +17,13 @@ export class PedidoService {
 
   constructor(public http: HttpClient) { }
 
-  postPedido(nome: string, quantidade: number, preco: number, pessoa_id: number): Observable<any> {
+  postPedido(nome: string, quantidade: number, preco: number, mesa_id: number, dividindo: any): Observable<any> {
     return this.http.post(this.url, {
       'nome': nome,
       'preco': preco,
       'quantidade': quantidade,
-      'pessoa_id': pessoa_id,
+      'mesa_id': mesa_id,
+      'dividindo': dividindo
 
     }, this.httpHeaders).pipe(map(res => res));
   }

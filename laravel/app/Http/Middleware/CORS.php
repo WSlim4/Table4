@@ -17,7 +17,7 @@ class CORS
     {
     $resposta = $next($request);
      // adiciona os headers a ela
-    $resposta->headers->set('Access-Control-Allow-Origin' , '* ');
+    $resposta->headers->set('Access-Control-Allow-Origin' , 'http://localhost:8100');
     $resposta->headers->set('Access-Control-Allow-Methods' , 'GET, POST, PUT, DELETE, OPTIONS' );
     $resposta->headers->set('Access-Control-Allow-Headers' , 'Origin, X-Request-Width, Authorization, Content-Type, Accept' );
 

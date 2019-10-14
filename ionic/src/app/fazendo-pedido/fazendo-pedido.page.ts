@@ -108,6 +108,7 @@ export class FazendoPedidoPage {
                 this.consumidores[i].preco = dividido;
             }
             //Chamar a função da service
+            this.PedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, 1, {[id: 1, valor: 15]});
             console.log(this.consumidores);
             this.router.navigate(['/tabs/tab3']);
         }
