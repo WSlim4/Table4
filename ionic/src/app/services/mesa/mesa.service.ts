@@ -3,7 +3,6 @@ import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment, SERVER_URL } from '../../../environments/environment';
-import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +16,8 @@ export class MesaService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-  constructor(public http: HttpClient, private storage: Storage) {
-    this.mesaId = this.storage.get("mesa_id");
+  constructor(public http: HttpClient) {
+    
   }
 
   createTable(estabelecimento: string, moeda: string):Observable<any> {
@@ -28,7 +27,7 @@ export class MesaService {
     }, this.httpHeaders).pipe(map(res => res));
   }
 
-  getContaTotal():Observable<any> {
-    return this.http.get(SERVER_URL + 'ContasMesa/' + this.mesaId).pipe(map(res => res));
+  getContaTotal(id: number):Observable<any> {
+    return this.http.get(SERVER_URL + 'contasMesa/' + id).pipe(map(res => res));
   }
 }

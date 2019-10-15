@@ -4,6 +4,7 @@ import { PedidoService } from '../services/pedido/pedido.service';
 import { PessoaService } from '../services/pessoa/pessoa.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
     selector: 'app-fazendo-pedido',
@@ -19,10 +20,16 @@ export class FazendoPedidoPage {
     masterChecked: boolean;
     isIndeterminate: boolean;
     toggle: boolean = false;
+    mesaId;
 
     form: FormGroup;
 
-    constructor(public formBuilder: FormBuilder, private PedidoService: PedidoService, private PessoaService: PessoaService, private toastController: ToastController, private router: Router) {
+    constructor(public formBuilder: FormBuilder, 
+                private PedidoService: PedidoService, 
+                private PessoaService: PessoaService, 
+                private toastController: ToastController, 
+                private storage: Storage,
+                private router: Router) {
 
         this.form = this.formBuilder.group({
             nome: [null, [Validators.required]],
@@ -30,7 +37,7 @@ export class FazendoPedidoPage {
             quantidade: [null, [Validators.required]],
             pessoa_id: [null, [Validators.required]],
         });
-
+        this.mesaId = this.storage.get('mesa_id');
     }
 
     checkMaster() {
@@ -108,7 +115,7 @@ export class FazendoPedidoPage {
                 this.consumidores[i].preco = dividido;
             }
             //Chamar a função da service
-            this.PedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, 1, {[id: 1, valor: 15]});
+            this.PedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, this.mesaId, [{id: 1, valor: 15}, {id: 2, valor: 10}]);
             console.log(this.consumidores);
             this.router.navigate(['/tabs/tab3']);
         }
