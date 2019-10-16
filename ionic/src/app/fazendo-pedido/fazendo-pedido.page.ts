@@ -115,7 +115,7 @@ export class FazendoPedidoPage {
                 this.consumidores[i].preco = dividido;
             }
             //Chamar a função da service
-            this.PedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, this.mesaId, [{id: 1, valor: 15}, {id: 2, valor: 10}]);
+            this.PedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, this.mesaId, [{"id": 1, "valor": 15}, {"id": 2, "valor": 10}]);
             console.log(this.consumidores);
             this.router.navigate(['/tabs/tab3']);
         }
@@ -135,6 +135,7 @@ export class FazendoPedidoPage {
             //checa se o total pago é igual ao preço total do pedido
             if (soma == preco) {
                 //Chamar a função da Service
+                this.PedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, this.mesaId, [{"id": 1, "valor": 15}, {"id": 2, "valor": 10}]);
                 console.log("Yay");
                 this.router.navigate(['/tabs/tab3']);
             }

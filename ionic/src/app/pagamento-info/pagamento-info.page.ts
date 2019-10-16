@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PessoaService } from '../services/pessoa/pessoa.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagamento-info',
@@ -20,10 +22,18 @@ export class PagamentoInfoPage implements OnInit {
     taxa;
     total;
     totalNovo;
+    pessoaId;
+    pessoa;
 
-  constructor() { }
+  constructor(private pessoaService: PessoaService, private router: Router) { 
+    this.pessoaId = this.router.getCurrentNavigation().extras;
+  }
 
   ngOnInit() {
+    this.pessoaService.getPessoa(this.pessoaId).subscribe( (res) => {
+      this.pessoa = res;
+      console.log(this.pessoa);
+    });
   }
 
   ionViewWillEnter(){

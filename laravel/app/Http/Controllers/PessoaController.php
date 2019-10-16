@@ -38,6 +38,11 @@ class PessoaController extends Controller
         return Pessoa::all();
     }
 
+    public function showPessoa($id){
+        $pessoa = Pessoa::find($id);
+        return response()->json($pessoa);
+    }
+
     public function showConta($pessoa_id){
             $pessoa = Pessoa::find($pessoa_id);
             return response()->success($pessoa->valorConta);

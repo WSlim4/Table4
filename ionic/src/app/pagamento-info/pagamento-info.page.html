@@ -21,7 +21,7 @@
 <ion-content class="ion-padding ion-justify-content-center">
   <section id="nota-fiscal">
     <ion-row class="ion-justify-content-center backgroundCinza">
-      <h3>Consumido por <span>Bruna</span></h3>
+      <h3>Consumido por <span *ngIf="pessoa">{{ pessoa.nome }}</span></h3>
     </ion-row>
     <ion-row>
       <ion-col class="ion-justify-content-center titulo backgroundCinza">

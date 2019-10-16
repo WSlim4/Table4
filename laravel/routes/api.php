@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/pessoa', 'PessoaController@createPessoa');
 Route::put('/pessoa/{id}', 'PessoaController@updatePessoa');
-Route::get('/pessoa', 'PessoaController@listPessoas');
+Route::get('/pessoa/{id}', 'PessoaController@showPessoa');
 Route::delete('/pessoa/{id}', 'PessoaController@deletePessoa');
 
 Route::get('/pedido/{id}', 'PedidoController@showPedido');

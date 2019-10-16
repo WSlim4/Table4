@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PessoaService } from '../services/pessoa/pessoa.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tab2',
@@ -10,14 +11,17 @@ export class Tab2Page {
   pessoas = [];
 
   constructor(
-    public service: PessoaService
+    public service: PessoaService,
+    private storage: Storage
   ) {}
 
   getPessoa():void{
-    console.log("Resgatando pessoas no Back")
-    this.service.getPessoa().subscribe( (res) => {
-      this.pessoas = res;
-      console.log(res);
+    console.log("Resgatando pessoas no Back");
+    this.storage.get("mesa_id").then( (mesa_id)=> {
+      this.service.getPessoas(mesa_id).subscribe( (res) => {
+        this.pessoas = res;
+        console.log(res);
+      });
     });
   }
 
