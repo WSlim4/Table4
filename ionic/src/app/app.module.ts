@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 //Services
 import { TabsService } from './services/core/tabs.service';
 import { PessoaService } from './services/pessoa/pessoa.service';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,8 @@ import { PessoaService } from './services/pessoa/pessoa.service';
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [

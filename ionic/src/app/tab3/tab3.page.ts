@@ -3,7 +3,6 @@ import { ModalController } from '@ionic/angular';
 import * as $ from 'jquery';
 import { AlertController } from '@ionic/angular';
 import {PedidoService} from '../services/pedido/pedido.service';
-import { EditandoPedidoModalPage } from './editando-pedido-modal/editando-pedido-modal.page';
 
 @Component({
   selector: 'app-tab3',
@@ -17,14 +16,7 @@ constructor(private pedidoService: PedidoService, public modalController: ModalC
   pedidos = [];
   pedidosVazio = true;
 
-  async goToConfiguracaoPedidoModal(id){
-     console.log('Mostrar Modal',id);
-     const modal = await this.modalController.create({
-       component: EditandoPedidoModalPage
-     });
-     return await modal.present();
 
-   }
 
 
   ionViewWillEnter(){

@@ -1,7 +1,7 @@
 ion-button{
     --border-radius: 10px;
   }
-  
+
   // Área do titulo e texto de apoio ao usuário
   .titulo{
     text-align:center;
@@ -17,4 +17,13 @@ ion-button{
     font-size: 1em;
     margin: 10%;
   }
-  
+
+
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 568px) {
+
+    .titulo_pedidos{
+      font-size: 18px;
+}
+  }

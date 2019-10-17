@@ -1,9 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>editando-pedido-modal</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
- <h1> Isso é um Modal</h1>
-</ion-content>
+  <ion-toolbar>
+      <ion-row class="ion-justify-content-between">
+          <ion-col size="2">
+              <div>
+                  <ion-buttons slot="start">
+                     <ion-icon ios="ios-close" md="md-close" class="botao_fechar" (click)="fecharModal()"></ion-icon>
+                  </ion-buttons>
+              </div>
+          </ion-col>
+          <ion-col class="ion-align-self-center title titulo_criando_item"> Editando Pedido </ion-col>
+          <ion-col size="2"></ion-col>
+      </ion-row>
+</ion-toolbar>
+
+  <ion-content color="#000000">
+  <form>
+  <ion-item>
+    <ion-input required type="text" placeholder="{{nome}}" ></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-input required type="text" placeholder="{{preco}}" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input required type="number" placeholder="{{quantidade}}"></ion-input>
+      </ion-item>
+  <h4 class="titulo_dicisao"> Quem vai dividir esse pedido? </h4>
+
+  <ion-row id= "entrada_checkbox" *ngFor="let pessoa of pessoas; let i = index">
+    <ion-col size="8">
+      <ion-item >
+        <ion-checkbox (ionChange)="changeChecked(i)" id="pessoa" slot="start"></ion-checkbox>
+        <ion-label position="fixed">{{ pessoa.nome }}</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col size="4">
+      <ion-input *ngIf="pessoa.checked" id="peso" type="number" placeholder= "Peso do valor"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-button expand="block" fill="outline" class="editar_item" (click)= "SalvarMudanca()"> Salvar Mudança</ion-button>
+    </ion-col>
+  </ion-row>
+  </form>
+  </ion-content>
