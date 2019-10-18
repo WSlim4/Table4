@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import * as $ from 'jquery';
 import { ModalController } from '@ionic/angular';
 import{EditandoPedidoModalPage} from '../editando-pedido-modal/editando-pedido-modal.page';
 

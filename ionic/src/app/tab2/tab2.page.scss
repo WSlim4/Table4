@@ -1,29 +1,28 @@
 ion-button{
-    --border-radius: 10px;
-  }
-
-  // Área do titulo e texto de apoio ao usuário
-  .titulo{
-    text-align:center;
-    padding: 2%;
-  }
-  .titulo_pedidos{
-   margin-top: 10%;
-   font-family: 'PoetsenOne';
-   font-size: 25px;
-   color:#981B26;
-  }
-  .titulo_subtitulo-tutorial{
-    font-size: 1em;
-    margin: 10%;
-  }
-
-
-  @media only screen
-  and (min-device-width : 320px)
-  and (max-device-width : 568px) {
-
-    .titulo_pedidos{
-      font-size: 18px;
+  --border-radius: 10px;
 }
+
+// Área do titulo e texto de apoio ao usuário
+.titulo{
+  text-align:center;
+  padding: 2%;
+}
+
+.titulo_pedidos{
+  margin-top: 10%;
+  font-family: 'PoetsenOne';
+  font-size: 1.3em;
+  color:#981B26;
+}
+
+.titulo_subtitulo-tutorial{
+  font-size: 1em;
+  margin: 10%;
+}
+
+
+/*@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+  .titulo_pedidos{
+    font-size: 18px;
   }
+}*/

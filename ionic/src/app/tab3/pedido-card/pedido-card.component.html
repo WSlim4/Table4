@@ -5,19 +5,19 @@
     </div>
     <div style="flex-grow: 5" class="lista_valor-pedido">
       <ion-label>R$ {{ pedido.preco }}</ion-label>
-  </div>
     </div>
-      <ion-icon color="danger"class="lista_icon-pedido"  ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
     <div style="flex-grow: 1" >
+      <ion-icon color="danger"class="lista_icon-pedido"  ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
     </div>
-  </section>
-  <section class="lista_configuracao-pedido" id="lista_configuracao-pedido" *ngIf="configuracao">
-    <ion-row >
-      <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
-          <ion-button (click)="editandoPedido()" color="danger"> Editar </ion-button>
-      </div>
-      <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
-          <ion-button   fill="outline" (click)="pagandoPedido()"> Pagar </ion-button>
-      </div>
-    </ion-row>
-  </section>
+  </div>
+</section>
+<section class="lista_configuracao-pedido" id="lista_configuracao-pedido" *ngIf="configuracao">
+  <ion-row >
+    <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
+        <ion-button mode="ios" color="danger" (click)="editandoPedido()"> Editar </ion-button>
+    </div>
+    <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
+        <ion-button mode="ios" color="danger" (click)="deletandoPedido()"> Deletar </ion-button>
+    </div>
+  </ion-row>
+</section>

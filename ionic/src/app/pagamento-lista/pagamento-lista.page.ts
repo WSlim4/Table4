@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../services/pessoa/pessoa.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-pagamento-lista',
@@ -10,19 +11,22 @@ export class PagamentoListaPage implements OnInit {
 
   pessoas = [];
 
-  constructor(private pessoaService: PessoaService) { }
+  constructor(private pessoaService: PessoaService, private storage: Storage) { }
 
   ngOnInit() {
   }
 
   ionViewWillEnter() {
     this.pessoas = [];
-    this.pessoaService.getPessoa().subscribe( (res) => {
-      console.log(res);
-      this.pessoas = res;
-    },
-    (error) => {
-        console.log(error);
+
+    this.storage.get("mesa_id"). then( (mesa_id) => {
+      this.pessoaService.getPessoasMesa(mesa_id).subscribe( (res) => {
+        console.log(res);
+        this.pessoas = res;
+      },
+      (error) => {
+          console.log(error);
+      });
     });
   }
 

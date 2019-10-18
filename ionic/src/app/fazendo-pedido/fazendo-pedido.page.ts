@@ -15,6 +15,10 @@ export class FazendoPedidoPage {
 
     pessoas: any[];
     consumidores = [];
+    pessoa = {
+        id:'',
+        valorDivisao: ''
+    };
 
     checked: boolean;
     masterChecked: boolean;
@@ -26,7 +30,7 @@ export class FazendoPedidoPage {
 
     constructor(public formBuilder: FormBuilder, 
                 private PedidoService: PedidoService, 
-                private PessoaService: PessoaService, 
+                private pessoaService: PessoaService, 
                 private toastController: ToastController, 
                 private storage: Storage,
                 private router: Router) {
@@ -76,13 +80,15 @@ export class FazendoPedidoPage {
 
     getPessoa(): void {
         console.log("Resgatando pessoas no Back");
-        this.PessoaService.getPessoa().subscribe((res) => {
-            this.pessoas = res;
-            console.log(this.pessoas);
-            for (let pessoa of this.pessoas) {
-                pessoa['checked'] = false;
-            }
-        });
+        this.storage.get("mesa_id").then( (mesa_id) => {
+            this.pessoaService.getPessoasMesa(mesa_id).subscribe( (res) => {
+                this.pessoas = res;
+                console.log(this.pessoas);
+                for (let pessoa of this.pessoas) {
+                    pessoa['checked'] = false;
+                }
+            });
+          });
     }
 
     ionViewWillEnter() {

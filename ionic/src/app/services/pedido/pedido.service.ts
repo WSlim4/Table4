@@ -37,12 +37,17 @@ export class PedidoService {
 
     }, this.httpHeaders).pipe(map(res => res));
   }
-  getPedido():Observable<any>{
-    return this.http.get(this.url, this.httpHeaders).pipe(map(res => res));
+
+  getPedidosMesa(mesa_id: any):Observable<any>{
+    return this.http.get(SERVER_URL + 'pedidosMesa/' + mesa_id, this.httpHeaders).pipe(map(res => res));
+  }
+
+  getPedidosPessoa(pessoa_id: any):Observable<any>{
+    return this.http.get(this.url + '/' + pessoa_id, this.httpHeaders).pipe(map(res => res));
   }
 
   deletePedido(id: any):Observable<any>{
-    return this.http.delete(this.url + "/" + id);
+    return this.http.delete(this.url + '/' + id);
   }
 
 

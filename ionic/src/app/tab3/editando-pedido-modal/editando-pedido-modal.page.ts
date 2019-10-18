@@ -1,10 +1,11 @@
-
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PedidoService } from '../../services/pedido/pedido.service';
+import { PessoaService } from '../../services/pessoa/pessoa.service';
+import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 import { ModalController } from '@ionic/angular';
-import {PedidoService} from '../../services/pedido/pedido.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
-
-
 
 
 @Component({
@@ -21,13 +22,15 @@ private editandoPedidoForm: FormGroup;
 @Input() nome
 
 
-  constructor(public viewCtrl: ModalController, public AlterandoPedido: PedidoService, private editandoPedido: FormBuilder) {
+  constructor(public viewCtrl: ModalController, public AlterandoPedido: PedidoService, private editandoPedido: FormBuilder, private storage: Storage) {
 
     this.editandoPedidoForm = this.editandoPedido.group({
-       nome: [this.nome],
-       quantidade: [this.quantidade],
-       preco:[this.preco]
-    })
+      nome: [null, [Validators.required]],
+      valor: [null, [Validators.required]],
+      quantidade: [null, [Validators.required]],
+      pessoa_id: [null, [Validators.required]],
+    });
+    this.mesaId = this.storage.get('mesa_id');
 
   }
 
