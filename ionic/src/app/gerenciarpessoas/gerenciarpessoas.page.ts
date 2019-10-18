@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../services/pessoa/pessoa.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-gerenciarpessoas',
@@ -14,7 +15,8 @@ export class GerenciarpessoasPage implements OnInit {
 
 
   constructor(
-    public service: PessoaService,
+    public pessoaService: PessoaService,
+    private storage: Storage,
     public formBuilder: FormBuilder) {
       this.gerenciarPessoa = this.formBuilder.group({
         nome: [null, [Validators.required]],
@@ -26,13 +28,13 @@ export class GerenciarpessoasPage implements OnInit {
     //this.service.createPessoa(form.value.nome).subscribe( (res) => { console.log(res); }, (error) => { console.log(error); })
   }
 
-  getPessoa():void{
+  getPessoa(id):void{
     console.log("Resgatando pessoas no Back");
-    this.service.getPessoa().subscribe( (res) => { this.pessoas = res } );
+    this.pessoaService.getPessoa(id).subscribe( (res) => { this.pessoas = res } );
   }
 
   deletePessoa(id) {
-    this.service.deletePessoa(id).subscribe((res) => {
+    this.pessoaService.deletePessoa(id).subscribe((res) => {
       console.log(res);
     });
   }
@@ -40,7 +42,15 @@ export class GerenciarpessoasPage implements OnInit {
   ngOnInit(){ }
 
   ionViewWillEnter() {
-    this.getPessoa();
+     this.storage.get("mesa_id").then( (mesa_id) => {
+      this.pessoaService.getPessoas(mesa_id).subscribe( (res) => {
+        console.log(res);
+        this.pessoas = res;
+      },
+      (error) => {
+          console.log(error);
+      });
+    });
   }
 
 }

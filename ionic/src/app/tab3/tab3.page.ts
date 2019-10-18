@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 import { AlertController } from '@ionic/angular';
 import {PedidoService} from '../services/pedido/pedido.service';
 import { EditandoPedidoModalPage } from './editando-pedido-modal/editando-pedido-modal.page';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tab3',
@@ -12,7 +13,7 @@ import { EditandoPedidoModalPage } from './editando-pedido-modal/editando-pedido
 })
 export class Tab3Page {
 
-constructor(private pedidoService: PedidoService, public modalController: ModalController) { }
+constructor(private pedidoService: PedidoService, public modalController: ModalController, private storage: Storage) { }
 
   pedidos = [];
   pedidosVazio = true;
@@ -28,16 +29,21 @@ constructor(private pedidoService: PedidoService, public modalController: ModalC
 
 
   ionViewWillEnter(){
-    this.pedidoService.getPedido().subscribe( (res) => {
-      this.pedidos = res;
-      console.log(res);
+    this.storage.get("mesa_id").then( (mesa_id) => {
+      this.pedidoService.getPedidos(mesa_id).subscribe( (res) => {
+        console.log(res);
+        this.pedidos = res;
+      },
+      (error) => {
+          console.log(error);
+      });
+    });
       if(this.pedidos.length == 0){
         this.pedidosVazio = true;
       }
       else{
         this.pedidosVazio = false;
       }
-    });
   }
 
   }

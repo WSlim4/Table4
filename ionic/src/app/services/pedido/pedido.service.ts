@@ -37,9 +37,9 @@ export class PedidoService {
 
     }, this.httpHeaders).pipe(map(res => res));
   }
-  /*getPedido():Observable<any>{
-    return this.http.get(this.url, this.httpHeaders).pipe(map(res => res));
-  }*/
+  // getPedido():Observable<any>{
+  //   return this.http.get(this.url, this.httpHeaders).pipe(map(res => res));
+  // }
 
   getPedidos(mesa_id: number):Observable<any>{
     return this.http.get(SERVER_URL + 'pedidosMesa/' + mesa_id, this.httpHeaders).pipe(map(res => res));
