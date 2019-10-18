@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../services/pessoa/pessoa.service';
+import { PedidoService } from '../services/pedido/pedido.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,12 +26,13 @@ export class PagamentoInfoPage implements OnInit {
     pessoaId;
     pessoa;
 
-  constructor(private pessoaService: PessoaService, private router: Router) { 
+
+  constructor(private pessoaService: PessoaService, private pedidoService: PedidoService, private router: Router) { 
     this.pessoaId = this.router.getCurrentNavigation().extras;
   }
 
   ngOnInit() {
-    this.pessoaService.getPessoa(this.pessoaId).subscribe( (res) => {
+    this.pedidoService.getPedidosPessoa(this.pessoaId).subscribe( (res) => {
       this.pessoa = res;
       console.log(this.pessoa);
     });

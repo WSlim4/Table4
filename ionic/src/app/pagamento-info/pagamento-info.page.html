@@ -54,11 +54,12 @@
     <ion-row class="ion-justify-content-center backgroundCinza">
       <p>R$ {{ totalNovo }}</p>
     </ion-row>
+
   </section>
   <section id="botoes">
     <ion-row>
       <ion-col size="6">
-        <ion-button mode="ios" fill="outline">
+        <ion-button (click)="pagDrawer()" mode="ios" fill="outline">
           <p>
             Pagar com celular
           </p>

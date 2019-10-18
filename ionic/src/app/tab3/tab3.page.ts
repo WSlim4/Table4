@@ -30,7 +30,7 @@ constructor(private pedidoService: PedidoService, public modalController: ModalC
 
   ionViewWillEnter(){
     this.storage.get("mesa_id").then( (mesa_id) => {
-      this.pedidoService.getPedidos(mesa_id).subscribe( (res) => {
+      this.pedidoService.getPedidosMesa(mesa_id).subscribe( (res) => {
         console.log(res);
         this.pedidos = res;
       },
