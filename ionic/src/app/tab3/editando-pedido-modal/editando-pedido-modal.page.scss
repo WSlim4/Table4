@@ -1,0 +1,74 @@
+ion-input{
+  color:black;
+}
+#entrada{
+  border: 10%;
+  margin-top: 10%;
+  margin-left: 10%;
+  color:black;
+}
+
+
+#entrada_checkbox{
+  border: 10%;
+  margin-top: 5%;
+  width: 100%;
+  color:black;
+}
+
+#peso{
+  font-size:0.8em;
+}
+
+.estilo_botao{
+margin-top: 5%;
+margin-left: 10%;
+margin-right: 10%;
+font-size: 15px;
+text-align: center;
+font-family:'PoetsenOne';
+}
+
+.estilo_text{
+  text-align: right;
+}
+
+.titulo_criando_item{
+  font-family: 'PoetsenOne';
+  font-size: 30px;
+  color:#981B26;
+  text-align: center;
+}
+
+.titulo_decisao{
+  font-family: 'PoetsenOne';
+  font-size: 16px;
+  color:#981B26;
+  margin: auto;
+}
+.estilo_form{
+  margin-top: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.botao_fechar{
+  margin-top: 27%;
+  margin-left: 40%;
+}
+
+.editar_item{
+  color: #981B26;
+  --border-color: #981B26;
+}
+
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+
+  .titulo_criando_item{
+    font-size: 18px;
+
+}
+}

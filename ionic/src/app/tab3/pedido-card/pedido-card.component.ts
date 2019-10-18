@@ -29,9 +29,24 @@ export class PedidoCardComponent implements OnInit {
     console.log("clicou");
   }
 
-  async editandoPedido(){
-    this.configuracaoClicked.emit(this.pedido.id);
-  }
+    async editandoPedido(){
+     this.goToConfiguracaoPedidoModal();
+    }
+
+    async goToConfiguracaoPedidoModal(){
+      console.log(this.pedido);
+       const modal = await this.modalController.create({
+         component: EditandoPedidoModalPage,
+         componentProps:{
+           id:this.pedido.id,
+           quantidade: this.pedido.quantidade,
+           preco: this.pedido.preco,
+           nome:this.pedido.nome
+                }
+       });
+       return await modal.present();
+
+     }
 
   ngOnInit() {
 
@@ -40,4 +55,6 @@ export class PedidoCardComponent implements OnInit {
   ionViewDidEnter(){
     console.log(this.pedido[0]);
   }
+
+
 }

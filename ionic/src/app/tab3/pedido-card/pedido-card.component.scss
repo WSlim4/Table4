@@ -2,11 +2,12 @@
 
 .lista_container {
   display: flex;
+  margin: 5%;
 }
 
 .lista_pedido{
-  margin: 5%;
-
+  border-bottom: 1px solid #c6c6c6;
+  border-top: 1px solid #c6c6c6;
 }
 .lista_icon-pedido{
   text-align: right;
