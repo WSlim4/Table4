@@ -46,7 +46,7 @@ export class PedidoService {
   }
 
   getPedidosPessoa(pessoa_id: number):Observable<any>{
-    return this.http.get(this.url + '/' + pessoa_id, this.httpHeaders).pipe(map(res => res));
+    return this.http.get(SERVER_URL + 'pessoa/' + pessoa_id, this.httpHeaders).pipe(map(res => res));
   }
 
   deletePedido(id: any):Observable<any>{

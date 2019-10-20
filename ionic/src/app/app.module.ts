@@ -13,6 +13,12 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { Diagnostic } from '@ionic-native/diagnostic/ngx';
+import { Device } from '@ionic-native/device/ngx';
+import { AppAvailability } from '@ionic-native/app-availability/ngx';
 //Services
 import { TabsService } from './services/core/tabs.service';
 import { PessoaService } from './services/pessoa/pessoa.service';
@@ -20,8 +26,6 @@ import { PessoaService } from './services/pessoa/pessoa.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [
-
-
   ],
   imports: [
     BrowserModule,
@@ -30,13 +34,18 @@ import { PessoaService } from './services/pessoa/pessoa.service';
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
-
   ],
+  exports: [],
   providers: [
     TabsService,
     StatusBar,
     SplashScreen,
     PessoaService,
+    InAppBrowser,
+    Diagnostic,
+    AndroidPermissions,
+    Device,
+    AppAvailability,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
