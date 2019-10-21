@@ -20,16 +20,17 @@ declare let window: any;
 })
 export class PagamentoInfoPage implements OnInit {
 
-    pedidos = [
-        {
-            nome: 'Batata Frita',
-            valor: '15,00'
-        },
-        {
-            nome: 'Rolinho a primavera com molho picante',
-            valor: '45,00'
-        }
-    ];
+    // pedidos = [
+    //     {
+    //         nome: 'Batata Frita',
+    //         valor: '15,00'
+    //     },
+    //     {
+    //         nome: 'Rolinho a primavera com molho picante',
+    //         valor: '45,00'
+    //     }
+    // ];
+
     taxa;
     total;
     totalNovo;
