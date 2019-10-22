@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../services/pessoa/pessoa.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-gerenciarpessoas',
@@ -15,6 +16,7 @@ export class GerenciarpessoasPage implements OnInit {
 
   constructor(
     public service: PessoaService,
+    private storage: Storage,
     public formBuilder: FormBuilder) {
       this.gerenciarPessoa = this.formBuilder.group({
         nome: [null, [Validators.required]],
@@ -28,7 +30,12 @@ export class GerenciarpessoasPage implements OnInit {
 
   getPessoa():void{
     console.log("Resgatando pessoas no Back");
-    this.service.getPessoa().subscribe( (res) => { this.pessoas = res } );
+    this.storage.get("mesa_id").then( (mesa_id) => {
+      this.service.getPessoasMesa(mesa_id).subscribe( (res) => {
+        this.pessoas = res;
+        console.log(res);
+      });
+    });
   }
 
   deletePessoa(id) {

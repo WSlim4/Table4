@@ -16,10 +16,11 @@ import { ModalController } from '@ionic/angular';
 export class EditandoPedidoModalPage implements OnInit {
 private editandoPedidoForm: FormGroup;
 
-@Input() preco
-@Input() id
-@Input() quantidade
-@Input() nome
+@Input() preco;
+@Input() id;
+@Input() quantidade;
+@Input() nome;
+mesaId;
 
 
   constructor(public viewCtrl: ModalController, public AlterandoPedido: PedidoService, private editandoPedido: FormBuilder, private storage: Storage) {
