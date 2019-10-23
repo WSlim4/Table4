@@ -31,7 +31,7 @@
             <ion-row class="list">
                 <ion-col>
                     <ion-item lines="none">
-                        <ion-checkbox slot="start" name="todos" [(ngModel)]="masterChecked" [indeterminate]="isIndeterminate" (click)="checkMaster($event)"></ion-checkbox>
+                        <ion-checkbox slot="start" name="todos" [(ngModel)]="masterChecked" [indeterminate]="isIndeterminate" (click)="checkMaster()"></ion-checkbox>
                         <ion-label position=" fixed">Todos</ion-label>
                     </ion-item>
                 </ion-col>
@@ -56,7 +56,7 @@
         </ion-row>
         <ion-row>
             <ion-col size="12">
-                <ion-button class="estilo_botao" shape="round" expand="block" color="danger" type="submit"> Adicionar Item</ion-button>
+                <ion-button mode="ios" class="estilo_botao" shape="round" expand="block" color="danger" type="submit"> Adicionar Item</ion-button>
             </ion-col>
         </ion-row>
     </form>

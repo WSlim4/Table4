@@ -16,7 +16,7 @@
           </ion-item>
 
           <div>
-            <ion-button (click)="swipeNext()" shape = "round" expand="block" color="light" size="medium">Próximo</ion-button>
+            <ion-button mode="ios" (click)="swipeNext()" shape = "round" expand="block" color="light" size="medium">Próximo</ion-button>
           </div>
 
         </ion-content>
@@ -28,7 +28,7 @@
             <p *ngIf="muitasPessoas">Por favor, insira um número menor que 20.</p>
             <ion-input *ngFor="let pessoa of pessoas; let i = index" required name="pessoa{{i+1}}" ngModel placeholder="Nome"></ion-input>
             <div>
-              <ion-button *ngIf="pessoas.length != 0" type="submit" class="botao" shape = "round" expand="block" color="light" size="medium">Concluir</ion-button>
+              <ion-button mode="ios" *ngIf="pessoas.length != 0" type="submit" class="botao" shape = "round" expand="block" color="light" size="medium">Concluir</ion-button>
             </div>
         </ion-content>
       </ion-slide>

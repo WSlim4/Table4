@@ -20,6 +20,10 @@ export class FazendoPedidoPage {
         valorDivisao: ''
     };
 
+    nome;
+    valor;
+    quantidade;
+
     checked: boolean;
     masterChecked: boolean;
     isIndeterminate: boolean;
