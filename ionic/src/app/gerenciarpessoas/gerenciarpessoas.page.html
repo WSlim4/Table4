@@ -21,7 +21,7 @@
         </ion-row>
         <ion-row>
           <ion-col size="12">
-            <ion-button type="submit"expand="block" class="add">Adicionar pessoa</ion-button>
+            <ion-button mode="ios" type="submit"expand="block" class="add">Adicionar pessoa</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid> 
@@ -29,7 +29,7 @@
     <ion-list>
         <ion-item *ngFor="let pessoa of pessoas">
           <ion-label>{{ pessoa.name }}</ion-label>
-          <ion-button color="danger" size="small" type="submit" (click)="deletePessoa(pessoa.id)" >Deletar</ion-button>
+          <ion-button mode="ios" color="danger" size="small" type="submit" (click)="deletePessoa(pessoa.id)" >Deletar</ion-button>
         </ion-item>
       </ion-list> 
   </section>  
