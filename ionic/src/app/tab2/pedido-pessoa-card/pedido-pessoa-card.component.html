@@ -13,6 +13,18 @@
 </section>
 
 <section class="lista_configuracao-pessoa" id="lista_configuracao-pedido" *ngIf="configuracao">
+  <ion-row  class="lista_configuracao-pessoa-butoes">
+    <div  style="flex-grow: 4" class="lista_botao-configuracao-pessoa">
+        <ion-button mode="ios" (click)="editandoPessoa()" color="danger"> Editar </ion-button>
+    </div>
+    <div  style="flex-grow: 4" class="lista_botao-deletar-pessoa">
+        <ion-button mode="ios" (click)="deletandoPessoa()" color="danger"> Deletar </ion-button>
+    </div>
+    <div  style="flex-grow: 4" class="lista_botao-configuracao-pessoa">
+        <ion-button mode="ios" fill="outline" (click)="finalizandoPedidoPessoa()"> Pagar </ion-button>
+    </div>
+  </ion-row>
+
   <ion-row >
         <h3 class="lista_titulo-configuracao-pessoa"> Pedidos Individuais</h3>
   </ion-row>
@@ -27,15 +39,5 @@
         <ion-label>R$ 10,00</ion-label>
       </div>
     </div>
-  <ion-row  class="lista_configuracao-pessoa-butoes">
-    <div  style="flex-grow: 4" class="lista_botao-configuracao-pessoa">
-        <ion-button mode="ios" (click)="editandoPessoa()" color="danger"> Editar </ion-button>
-    </div>
-    <div  style="flex-grow: 4" class="lista_botao-deletar-pessoa">
-        <ion-button mode="ios" (click)="deletandoPessoa()" color="danger"> Deletar </ion-button>
-    </div>
-    <div  style="flex-grow: 4" class="lista_botao-configuracao-pessoa">
-        <ion-button mode="ios" fill="outline" (click)="finalizandoPedidoPessoa()"> Pagar </ion-button>
-    </div>
-  </ion-row>
+
 </section>

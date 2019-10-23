@@ -14,20 +14,19 @@ class CreatePedidoPessoaTable extends Migration
     public function up()
     {
         Schema::create('pedido_pessoa', function (Blueprint $table) {
-            $table->increments('id');
-            $table->float('valor_divisao')->nullable();
-            $table->integer('pedido_id')->unsigned()->nullable();
-            $table->integer('pessoa_id')->unsigned()->nullable();
+            $table->bigIncrements('id');
+            $table->integer('pedido_id')->unsigned();
+            $table->integer('pessoa_id')->unsigned();
             $table->timestamps();
         });
-        
+
         Schema::table('pedido_pessoa', function (Blueprint $table){
             $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
         });
         Schema::table('pedido_pessoa', function (Blueprint $table){
             $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('cascade');
         });
-    
+
     }
 
 

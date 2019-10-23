@@ -1,5 +1,5 @@
 import { Component, OnInit,Input, Output, EventEmitter} from '@angular/core';
-
+import { AlertController} from '@ionic/angular';
 
 @Component({
   selector: 'app-pedido-pessoa-card',
@@ -13,7 +13,7 @@ export class PedidoPessoaCardComponent implements OnInit {
 
    configuracao:boolean=false;
 
-  constructor() { }
+  constructor(public alertController: AlertController) { }
 
   async dropdownConfiguracao(){
     if (this.configuracao){
@@ -23,7 +23,36 @@ export class PedidoPessoaCardComponent implements OnInit {
     }
     console.log("clicou");
   }
-  
+
+  async editandoPessoa(){
+    const alert = await this.alertController.create({
+       header: 'Editar nome usuário',
+       message: 'Ao clicar em alterar você modificara o nome do usuário',
+       inputs: [
+        {
+          name: 'name1',
+          type: 'text',
+          placeholder: 'Editar Nome',
+        }],
+       buttons: [
+         {
+           text: 'Cancelar',
+           role: 'cancel',
+           cssClass: 'secondary',
+           handler: () => {
+             console.log('Cancelado');
+           }
+         }, {
+           text: 'Alterar',
+           handler: () => {
+             console.log('Confirmado Alteração');
+           }
+         }
+       ]
+     });
+
+     await alert.present();
+}
   ngOnInit() {}
 
 }

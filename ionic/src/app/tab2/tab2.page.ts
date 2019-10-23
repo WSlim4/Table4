@@ -21,6 +21,7 @@ export class Tab2Page {
       this.service.getPessoasMesa(mesa_id).subscribe( (res) => {
         this.pessoas = res;
         console.log(res);
+        console.log(mesa_id);
       });
     });
   }

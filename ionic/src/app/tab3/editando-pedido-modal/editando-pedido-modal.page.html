@@ -13,7 +13,7 @@
 </ion-toolbar>
 
   <ion-content color="#000000">
-  <form>
+  <form class="estilo_form">
   <ion-item>
     <ion-input required type="text" placeholder="{{nome}}" ></ion-input>
   </ion-item>
@@ -23,7 +23,7 @@
     <ion-item>
         <ion-input required type="number" placeholder="{{quantidade}}"></ion-input>
       </ion-item>
-  <h4 class="titulo_dicisao"> Quem vai dividir esse pedido? </h4>
+  <h4 class="titulo_decisao"> Quem vai dividir esse pedido? </h4>
 
   <ion-row id= "entrada_checkbox" *ngFor="let pessoa of pessoas; let i = index">
     <ion-col size="8">
@@ -38,7 +38,7 @@
   </ion-row>
   <ion-row>
     <ion-col size="12">
-      <ion-button expand="block" fill="outline" class="editar_item" (click)= "SalvarMudanca()"> Salvar Mudança</ion-button>
+      <ion-button expand="block" fill="outline" class="estilo_botao" (click)= "SalvarMudanca()"> Salvar Mudança</ion-button>
     </ion-col>
   </ion-row>
   </form>
