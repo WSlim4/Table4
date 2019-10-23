@@ -29,9 +29,8 @@ class PedidoController extends Controller
         return Pedido::all();
 
     }
-    public function showPedido(Request $pessoa_id){
+    public function showPedido($pessoa_id){
         $pessoa = Pessoa::find($pessoa_id);
-        
         if($pessoa){
             return $pessoa->pedidos;
         } else{

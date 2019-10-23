@@ -1,10 +1,10 @@
-<section class= "lista_pessoa" (click)="dropdownConfiguracao()">
+<section class= "lista_pessoa" (click)="dropdownConfiguracao(pessoa.id)">
   <div class="lista_container">
     <div style="flex-grow: 6" class="lista_nome-pessoa">
         <ion-label id="lista_nome-pessoa-editar">{{ pessoa.nome }}</ion-label>
     </div>
     <div style="flex-grow: 5" class="lista_valor-pessoa">
-      <ion-label>R$ 10.00</ion-label>
+      <ion-label>R$ {{ pessoa.valorConta }}</ion-label>
     </div>
     <div style="flex-grow: 1" >
       <ion-icon color="danger"class="lista_icon-pessoa"  ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
@@ -16,15 +16,15 @@
   <ion-row >
         <h3 class="lista_titulo-configuracao-pessoa"> Pedidos Individuais</h3>
   </ion-row>
-    <div class="lista_pedido_intividuais">
+    <div *ngFor="let pedido of pedidos" class="lista_pedido_intividuais">
       <div style="flex-grow: 1" class="lista_nome-pedido">
-          <ion-label>1 </ion-label>
+          <ion-label>{{ pedido.quantidade }} x</ion-label>
       </div>
       <div style="flex-grow: 6" class="lista_nome-pedido">
-        <ion-label>Maça</ion-label>
+        <ion-label>{{ pedido.nome }}</ion-label>
       </div>
       <div style="flex-grow: 5" class="lista_valor-pedido">
-        <ion-label>R$ 10,00</ion-label>
+        <ion-label>R$ {{ pedido.preco }}</ion-label>
       </div>
     </div>
   <ion-row  class="lista_configuracao-pessoa-butoes">

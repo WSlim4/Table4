@@ -1,4 +1,5 @@
 import { Component, OnInit,Input, Output, EventEmitter} from '@angular/core';
+import { PedidoService } from '../../services/pedido/pedido.service';
 
 
 @Component({
@@ -10,20 +11,27 @@ export class PedidoPessoaCardComponent implements OnInit {
 
   @Input() pessoa;
   @Output() configuracaoClicked = new EventEmitter<number>();
+  pedidos;
 
-   configuracao:boolean=false;
+  configuracao:boolean=false;
 
-  constructor() { }
+  constructor(private pedidoService: PedidoService) { }
 
-  async dropdownConfiguracao(){
+  async dropdownConfiguracao(id){
     if (this.configuracao){
       this.configuracao=false;
     }else{
+      this.pedidoService.getPedidosPessoa(id).subscribe( (res) => {
+        this.pedidos = res;
+      });
+      console.log(this.pedidos);
       this.configuracao=true;
     }
-    console.log("clicou");
   }
   
-  ngOnInit() {}
+  ionViewWillEnter() {
+    
+  }
 
+  ngOnInit() {}
 }
