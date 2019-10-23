@@ -1,0 +1,41 @@
+
+ion-toolbar {
+    --background: #fbfbfb;
+}
+
+ion-button{
+  margin: 0 1em;
+  margin-top: 40%;
+  font-size: 0.9em;
+  text-align: center;
+
+  font-family:'PoetsenOne', sans-serif;
+}
+
+h1 {
+  font-family: 'PoetsenOne';
+  font-size: 18px;
+  color:#981B26;
+  padding: 10%;
+}
+
+ion-input {
+  margin-top: 5%;
+  margin-left: 10%;
+  border-bottom:1px solid #9E9E9E;
+  width: 80%;
+}
+
+.toolbar_line{
+    border-bottom:1px solid #c6c6c6;
+}
+.title {
+    display: inline-block;
+    font-family: 'PoetsenOne';
+    font-size: 1.5em;
+    color: #981B26;
+    background-color: #fbfbfb;
+    text-align: center;
+    padding: 0px;
+    vertical-align: bottom;
+}

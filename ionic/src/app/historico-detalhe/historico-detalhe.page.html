@@ -29,20 +29,13 @@
         </ion-label>
     </ion-item>
     <!-- dropdown com os clientes -->
-    <ion-list>
-        <ion-item *ngFor="let pessoa of mesaDetalhe.detalhes">
-            <ion-label class="ion-text-wrap">
-                <ion-text>
-                    <p>{{ pessoa.nome }}: R$ {{ pessoa.valor }}</p>
-                </ion-text>
-            </ion-label>
-        </ion-item>
-    </ion-list>
+<app-pessoa-lista-pedidos> </app-pessoa-lista-pedidos>
+    
 
     <ion-item lines="full">
         <ion-label class="ion-text-wrap">
             <ion-text>
-                <h2>Pedidos</h2>
+                <h2>Pedidos da Mesa</h2>
             </ion-text>
         </ion-label>
     </ion-item>

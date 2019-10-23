@@ -1,0 +1,32 @@
+<section  class= "lista_pessoa" (click)="dropdownDetalhes()">
+  <div class="lista_container">
+    <div style="flex-grow: 6" class="lista_nome-pessoa">
+        <ion-label id="lista_nome-pessoa-editar">Mario</ion-label>
+    </div>
+    <div style="flex-grow: 5" class="lista_valor-pessoa">
+      <ion-label>R$ 10,00</ion-label>
+    </div>
+    <div style="flex-grow: 1" >
+      <ion-icon color="danger"class="lista_icon-pessoa"  ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
+    </div>
+  </div>
+</section>
+
+
+<section class="lista_configuracao-pessoa" id="lista_configuracao-pedido" *ngIf="maisDetalhes">
+  <ion-row >
+        <h3 class="lista_titulo-configuracao-pessoa"> Pedidos Individuais</h3>
+  </ion-row>
+    <div class="lista_pedido_intividuais">
+      <div style="flex-grow: 1" class="lista_nome-pedido">
+          <ion-label>1 </ion-label>
+      </div>
+      <div style="flex-grow: 6" class="lista_nome-pedido">
+        <ion-label>Maça</ion-label>
+      </div>
+      <div style="flex-grow: 5" class="lista_valor-pedido">
+        <ion-label>R$ 10,00</ion-label>
+      </div>
+    </div>
+
+</section>
