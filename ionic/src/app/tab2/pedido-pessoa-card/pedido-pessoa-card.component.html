@@ -4,7 +4,7 @@
         <ion-label id="lista_nome-pessoa-editar">{{ pessoa.nome }}</ion-label>
     </div>
     <div style="flex-grow: 5" class="lista_valor-pessoa">
-      <ion-label>R$ 10.00</ion-label>
+      <ion-label>R$ {{ pessoa.valorConta }}</ion-label>
     </div>
     <div style="flex-grow: 1" >
       <ion-icon color="danger"class="lista_icon-pessoa"  ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
@@ -18,10 +18,10 @@
         <ion-button mode="ios" (click)="editandoPessoa()" color="danger"> Editar </ion-button>
     </div>
     <div  style="flex-grow: 4" class="lista_botao-deletar-pessoa">
-        <ion-button mode="ios" (click)="deletandoPessoa()" color="danger"> Deletar </ion-button>
+        <ion-button mode="ios" (click)="deletarPessoa(pessoa.id)" color="danger"> Deletar </ion-button>
     </div>
     <div  style="flex-grow: 4" class="lista_botao-configuracao-pessoa">
-        <ion-button mode="ios" fill="outline" (click)="finalizandoPedidoPessoa()"> Pagar </ion-button>
+        <ion-button mode="ios" fill="outline" (click)="finalizandoPedidoPessoa(pessoa.id)"> Pagar </ion-button>
     </div>
   </ion-row>
 

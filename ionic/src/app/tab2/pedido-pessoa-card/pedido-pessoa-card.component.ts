@@ -11,6 +11,7 @@ export class PedidoPessoaCardComponent implements OnInit {
 
   @Input() pessoa;
   @Output() configuracaoClicked = new EventEmitter<number>();
+  @Output() pagamentoClicked = new EventEmitter<number>();
   @Output() nameUpdated = new EventEmitter<number>();
 
    configuracao:boolean=false;
@@ -25,6 +26,10 @@ export class PedidoPessoaCardComponent implements OnInit {
     }
     console.log("clicou");
     console.log(this.pessoa);
+  }
+
+  finalizandoPedidoPessoa(id) {
+      this.pagamentoClicked.emit(id);
   }
 
   async editandoPessoa(){
@@ -66,6 +71,20 @@ export class PedidoPessoaCardComponent implements OnInit {
 
      await alert.present();
 }
+
+deletarPessoa(id) {
+    console.log(id);
+    this.pessoaService.deletePessoa(id).subscribe(
+        (res) => {
+            this.nameUpdated.emit();
+            console.log(res);
+        },
+        (error) => {
+            console.log(error);
+        }
+    );
+}
+
   ngOnInit() {}
 
 }
