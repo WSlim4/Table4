@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import{EditandoPedidoModalPage} from '../editando-pedido-modal/editando-pedido-modal.page';
+import{ EditandoPedidoModalPage } from '../editando-pedido-modal/editando-pedido-modal.page';
+import { PedidoService } from '../../services/pedido/pedido.service';
 
 
 
@@ -17,7 +18,7 @@ export class PedidoCardComponent implements OnInit {
 
   configuracao:boolean=false;
 
-  constructor(public modalController: ModalController) {}
+  constructor(public modalController: ModalController, private pedidoService: PedidoService) {}
 
   async dropdownConfiguracao(){
     if (this.configuracao){
@@ -30,6 +31,13 @@ export class PedidoCardComponent implements OnInit {
 
     async editandoPedido(){
      this.goToConfiguracaoPedidoModal();
+    }
+
+    async deletandoPedido(id){
+        console.log(id);
+        this.pedidoService.deletePedido(id).subscribe( (res) =>{
+            console.log(res);
+        });
     }
 
     async goToConfiguracaoPedidoModal(){

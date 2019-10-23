@@ -1,6 +1,6 @@
 <section class= "lista_pedido" (click)="dropdownConfiguracao()">
   <div class="lista_container">
-    <div style="flex-grow: 6" class="lista_nome-pedido">
+    <div style="flex-grow: 6" class="lista_nome-pedido ion-text-capitalize">
         <ion-label id="lista_nome-pedido-editar">{{ pedido.nome }}</ion-label>
     </div>
     <div style="flex-grow: 5" class="lista_valor-pedido">
@@ -17,7 +17,7 @@
         <ion-button mode="ios" color="danger" (click)="editandoPedido()"> Editar </ion-button>
     </div>
     <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
-        <ion-button mode="ios" color="danger" (click)="deletandoPedido()"> Deletar </ion-button>
+        <ion-button mode="ios" color="danger" (click)="deletandoPedido(pedido.id)"> Deletar </ion-button>
     </div>
   </ion-row>
 </section>

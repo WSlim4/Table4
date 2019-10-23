@@ -2,6 +2,7 @@
 
 namespace App;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Mesa extends Model
@@ -20,10 +21,11 @@ class Mesa extends Model
         $this->estabelecimento = $request->estabelecimento;
         $this->moeda = $request->moeda;
         $this->save();
-    }   
-    
-    public function contaTotal($valorTotal){
-        $this->valorTotal = $valorTotal;
+    }
+
+    public function contaTotal(Mesa $mesa){
+        $preco = $mesa->pedidos()->sum(DB::raw('preco*quantidade'));
+        $this->valorTotal = $preco;
         $this->save();
     }
 }

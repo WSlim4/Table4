@@ -57,7 +57,7 @@ export class PagamentoInfoPage implements OnInit {
     }
 
     ngOnInit() {
-        this.pedidoService.getPedidosPessoa(this.pessoaId).subscribe((res) => {
+        this.pessoaService.getPessoa(this.pessoaId).subscribe((res) => {
             this.pessoa = res;
             //Calcula o total com a taxa
             this.calculaTotal(this.taxa);
@@ -68,6 +68,20 @@ export class PagamentoInfoPage implements OnInit {
     ionViewWillEnter() {
 
     }
+
+    //Função que calcula o total do pagamento incluindo a taxa de servço que o usuário escolheu
+    calculaTotal(taxa) {
+        let porcentagem = (this.pessoa.valorConta * taxa) / 100;
+        porcentagem = Math.floor(porcentagem * 100) / 100;
+        console.log(porcentagem);
+        this.totalNovo = this.pessoa.valorConta + porcentagem;
+    }
+
+    confirmPag() {
+        console.log("Pagamento confirmado!");
+    }
+
+    //Código abaixo é referente a parte do InAppBrowser.
 
     @HostListener('window:resize', ['$event'])
     onResize(event?) {
@@ -83,10 +97,6 @@ export class PagamentoInfoPage implements OnInit {
 
     closeDrawer() {
         this.drawerState = DrawerState.Docked;
-    }
-
-    confirmPag() {
-        console.log("Pagamento confirmado!");
     }
 
     pagPicPay() {
@@ -118,11 +128,4 @@ export class PagamentoInfoPage implements OnInit {
         this.pagApp = this.inAppBrowser.create('com.boletobancario.boletofacil','_system',{location:'yes'});
         this.closeDrawer();
     }
-
-    //Função que calcula o total do pagamento incluindo a taxa de servço que o usuário escolheu
-    calculaTotal(taxa) {
-        let porcentagem = (this.pessoa.valorConta * taxa) / 100;
-        this.totalNovo = this.pessoa.valorConta + porcentagem;
-    }
-
 }
