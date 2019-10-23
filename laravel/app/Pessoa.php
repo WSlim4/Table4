@@ -9,7 +9,7 @@ use App\Pedido;
 class Pessoa extends Model
 {
     use Notifiable;
-    
+
     public function pedidos(){
         return $this->belongsToMany('App\Pedido');
     }
@@ -17,11 +17,11 @@ class Pessoa extends Model
     public function mesa(){
         return $this->belongsTo('App\Mesa');
     }
-    
+
     public function conta(){
         return $this->hasOne('App\Conta');
     }
-    
+
     public function createPessoa($request){
         /*Função que cria uma pessoa no BD
             Entrada->request passada pela controller
@@ -31,7 +31,7 @@ class Pessoa extends Model
         $this->mesa_id = $request->mesa_id;
         $this->save();
     }
-    
+
     public function updatePessoa($request){
         /*Função que atualiza uma pessoa no BD
             Entrada->request passada pela controller
@@ -39,16 +39,16 @@ class Pessoa extends Model
 
         if($request->nome)
             $this->nome = $request->nome;
-        if($request->mesa_id)
-            $this->mesa_id = $request->mesa_id;
+        // if($request->mesa_id)
+        //     $this->mesa_id = $request->mesa_id;
         $this->save();
     }
-    
+
     public function valorDivisao($valor_divisao, $pedido_id){
         $this->pedidos()->sync([$pedido_id => [ 'valor_divisao' => $valor_divisao] ], false);
         $this->valorConta = $this->valorConta + $valor_divisao;
         $this->save();
     }
 
-  
+
 }
