@@ -19,10 +19,10 @@ export class Tab2Page {
         private router: Router
     ) { }
 
-    getPessoa(): void {
+    getPessoas(): void {
         console.log("Resgatando pessoas no Back");
         this.storage.get("mesa_id").then((mesa_id) => {
-            this.pessoaService.getPessoasMesa(mesa_id).subscribe((res) => {
+            this.pessoaService.getPessoasPedidos(mesa_id).subscribe((res) => {
                 this.pessoas = res;
                 console.log(res);
                 console.log(mesa_id);
@@ -31,13 +31,13 @@ export class Tab2Page {
     }
 
     atualizarPessoas() {
-        this.getPessoa();
+        this.getPessoas();
     }
 
     ngOnInit() { }
 
     ionViewWillEnter() {
-        this.getPessoa();
+        this.getPessoas();
     }
 
     pagamento(id){

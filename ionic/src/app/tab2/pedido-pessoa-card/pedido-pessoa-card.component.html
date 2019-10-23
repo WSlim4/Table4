@@ -28,15 +28,12 @@
   <ion-row >
         <h3 class="lista_titulo-configuracao-pessoa"> Pedidos Individuais</h3>
   </ion-row>
-    <div *ngFor="let pedido of pedidos" class="lista_pedido_intividuais">
-      <div style="flex-grow: 1" class="lista_nome-pedido">
-          <ion-label>{{ pedido.quantidade }} x</ion-label>
-      </div>
-      <div style="flex-grow: 6" class="lista_nome-pedido">
+    <div *ngFor="let pedido of pessoa.pedidos" class="lista_pedido_individuais">
+      <div style="flex-grow: 7" class="lista_nome-pedido">
         <ion-label>{{ pedido.nome }}</ion-label>
       </div>
       <div style="flex-grow: 5" class="lista_valor-pedido">
-        <ion-label>R$ {{ pedido.preco }}</ion-label>
+        <ion-label>R$ {{ pedido.pivot.valor_divisao }}</ion-label>
       </div>
     </div>
 
