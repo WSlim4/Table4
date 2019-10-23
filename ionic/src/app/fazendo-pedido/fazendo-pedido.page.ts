@@ -28,10 +28,10 @@ export class FazendoPedidoPage {
 
     form: FormGroup;
 
-    constructor(public formBuilder: FormBuilder,
-                private PedidoService: PedidoService,
-                private pessoaService: PessoaService,
-                private toastController: ToastController,
+    constructor(public formBuilder: FormBuilder, 
+                private pedidoService: PedidoService, 
+                private pessoaService: PessoaService, 
+                private toastController: ToastController, 
                 private storage: Storage,
                 private router: Router) {
 
@@ -77,7 +77,7 @@ export class FazendoPedidoPage {
         this.toggle = !this.toggle;
     }
 
-    getPessoa(): void {
+    getPessoas(id): void {
         console.log("Resgatando pessoas no Back");
         this.storage.get("mesa_id").then( (mesa_id) => {
             this.mesaId = mesa_id;
@@ -92,7 +92,15 @@ export class FazendoPedidoPage {
     }
 
     ionViewWillEnter() {
-        this.getPessoa();
+     this.storage.get("mesa_id").then( (mesa_id) => {
+      this.pessoaService.getPessoas(mesa_id).subscribe( (res) => {
+        console.log(res);
+        this.pessoas = res;
+      },
+      (error) => {
+          console.log(error);
+      });
+    });
     }
 
     onSubmit(form) {
@@ -149,6 +157,7 @@ export class FazendoPedidoPage {
             //checa se o total pago é igual ao preço total do pedido
             if (soma == preco) {
                 //Chamar a função da Service
+                this.pedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, this.mesaId, [{"id": 1, "valor": 15}, {"id": 2, "valor": 10}]);
                 console.log("Yay");
                 this.PedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, this.mesaId, this.consumidores).subscribe(
                     (res) => {

@@ -16,6 +16,7 @@ class Pedido extends Model
                     ->withPivot('valor_divisao')
                     ->withTimestamps();
     }
+
     protected $casts = [
         'dividindo' => 'array'
     ];

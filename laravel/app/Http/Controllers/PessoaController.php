@@ -18,7 +18,7 @@ class PessoaController extends Controller
     public function updatePessoa(Request $request, $id){
 
         $pessoa = Pessoa::find($id);
-        
+
         if($pessoa){
             $pessoa->updatePessoa($request);
             return response()->success($pessoa);
@@ -38,9 +38,15 @@ class PessoaController extends Controller
         return Pessoa::all();
     }
 
+    public function showPessoa($id){
+        $pessoa = Pessoa::find($id);
+        $pessoa->pedidos;
+        return response()->json($pessoa);
+    }
+
     public function showConta($pessoa_id){
             $pessoa = Pessoa::find($pessoa_id);
             return response()->success($pessoa->valorConta);
     }
-    
-}  
+
+}

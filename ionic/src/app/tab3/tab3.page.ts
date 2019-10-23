@@ -1,6 +1,9 @@
 import { Component} from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { PedidoService } from '../services/pedido/pedido.service';
+import * as $ from 'jquery';
+import { AlertController } from '@ionic/angular';
+import {PedidoService} from '../services/pedido/pedido.service';
+import { EditandoPedidoModalPage } from './editando-pedido-modal/editando-pedido-modal.page';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -18,16 +21,19 @@ constructor(private pedidoService: PedidoService, public modalController: ModalC
   ionViewWillEnter(){
     this.storage.get("mesa_id").then( (mesa_id) => {
       this.pedidoService.getPedidosMesa(mesa_id).subscribe( (res) => {
-        this.pedidos = res;
         console.log(res);
-        if(this.pedidos.length == 0){
-          this.pedidosVazio = true;
-        }
-        else{
-          this.pedidosVazio = false;
-        }
+        this.pedidos = res;
+      },
+      (error) => {
+          console.log(error);
       });
     });
+      if(this.pedidos.length == 0){
+        this.pedidosVazio = true;
+      }
+      else{
+        this.pedidosVazio = false;
+      }
   }
 
   }

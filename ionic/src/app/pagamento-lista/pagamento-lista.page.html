@@ -8,7 +8,7 @@
                 </ion-buttons>
             </div>
         </ion-col>
-        <ion-col class="ion-align-self-center">
+        <ion-col size="8" class="ion-align-self-center">
           <ion-title>
             Pagamento
           </ion-title>
@@ -21,7 +21,7 @@
 <ion-content>
   <h2>Escolha uma pessoa</h2>
   <ion-list lines="full">
-    <ion-item detail="true" *ngFor="let pessoa of pessoas" [id]="pessoa.id" routerLink="/pagamento-info">
+    <ion-item detail="true" *ngFor="let pessoa of pessoas" (click)="mostrarDetalhe(pessoa.id)">
       {{ pessoa.nome }}
     </ion-item>
   </ion-list>

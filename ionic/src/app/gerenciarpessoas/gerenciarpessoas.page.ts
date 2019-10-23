@@ -28,7 +28,7 @@ export class GerenciarpessoasPage implements OnInit {
     //this.service.createPessoa(form.value.nome).subscribe( (res) => { console.log(res); }, (error) => { console.log(error); })
   }
 
-  getPessoa():void{
+  getPessoa(id):void{
     console.log("Resgatando pessoas no Back");
     this.storage.get("mesa_id").then( (mesa_id) => {
       this.service.getPessoasMesa(mesa_id).subscribe( (res) => {
@@ -39,7 +39,7 @@ export class GerenciarpessoasPage implements OnInit {
   }
 
   deletePessoa(id) {
-    this.service.deletePessoa(id).subscribe((res) => {
+    this.pessoaService.deletePessoa(id).subscribe((res) => {
       console.log(res);
     });
   }
@@ -47,7 +47,15 @@ export class GerenciarpessoasPage implements OnInit {
   ngOnInit(){ }
 
   ionViewWillEnter() {
-    this.getPessoa();
+     this.storage.get("mesa_id").then( (mesa_id) => {
+      this.pessoaService.getPessoas(mesa_id).subscribe( (res) => {
+        console.log(res);
+        this.pessoas = res;
+      },
+      (error) => {
+          console.log(error);
+      });
+    });
   }
 
 }

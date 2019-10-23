@@ -1,75 +1,122 @@
-*{
-  background: #fcfcfc;
-  --background: #fcfcfc;
+* {
+    background: #fcfcfc;
+    --background: #fcfcfc;
 }
 
-h3{
-  font-family: 'PoetsenOne';
-  font-size: 1.2em;
-  margin-bottom: 1.3em;
+h3 {
+    font-family: 'PoetsenOne';
+    font-size: 1.2em;
+    margin-bottom: 1.3em;
 }
 
-ion-title{
-  font-family: 'PoetsenOne';
-  font-size: 1.5em;
-  color: #981B26;
-  text-align: center;
+ion-title {
+    font-family: 'PoetsenOne';
+    font-size: 1.5em;
+    color: #981B26;
+    text-align: center;
 }
 
-span, .taxa{
-  font-family: 'PoetsenOne';
-  color: #981B26;
+.taxa,
+span {
+    font-family: 'PoetsenOne';
+    color: #981B26;
 }
 
-ion-col{
-  display: flex;
-  font-size: 0.9em;
+ion-col {
+    display: flex;
+    font-size: 0.9em;
 }
 
-p{
-  margin: 0;
-  white-space: normal;
+p {
+    margin: 0;
+    white-space: normal;
 }
 
-ion-range{
-  padding-top: 4px;
-  padding-bottom: 4px;
+ion-range {
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
-ion-button{
-  width: 100%;
+ion-button {
+    width: 100%;
 }
 
-ion-row{
-  border-radius: 25px;
+ion-row {
+    border-radius: 25px;
 }
 
-.header-md:after, .header-ios:after{
-  height: 0px;
+ion-thumbnail {
+    height: 70px;
+    width: 70px;
 }
 
-.titulo{
-  font-family: 'PoetsenOne';
+.header-ios:after,
+.header-md:after {
+    height: 0;
 }
 
-.taxa{
-  margin-top: 1.3em;
+.titulo {
+    font-family: 'PoetsenOne';
 }
 
-.backgroundCinza, #nota-fiscal, h3, span, p {
-  background: #fbfbfb;
-  --background: #fbfbfb;
+.taxa {
+    margin-top: 1.3em;
 }
 
-#nota-fiscal{
-  margin: auto;
-  max-width: 80vw;
-  min-height: 70vh;
-  border: 1px solid #981B26;
-  border-radius: 25px;
-  padding-bottom: 1em;
+#nota-fiscal,
+.backgroundCinza,
+h3,
+p,
+span {
+    background: #fbfbfb;
+    --background: #fbfbfb;
 }
 
-#botoes{
-  margin-top: 2em;
+.pagCol {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    // height: 80px;
+}
+
+.pagIcon {
+    text-align: center;
+    width: 12vw;
+    border-radius: 100px;
+    box-shadow: 1.5px 1.5px #CCCCCC;
+}
+
+.pagRow {
+    margin: 3% 0 5%;
+}
+
+.pagNome {
+    text-align: center;
+    margin-top: 3%;
+}
+
+#nota-fiscal {
+    margin: auto;
+    max-width: 80vw;
+    min-height: 70vh;
+    border: 1px solid #981B26;
+    border-radius: 25px;
+    padding-bottom: 1em;
+}
+
+#botoes {
+    margin-top: 2em;
+}
+
+ion-bottom-drawer {
+    z-index: 9999 !important;
+}
+
+#page-mask {
+    background-color: rgba(#000, 0.5);
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998;
+    position: absolute;
 }

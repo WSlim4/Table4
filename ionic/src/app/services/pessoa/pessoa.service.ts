@@ -14,7 +14,8 @@ export class PessoaService {
   }
 
   url:string = SERVER_URL + 'pessoa';
-
+  pessoa: any[];
+  
   constructor(
     public http: HttpClient
   ) { }
@@ -23,7 +24,11 @@ export class PessoaService {
     return this.http.get(SERVER_URL + 'pessoasMesa/' + mesa_id, this.httpHeaders).pipe(map(res => res));
   }
 
-  deletePessoa(id: any):Observable<any>{
+  getPessoa(id: number):Observable<any>{
+    return this.http.get(this.url + "/" + id, this.httpHeaders).pipe(map(res => res));
+  }
+
+  deletePessoa(id: number):Observable<any>{
     return this.http.delete(this.url + "/" + id);
   }
 
