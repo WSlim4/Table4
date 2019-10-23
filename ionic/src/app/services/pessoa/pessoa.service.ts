@@ -15,13 +15,17 @@ export class PessoaService {
 
   url:string = SERVER_URL + 'pessoa';
   pessoa: any[];
-  
+
   constructor(
     public http: HttpClient
   ) { }
 
   getPessoasMesa(mesa_id: any):Observable<any>{
     return this.http.get(SERVER_URL + 'pessoasMesa/' + mesa_id, this.httpHeaders).pipe(map(res => res));
+  }
+
+  getPessoasPedidos(mesa_id: any):Observable<any>{
+    return this.http.get(SERVER_URL + 'pessoasMesaComPedidos/' + mesa_id, this.httpHeaders).pipe(map(res => res));
   }
 
   getPessoa(id: number):Observable<any>{
