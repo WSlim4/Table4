@@ -33,6 +33,7 @@ Route::post('/mesa','MesaController@createMesa');
 
 Route::get('/pedidosMesa/{id}','MesaController@pedidosMesa');
 Route::get('/pessoasMesa/{id}', 'MesaController@pessoasMesa');
+Route::get('pessoasMesaComPedidos/{id}', 'MesaController@pessoasMesaComPedidos');
 
 Route::post('/estabelecimento', 'EstabelecimentoController@createEstabelecimento');
 Route::put('/estabelecimento/{id}', 'EstabelecimentoController@updateEstabelecimento');
@@ -42,4 +43,3 @@ Route::delete('/estabelecimento/{id}', 'EstabelecimentoController@deleteEstabele
 
 Route::get('/conta/{id}','PessoaController@showConta');
 Route::get('/contasMesa/{id}', 'MesaController@contaTotal');
-
