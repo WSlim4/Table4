@@ -34,5 +34,11 @@ export class PessoaService {
     }, this.httpHeaders).pipe(map(res => res));
   }
 
+  updatePessoa(nome: string, id: number): Observable<any> {
+      return this.http.put(this.url + "/" + id, {
+          'nome': nome
+      }, this.httpHeaders).pipe(map(res => res));
+  }
+
 
 }

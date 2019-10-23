@@ -28,10 +28,10 @@ export class FazendoPedidoPage {
 
     form: FormGroup;
 
-    constructor(public formBuilder: FormBuilder, 
-                private PedidoService: PedidoService, 
-                private pessoaService: PessoaService, 
-                private toastController: ToastController, 
+    constructor(public formBuilder: FormBuilder,
+                private PedidoService: PedidoService,
+                private pessoaService: PessoaService,
+                private toastController: ToastController,
                 private storage: Storage,
                 private router: Router) {
 
@@ -41,7 +41,6 @@ export class FazendoPedidoPage {
             quantidade: [null, [Validators.required]],
             pessoa_id: [null, [Validators.required]],
         });
-        this.mesaId = this.storage.get('mesa_id');
     }
 
     checkMaster() {
@@ -81,6 +80,7 @@ export class FazendoPedidoPage {
     getPessoa(): void {
         console.log("Resgatando pessoas no Back");
         this.storage.get("mesa_id").then( (mesa_id) => {
+            this.mesaId = mesa_id;
             this.pessoaService.getPessoasMesa(mesa_id).subscribe( (res) => {
                 this.pessoas = res;
                 console.log(this.pessoas);
@@ -121,9 +121,17 @@ export class FazendoPedidoPage {
                 this.consumidores[i].preco = dividido;
             }
             //Chamar a função da service
-            this.PedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, this.mesaId, [{id: 1, valor: 15}, {id: 2, valor: 10}]);
+            this.PedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, this.mesaId, this.consumidores).subscribe(
+                (res) => {
+                    console.log(res);
+                    this.router.navigate(['/tabs/tab3']);
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
             console.log(this.consumidores);
-            this.router.navigate(['/tabs/tab3']);
+
         }
         //divisão customizada
         else {
@@ -142,7 +150,15 @@ export class FazendoPedidoPage {
             if (soma == preco) {
                 //Chamar a função da Service
                 console.log("Yay");
-                this.router.navigate(['/tabs/tab3']);
+                this.PedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.valor, this.mesaId, this.consumidores).subscribe(
+                    (res) => {
+                        console.log(res);
+                        this.router.navigate(['/tabs/tab3']);
+                    },
+                    (error) => {
+                        console.log(error);
+                    }
+                );
             }
             else {
                 this.contaErrada();

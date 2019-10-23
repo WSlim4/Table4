@@ -1,4 +1,5 @@
 import { Component, OnInit,Input, Output, EventEmitter} from '@angular/core';
+import { PessoaService } from '../../services/pessoa/pessoa.service';
 import { AlertController} from '@ionic/angular';
 
 @Component({
@@ -10,10 +11,11 @@ export class PedidoPessoaCardComponent implements OnInit {
 
   @Input() pessoa;
   @Output() configuracaoClicked = new EventEmitter<number>();
+  @Output() nameUpdated = new EventEmitter<number>();
 
    configuracao:boolean=false;
 
-  constructor(public alertController: AlertController) { }
+  constructor(public alertController: AlertController, private pessoaService: PessoaService) { }
 
   async dropdownConfiguracao(){
     if (this.configuracao){
@@ -22,6 +24,7 @@ export class PedidoPessoaCardComponent implements OnInit {
       this.configuracao=true;
     }
     console.log("clicou");
+    console.log(this.pessoa);
   }
 
   async editandoPessoa(){
@@ -32,6 +35,7 @@ export class PedidoPessoaCardComponent implements OnInit {
         {
           name: 'name1',
           type: 'text',
+          value: this.pessoa.nome,
           placeholder: 'Editar Nome',
         }],
        buttons: [
@@ -44,7 +48,16 @@ export class PedidoPessoaCardComponent implements OnInit {
            }
          }, {
            text: 'Alterar',
-           handler: () => {
+           handler: (data) => {
+             this.pessoaService.updatePessoa(data.name1, this.pessoa.id).subscribe(
+                 (res) => {
+                     this.nameUpdated.emit();
+                     console.log(res);
+                 },
+                 (error) => {
+                     console.log(error);
+                 }
+             );
              console.log('Confirmado Alteração');
            }
          }
