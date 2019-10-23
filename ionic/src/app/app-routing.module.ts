@@ -45,7 +45,8 @@ const routes: Routes = [
   {
       path: 'estabelecimentos-detalhe',
       loadChildren: './estabelecimentos-detalhe/estabelecimentos-detalhe.module#EstabelecimentosDetalhePageModule'
-  }
+  },
+  { path: 'criando-pessoa', loadChildren: './criando-pessoa/criando-pessoa.module#CriandoPessoaPageModule' }
 
 ];
 @NgModule({
