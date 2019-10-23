@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
 import { ModalController } from '@ionic/angular';
 
 
+
 @Component({
   selector: 'app-editando-pedido-modal',
   templateUrl: './editando-pedido-modal.page.html',
@@ -16,14 +17,15 @@ import { ModalController } from '@ionic/angular';
 export class EditandoPedidoModalPage implements OnInit {
 private editandoPedidoForm: FormGroup;
 
+
 @Input() preco;
 @Input() id;
 @Input() quantidade;
 @Input() nome;
 mesaId;
+pessoas;
 
-
-  constructor(public viewCtrl: ModalController, public AlterandoPedido: PedidoService, private editandoPedido: FormBuilder, private storage: Storage) {
+  constructor(public viewCtrl: ModalController, public AlterandoPedido: PedidoService, private editandoPedido: FormBuilder, private storage: Storage, private pessoaService: PessoaService) {
 
     this.editandoPedidoForm = this.editandoPedido.group({
       nome: [null, [Validators.required]],
@@ -34,7 +36,18 @@ mesaId;
     this.mesaId = this.storage.get('mesa_id');
 
   }
-
+  getPessoa(): void {
+      console.log("Resgatando pessoas no Back");
+      this.storage.get("mesa_id").then( (mesa_id) => {
+          this.pessoaService.getPessoasMesa(mesa_id).subscribe( (res) => {
+              this.pessoas = res;
+              console.log(this.pessoas);
+              for (let pessoa of this.pessoas) {
+                  pessoa['checked'] = false;
+              }
+          });
+        });
+  }
 
 
 fecharModal() {
@@ -47,6 +60,7 @@ SalvarMudanca(){
     });
 }
   ngOnInit() {
+    this.getPessoa();
   }
 
 }
