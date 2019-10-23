@@ -21,21 +21,33 @@ private editandoPedidoForm: FormGroup;
 @Input() quantidade;
 @Input() nome;
 mesaId;
+pessoas;
 
 
-  constructor(public viewCtrl: ModalController, public AlterandoPedido: PedidoService, private editandoPedido: FormBuilder, private storage: Storage) {
+constructor(public viewCtrl: ModalController, 
+            private pessoaService: PessoaService,
+            public AlterandoPedido: PedidoService, 
+            private editandoPedido: FormBuilder, 
+            private storage: Storage) {
 
-    this.editandoPedidoForm = this.editandoPedido.group({
-      nome: [null, [Validators.required]],
-      valor: [null, [Validators.required]],
-      quantidade: [null, [Validators.required]],
-      pessoa_id: [null, [Validators.required]],
+  this.editandoPedidoForm = this.editandoPedido.group({
+    nome: [null, [Validators.required]],
+    valor: [null, [Validators.required]],
+    quantidade: [null, [Validators.required]],
+    pessoa_id: [null, [Validators.required]],
+  });
+  this.mesaId = this.storage.get('mesa_id');
+
+}
+
+getPessoa(){
+  console.log("Resgatando pessoas no Back");
+  this.storage.get("mesa_id").then( (mesa_id) => {
+      this.pessoaService.getPessoasMesa(mesa_id).subscribe( (res) => {
+          this.pessoas = res;
+      });
     });
-    this.mesaId = this.storage.get('mesa_id');
-
-  }
-
-
+}
 
 fecharModal() {
 this.viewCtrl.dismiss();
