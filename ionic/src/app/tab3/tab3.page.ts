@@ -23,17 +23,17 @@ constructor(private pedidoService: PedidoService, public modalController: ModalC
       this.pedidoService.getPedidosMesa(mesa_id).subscribe( (res) => {
         console.log(res);
         this.pedidos = res;
+        if(this.pedidos.length == 0){
+          this.pedidosVazio = true;
+        }
+        else{
+          this.pedidosVazio = false;
+        }
       },
       (error) => {
           console.log(error);
       });
     });
-      if(this.pedidos.length == 0){
-        this.pedidosVazio = true;
-      }
-      else{
-        this.pedidosVazio = false;
-      }
   }
 
   }

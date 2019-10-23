@@ -15,7 +15,7 @@ export class GerenciarpessoasPage implements OnInit {
 
 
   constructor(
-    public service: PessoaService,
+    public pessoaService: PessoaService,
     private storage: Storage,
     public formBuilder: FormBuilder) {
       this.gerenciarPessoa = this.formBuilder.group({
@@ -31,7 +31,7 @@ export class GerenciarpessoasPage implements OnInit {
   getPessoa(id):void{
     console.log("Resgatando pessoas no Back");
     this.storage.get("mesa_id").then( (mesa_id) => {
-      this.service.getPessoasMesa(mesa_id).subscribe( (res) => {
+      this.pessoaService.getPessoasMesa(mesa_id).subscribe( (res) => {
         this.pessoas = res;
         console.log(res);
       });
@@ -48,7 +48,7 @@ export class GerenciarpessoasPage implements OnInit {
 
   ionViewWillEnter() {
      this.storage.get("mesa_id").then( (mesa_id) => {
-      this.pessoaService.getPessoas(mesa_id).subscribe( (res) => {
+      this.pessoaService.getPessoasMesa(mesa_id).subscribe( (res) => {
         console.log(res);
         this.pessoas = res;
       },
