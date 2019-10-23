@@ -16,6 +16,7 @@ class Pedido extends Model
                     ->withPivot('valor_divisao')
                     ->withTimestamps();
     }
+
     protected $casts = [
         'dividindo' => 'array'
     ];
@@ -25,7 +26,7 @@ class Pedido extends Model
             Entrada->uma request passada pela controller
             Saída->pedido salvo no BD*/
         $arr = json_decode($request->dividindo, true);
-        
+
         $this->nome = $request->nome;
         $this->quantidade = $request->quantidade;
         $this->preco = $request->preco;
@@ -37,7 +38,7 @@ class Pedido extends Model
         /*Função que atualiza um pedido no BD
             Entrada->uma request passada pela controller
             Saída->pedido salvo no BD*/
-       
+
         if($request->nome)
             $this->nome = $request->nome;
         if($request->quantidade)
@@ -55,5 +56,5 @@ class Pedido extends Model
         $this->pessoas()->attach($pessoas_id);
         $this->save();
     }
-    
+
 }

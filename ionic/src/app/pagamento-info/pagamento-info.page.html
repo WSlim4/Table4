@@ -1,3 +1,5 @@
+<div id="page-mask" *ngIf="drawerState == 2" (click)="closeDrawer()"></div>
+
 <ion-header>
     <ion-toolbar>
         <ion-row class="ion-justify-content-between">
@@ -8,7 +10,7 @@
                     </ion-buttons>
                 </div>
             </ion-col>
-            <ion-col class="ion-align-self-center">
+            <ion-col size="8" class="ion-align-self-center">
                 <ion-title>
                     Pagamento
                 </ion-title>
@@ -19,7 +21,7 @@
 </ion-header>
 
 <ion-content no-bounce class="ion-padding ion-justify-content-center">
-    <section id="nota-fiscal" (click)="closeDrawer()">
+    <section id="nota-fiscal">
         <ion-row class="ion-justify-content-center backgroundCinza">
             <h3>Consumido por <span *ngIf="pessoa">{{ pessoa.nome }}</span></h3>
         </ion-row>
@@ -37,7 +39,7 @@
                     <p class="ion-text-center">{{ pedido.nome }}</p>
                 </ion-col>
                 <ion-col class="ion-justify-content-center backgroundCinza">
-                    <p>R$ {{ pedido.valor }}</p>
+                    <p>R$ {{ pedido.pivot.valor_divisao }}</p>
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -53,7 +55,7 @@
         <ion-row class="ion-justify-content-center taxa backgroundCinza">
             Total a pagar
         </ion-row>
-        <ion-row class="ion-justify-content-center backgroundCinza">
+        <ion-row *ngIf="pessoa" class="ion-justify-content-center backgroundCinza">
             <p>R$ {{ totalNovo }}</p>
         </ion-row>
 
@@ -81,42 +83,42 @@
 <ion-bottom-drawer [(state)]="drawerState" [minimumHeight]="minimumHeight" [dockedHeight]="dockedHeight" [shouldBounce]="shouldBounce" [distanceTop]="distanceTop" [disableDrag]="disableDrag">
     <div class="drawer-content">
         <ion-grid>
-            <ion-row class="ion-justify-content-around">
-                <ion-col class="ion-justify-content-center pagCol">
-                    <div (click)="pagPicPay()" class="pagIcon">
-                        <img src="https://lh3.googleusercontent.com/cPVcPlBGhzX4mIvFPMuA_tZwZcKtH98W7e4yQaXAM_W-SSFPVNxVxVkSTXn5-pLVHMg=s180-rw">
+            <ion-row class="ion-justify-content-around pagRow">
+                <ion-col class="ion-justify-content-center pagCol" (click)="pagPicPay()">
+                    <div>
+                        <img class="pagIcon" src="https://lh3.googleusercontent.com/cPVcPlBGhzX4mIvFPMuA_tZwZcKtH98W7e4yQaXAM_W-SSFPVNxVxVkSTXn5-pLVHMg=s180-rw">
                         <p class="pagNome">PicPay</p>
                     </div>
                 </ion-col>
-                <ion-col class="ion-justify-content-center pagCol">
-                    <div (click)="pagPayPal()" class="pagIcon">
-                        <img src="https://lh3.googleusercontent.com/Y2_nyEd0zJftXnlhQrWoweEvAy4RzbpDah_65JGQDKo9zCcBxHVpajYgXWFZcXdKS_o=s180-rw">
+                <ion-col class="ion-justify-content-center pagCol" (click)="pagPayPal()">
+                    <div>
+                        <img class="pagIcon" src="https://lh3.googleusercontent.com/Y2_nyEd0zJftXnlhQrWoweEvAy4RzbpDah_65JGQDKo9zCcBxHVpajYgXWFZcXdKS_o=s180-rw">
                         <p class="pagNome">PayPal</p>
                     </div>
                 </ion-col>
-                <ion-col class="ion-justify-content-center pagCol">
-                    <div (click)="pagCielo()" class="pagIcon">
-                        <img src="https://lh3.googleusercontent.com/9VfEE0TduDzLEOehK0hcQ6swqfn2Ry8nv0oeX0rD3f2jNG3QpFFC5IIs0xEWMJdzo2T6=s180-rw">
+                <ion-col class="ion-justify-content-center pagCol" (click)="pagCielo()">
+                    <div>
+                        <img class="pagIcon" src="https://lh3.googleusercontent.com/9VfEE0TduDzLEOehK0hcQ6swqfn2Ry8nv0oeX0rD3f2jNG3QpFFC5IIs0xEWMJdzo2T6=s180-rw">
                         <p class="pagNome">Cielo</p>
                     </div>
                 </ion-col>
             </ion-row>
             <ion-row class="ion-justify-content-around">
-                <ion-col class="ion-justify-content-center pagCol">
-                    <div (click)="pagWad()" class="pagIcon">
-                        <img src="https://lh3.googleusercontent.com/YyXZH_hs2DLYECBn75ySvuQJ-jznanuYPu6HmUdXuXu8oJGL9a3-6MRJZ7J5mhJgrw=s180-rw">
+                <ion-col class="ion-justify-content-center pagCol" (click)="pagWad()">
+                    <div>
+                        <img class="pagIcon" src="https://lh3.googleusercontent.com/YyXZH_hs2DLYECBn75ySvuQJ-jznanuYPu6HmUdXuXu8oJGL9a3-6MRJZ7J5mhJgrw=s180-rw">
                         <p class="pagNome">WAD</p>
                     </div>
                 </ion-col>
-                <ion-col class="ion-justify-content-center pagCol">
-                    <div (click)="pagPagBank()" class="pagIcon">
-                        <img src="https://lh3.googleusercontent.com/Gu_HMGQWnKMkAsdnOj5BovNQVZ4um80oGHD4PZPXpwYFKFbb3-t76-15uBdOrQrmbA=s180-rw">
+                <ion-col class="ion-justify-content-center pagCol" (click)="pagPagBank()">
+                    <div>
+                        <img class="pagIcon" src="https://lh3.googleusercontent.com/Gu_HMGQWnKMkAsdnOj5BovNQVZ4um80oGHD4PZPXpwYFKFbb3-t76-15uBdOrQrmbA=s180-rw">
                         <p class="pagNome">PagBank</p>
                     </div>
                 </ion-col>
-                <ion-col class="ion-justify-content-center pagCol">
-                    <div (click)="pagBoletoFacil()" class="pagIcon">
-                        <img src="https://lh3.googleusercontent.com/ma_-Dj2gjaTIh7Sn_FibeFz1AP0ByprKtJgJPfXSnpOHBPDmmjyOPPf1XsAtg4DApw=s180-rw">
+                <ion-col class="ion-justify-content-center pagCol" (click)="pagBoletoFacil()">
+                    <div>
+                        <img class="pagIcon" src="https://lh3.googleusercontent.com/ma_-Dj2gjaTIh7Sn_FibeFz1AP0ByprKtJgJPfXSnpOHBPDmmjyOPPf1XsAtg4DApw=s180-rw">
                         <p class="pagNome">Boleto Fácil</p>
                     </div>
                 </ion-col>

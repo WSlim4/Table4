@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../services/pessoa/pessoa.service';
 import { PedidoService } from '../services/pedido/pedido.service';
 import { Router } from '@angular/router';
+
 import { DrawerState } from 'ion-bottom-drawer';
 import { HostListener } from "@angular/core";
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
@@ -31,7 +32,7 @@ export class PagamentoInfoPage implements OnInit {
     //     }
     // ];
 
-    taxa;
+    taxa = 10;
     total;
     totalNovo;
     pessoaId;
@@ -58,19 +59,14 @@ export class PagamentoInfoPage implements OnInit {
     ngOnInit() {
         this.pedidoService.getPedidosPessoa(this.pessoaId).subscribe((res) => {
             this.pessoa = res;
+            //Calcula o total com a taxa
+            this.calculaTotal(this.taxa);
             console.log(this.pessoa);
         });
     }
 
     ionViewWillEnter() {
-        //Recebe o total da conta
-        this.total = 60;
 
-        //Taxa padrão é 10%
-        this.taxa = 10;
-
-        //Calcula o total com a taxa
-        this.calculaTotal(this.taxa);
     }
 
     @HostListener('window:resize', ['$event'])
@@ -125,8 +121,8 @@ export class PagamentoInfoPage implements OnInit {
 
     //Função que calcula o total do pagamento incluindo a taxa de servço que o usuário escolheu
     calculaTotal(taxa) {
-        let porcentagem = (this.total * taxa) / 100;
-        this.totalNovo = this.total + porcentagem;
+        let porcentagem = (this.pessoa.valorConta * taxa) / 100;
+        this.totalNovo = this.pessoa.valorConta + porcentagem;
     }
 
 }
