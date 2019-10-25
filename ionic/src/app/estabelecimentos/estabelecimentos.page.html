@@ -13,5 +13,10 @@
 </ion-toolbar>
 
 <ion-content class="ion-padding">
+
+  <h1> Sua Latitude {{latitude}}</h1>
+  <h2> Sua Longitude {{longitude}} </h2>
+  <ion-button (click)="getLocalizacao()"> Teste localização</ion-button>
+
     <app-estabelecimentos-list *ngFor="let estabelecimento of estabelecimentos" [estabelecimentoInfo]="estabelecimento" (estabelecimentoClicked)="detalheEstabelecimento($event)"></app-estabelecimentos-list>
 </ion-content>
