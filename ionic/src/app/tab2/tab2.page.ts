@@ -30,6 +30,15 @@ export class Tab2Page {
         });
     }
 
+        deletePessoa(id) {
+        console.log(id);
+        this.pessoaService.deletePessoa(id).subscribe(
+            (res) => {
+                console.log(res);
+            }
+        );
+    }
+
     atualizarPessoas() {
         this.getPessoas();
     }

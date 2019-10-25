@@ -100,32 +100,32 @@ export class PagamentoInfoPage implements OnInit {
     }
 
     pagPicPay() {
-        this.pagApp = this.inAppBrowser.create('com.picpay','_system',{location:'yes'});
+        this.pagApp = this.inAppBrowser.create('https://play.google.com/store/apps/details?id=com.picpay','_system',{location:'yes'});
         this.closeDrawer();
     }
 
     pagPayPal() {
-        this.pagApp = this.inAppBrowser.create('com.paypal.android.p2pmobile','_system',{location:'yes'});
+        this.pagApp = this.inAppBrowser.create('https://play.google.com/store/apps/details?id=com.paypal.android.p2pmobile','_system',{location:'yes'});
         this.closeDrawer();
     }
 
     pagCielo() {
-        this.pagApp = this.inAppBrowser.create('com.m4u.cielomobile','_system',{location:'yes'});
+        this.pagApp = this.inAppBrowser.create('https://play.google.com/store/apps/details?id=com.m4u.cielomobile','_system',{location:'yes'});
         this.closeDrawer();
     }
 
     pagWad() {
-        this.pagApp = this.inAppBrowser.create('br.com.wad','_system',{location:'yes'});
+        this.pagApp = this.inAppBrowser.create('https://play.google.com/store/apps/details?id=br.com.wad','_system',{location:'yes'});
         this.closeDrawer();
     }
 
     pagPagBank() {
-        this.pagApp = this.inAppBrowser.create('br.com.uol.ps.myaccount','_system',{location:'yes'});
+        this.pagApp = this.inAppBrowser.create('https://play.google.com/store/apps/details?id=br.com.uol.ps.myaccount','_system',{location:'yes'});
         this.closeDrawer();
     }
 
-    pagBoletoFacil() {
-        this.pagApp = this.inAppBrowser.create('com.boletobancario.boletofacil','_system',{location:'yes'});
+    pagNubank() {
+        this.pagApp = this.inAppBrowser.create('https://play.google.com/store/apps/details?id=com.nu.production','_system',{location:'yes'});
         this.closeDrawer();
     }
 }
