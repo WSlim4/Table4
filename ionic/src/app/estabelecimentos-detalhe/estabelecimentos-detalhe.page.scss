@@ -90,11 +90,16 @@ p {
 
 #instagram {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+  
 }
 
 #line {
     margin-top: 1em;
     border-top: 5px solid #981B26;
+}
+
+#botao_criarMersa{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
