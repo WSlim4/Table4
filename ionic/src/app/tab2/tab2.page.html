@@ -12,7 +12,6 @@
   </section>
 
 
-  <app-pedido-pessoa-card *ngFor="let pessoa of pessoas" [pessoa]="pessoa" (configuracaoClicked)="goToConfiguracaoPedidoModal($event)" (nameUpdated)="atualizarPessoas($event)"
-  (pagamentoClicked)="pagamento($event)"> </app-pedido-pessoa-card>
+  <app-pedido-pessoa-card *ngFor="let pessoa of pessoas" [pessoa]="pessoa" (configuracaoClicked)="goToConfiguracaoPedidoModal($event)" (nameUpdated)="atualizarPessoas($event)" (pagamentoClicked)="pagamento($event)"> </app-pedido-pessoa-card>
   <div id="fab_space"></div>
 </ion-content>
