@@ -17,7 +17,7 @@ export class MesaService {
   };
 
   constructor(public http: HttpClient) {
-    
+
   }
 
   createTable(estabelecimento: string, moeda: string):Observable<any> {
@@ -26,6 +26,18 @@ export class MesaService {
       'moeda': moeda
     }, this.httpHeaders).pipe(map(res => res));
   }
+
+  getMesas(): Observable<any> {
+      return this.http.get(SERVER_URL + 'mesa/').pipe(map(res => res));
+    }
+
+    getMesa(id: number): Observable<any> {
+        return this.http.get(SERVER_URL + 'mesa/' + id).pipe(map(res => res));
+    }
+
+getValorPedido(mesa_id: number, pedido_id: number):Observable<any>{
+    return this.http.get(SERVER_URL + 'conta/' + mesa_id + pedido_id).pipe(map(res => res));
+}
 
   getContaTotal(id: number):Observable<any> {
     return this.http.get(SERVER_URL + 'contasMesa/' + id).pipe(map(res => res));

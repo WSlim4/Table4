@@ -15,6 +15,7 @@ export class PedidoCardComponent implements OnInit {
 
   @Input() pedido;
   @Output() configuracaoClicked = new EventEmitter<number>();
+@Output() nameUpdated = new EventEmitter<number>();
 
   configuracao:boolean=false;
 
@@ -33,11 +34,24 @@ export class PedidoCardComponent implements OnInit {
      this.goToConfiguracaoPedidoModal();
     }
 
-    async deletandoPedido(id){
+    // async deletandoPedido(id){
+    //     console.log(id);
+    //     this.pedidoService.deletePedido(id).subscribe( (res) =>{
+    //         console.log(res);
+    //     });
+    // }
+
+    deletarPedido(id) {
         console.log(id);
-        this.pedidoService.deletePedido(id).subscribe( (res) =>{
-            console.log(res);
-        });
+        this.pedidoService.deletePedido(id).subscribe(
+            (res) => {
+                this.nameUpdated.emit();
+                console.log(res);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
     }
 
     async goToConfiguracaoPedidoModal(){

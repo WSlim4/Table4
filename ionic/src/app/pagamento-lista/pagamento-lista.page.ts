@@ -27,7 +27,7 @@ export class PagamentoListaPage implements OnInit {
       (error) => {
           console.log(error);
       });
-    })
+  });
   }
 
   mostrarDetalhe(id){

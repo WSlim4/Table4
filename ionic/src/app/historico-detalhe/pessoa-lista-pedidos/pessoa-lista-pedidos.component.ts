@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pessoa-lista-pedidos',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pessoa-lista-pedidos.component.scss'],
 })
 export class PessoaListaPedidosComponent implements OnInit {
+
+    @Input() pessoaInfo;
 
 maisDetalhes:boolean=false;
   constructor() { }

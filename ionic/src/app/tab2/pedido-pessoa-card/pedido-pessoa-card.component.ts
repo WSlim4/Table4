@@ -92,7 +92,7 @@ export class PedidoPessoaCardComponent implements OnInit {
     }
 
     ionViewWillEnter() {
-
+        this.nameUpdated.emit();
     }
 
     ngOnInit() { }

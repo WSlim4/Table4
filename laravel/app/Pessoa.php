@@ -52,5 +52,4 @@ class Pessoa extends Model
         $this->save();
     }
 
-
 }

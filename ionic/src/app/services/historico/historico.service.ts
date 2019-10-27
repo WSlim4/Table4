@@ -9,12 +9,12 @@ export class HistoricoService {
 
     constructor() { }
 
-    setMesa(id, mesas) {
-        this.mesas = mesas[id];
-        console.log(this.mesas);
-    }
-
-    getMesa() {
-        return this.mesas;
-    }
+//     setMesa(id, mesas) {
+//         this.mesas = mesas[id];
+//         console.log(this.mesas);
+//     }
+// 
+//     getMesa() {
+//         return this.mesas;
+//     }
 }

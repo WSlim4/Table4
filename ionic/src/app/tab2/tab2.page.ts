@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page {
     pessoas = [];
+    mesaId;
+    href;
 
     constructor(
         public pessoaService: PessoaService,
@@ -30,7 +32,7 @@ export class Tab2Page {
         });
     }
 
-        deletePessoa(id) {
+    deletePessoa(id) {
         console.log(id);
         this.pessoaService.deletePessoa(id).subscribe(
             (res) => {
@@ -43,14 +45,26 @@ export class Tab2Page {
         this.getPessoas();
     }
 
-    ngOnInit() { }
+    pagamento(id) {
+        console.log(id);
+        this.router.navigate(['pagamento-info'], id);
+    }
+
+    numPessoas(numPessoas) {
+        this.router.navigate(['criando-pessoa'], numPessoas);
+    }
+
+    refresh(): void {
+        window.location.reload();
+    }
+
+    ngOnInit() {
+    this.mesaId = this.router.getCurrentNavigation().extras;
+
+}
 
     ionViewWillEnter() {
-        this.getPessoas();
+        this.atualizarPessoas();
     }
 
-    pagamento(id){
-      console.log(id);
-      this.router.navigate(['pagamento-info'], id);
-    }
 }

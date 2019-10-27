@@ -11,12 +11,12 @@
         <ion-col size="2"></ion-col>
     </ion-row>
 </ion-toolbar>
-<ion-content class="ion-padding" *ngIf="mesaDetalhe">
+<ion-content class="ion-padding" *ngIf="mesa">
     <ion-item lines="none">
         <ion-label class="ion-text-wrap">
             <ion-text>
-                <h2 class="subtitle">{{ mesaDetalhe.estabelecimento }}</h2>
-                <p><strong>Total: </strong>R$ {{ mesaDetalhe.total}}</p>
+                <h2 class="subtitle">{{ mesa.estabelecimento }}</h2>
+                <p><strong>Total: </strong>R$ {{ mesa.valorTotal }}</p>
             </ion-text>
         </ion-label>
     </ion-item>
@@ -29,7 +29,7 @@
         </ion-label>
     </ion-item>
     <!-- dropdown com os clientes -->
-<app-pessoa-lista-pedidos> </app-pessoa-lista-pedidos>
+<app-pessoa-lista-pedidos *ngFor="let pessoa of pessoas" [pessoaInfo]="pessoa"> </app-pessoa-lista-pedidos>
 
 
     <ion-item lines="full">
@@ -39,11 +39,11 @@
             </ion-text>
         </ion-label>
     </ion-item>
-    <ion-list>
-        <ion-item *ngFor="let pedido of mesaDetalhe.pedidos">
+    <ion-list *ngIf="pedidos">
+        <ion-item *ngFor="let pedido of pedidos">
             <ion-label class="ion-text-wrap">
                 <ion-text>
-                    <p>{{ pedido.pedido }}: R$ {{ pedido.valor }}</p>
+                    <p>{{ pedido.nome }}: R$ {{ pedido.valorPedido }}</p>
                 </ion-text>
             </ion-label>
         </ion-item>

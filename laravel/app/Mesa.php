@@ -28,4 +28,10 @@ class Mesa extends Model
         $this->valorTotal = $preco;
         $this->save();
     }
+
+    public function valorPedido(Pedido $id){
+        $pedido = findOrFail($id);
+        $valor = $pedido->quantidade * $pedido->preco;
+        return $valor;
+    }
 }

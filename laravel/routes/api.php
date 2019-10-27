@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/pessoa', 'PessoaController@createPessoa');
+Route::post('/pessoas','PessoaController@createPessoas');
 Route::put('/pessoa/{id}', 'PessoaController@updatePessoa');
 Route::get('/pessoa/{id}', 'PessoaController@showPessoa');
 Route::delete('/pessoa/{id}', 'PessoaController@deletePessoa');
@@ -30,7 +31,8 @@ Route::put('/pedido/{id}', 'PedidoController@updatePedido');
 Route::delete('/pedido/{id}', 'PedidoController@deletePedido');
 
 Route::post('/mesa','MesaController@createMesa');
-
+Route::get('/mesa','MesaController@listMesas');
+Route::get('/mesa/{id}','MesaController@showMesa');
 Route::get('/pedidosMesa/{id}','MesaController@pedidosMesa');
 Route::get('/pessoasMesa/{id}', 'MesaController@pessoasMesa');
 Route::get('pessoasMesaComPedidos/{id}', 'MesaController@pessoasMesaComPedidos');
@@ -42,4 +44,5 @@ Route::get('/estabelecimento', 'EstabelecimentoController@listEstabelecimentos')
 Route::delete('/estabelecimento/{id}', 'EstabelecimentoController@deleteEstabelecimento');
 
 Route::get('/conta/{id}','PessoaController@showConta');
+Route::get('/conta/{mesa_id}/{pedido_id}','MesaController@valorPedido');
 Route::get('/contasMesa/{id}', 'MesaController@contaTotal');
