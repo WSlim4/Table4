@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EstabelecimentosService } from '../services/estabelecimentos/estabelecimentos.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-estabelecimentos',
@@ -10,8 +11,13 @@ import { EstabelecimentosService } from '../services/estabelecimentos/estabeleci
 export class EstabelecimentosPage implements OnInit {
 
   estabelecimentos: any[];
+  latitude: number;
+  longitude:number;
 
-  constructor(public router: Router, public estabelecimentosService: EstabelecimentosService) {
+  constructor(
+    public router: Router,
+    public estabelecimentosService: EstabelecimentosService,
+    private geolocalizacao: Geolocation) {
     this.estabelecimentos = [
       {
         id: 0,
@@ -486,6 +492,16 @@ getEstabelecimentos() {
 
     this.estabelecimentosService.setEstabelecimento(id, this.estabelecimentos);
     this.router.navigate(['estabelecimentos-detalhe'], id);
+  }
+
+  getLocalizacao(){
+
+  this.geolocalizacao.getCurrentPosition().then((resp) => {
+   this.latitude = (resp.coords.latitude);
+   this.longitude= (resp.coords.longitude);
+  }).catch((error) => {
+    console.log('Error getting location', error);
+  });
   }
 
   // detalheEstabelecimento(id) {
