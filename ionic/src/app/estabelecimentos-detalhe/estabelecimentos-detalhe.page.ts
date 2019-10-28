@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EstabelecimentosService } from '../services/estabelecimentos/estabelecimentos.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-estabelecimentos-detalhe',
@@ -9,8 +10,11 @@ import { EstabelecimentosService } from '../services/estabelecimentos/estabeleci
 export class EstabelecimentosDetalhePage implements OnInit {
 
     estabelecimentoDetalhe: any[];
+    estabelecimentoId;
 
-    constructor(public estabelecimentosService: EstabelecimentosService) { }
+    constructor(private estabelecimentosService: EstabelecimentosService, private router: Router) {
+        // this.estabelecimentoId = this.router.getCurrentNavigation().extras;
+    }
 
     getEstabelecimento(): void {
         this.estabelecimentoDetalhe = this.estabelecimentosService.getEstabelecimento();
@@ -19,6 +23,13 @@ export class EstabelecimentosDetalhePage implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    ionViewWillEnter() {
+        // this.estabelecimentosService.getEstabelecimento(this.estabelecimentoId).subscribe((res) => {
+        //     this.estabelecimentoDetalhe = res;
+        //     console.log(this.estabelecimentoDetalhe);
+        // });
     }
 
     ionViewDidEnter() {

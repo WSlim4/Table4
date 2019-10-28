@@ -17,6 +17,7 @@ class CreatePedidoPessoaTable extends Migration
             $table->bigIncrements('id');
             $table->integer('pedido_id')->unsigned();
             $table->integer('pessoa_id')->unsigned();
+            $table->string('valor_divisao')->nullable();
             $table->timestamps();
         });
 

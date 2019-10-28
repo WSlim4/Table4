@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PessoaService } from '../../services/pessoa/pessoa.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { PedidoService } from '../../services/pedido/pedido.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class PedidoPessoaCardComponent implements OnInit {
     configuracao: boolean = false;
 
     constructor(public alertController: AlertController,
+        private toastController: ToastController,
         private pedidoService: PedidoService,
         private pessoaService: PessoaService) { }
 
@@ -56,7 +57,7 @@ export class PedidoPessoaCardComponent implements OnInit {
                 }, {
                     text: 'Alterar',
                     handler: (data) => {
-                        this.pessoaService.updatePessoa(data.name1, this.pessoa.id).subscribe(
+                        this.pessoaService.updatePessoaNome(data.name1, this.pessoa.id).subscribe(
                             (res) => {
                                 this.nameUpdated.emit();
                                 console.log(res);
@@ -79,16 +80,29 @@ export class PedidoPessoaCardComponent implements OnInit {
     }
 
     deletarPessoa(id) {
-        console.log(id);
-        this.pessoaService.deletePessoa(id).subscribe(
-            (res) => {
-                this.nameUpdated.emit();
-                console.log(res);
-            },
-            (error) => {
-                console.log(error);
-            }
-        );
+        if(this.pessoa.valorConta){
+            this.devePagar();
+        }
+        else {
+            this.pessoaService.deletePessoa(id).subscribe(
+                (res) => {
+                    this.nameUpdated.emit();
+                    console.log(res);
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
+        }
+    }
+
+    async devePagar() {
+        const toast = await this.toastController.create({
+            position: "top",
+            message: "Há pedidos pendentes. Por favor, pague sua conta ou delete seu pedido.",
+            duration: 2000
+        });
+        toast.present();
     }
 
     ionViewWillEnter() {

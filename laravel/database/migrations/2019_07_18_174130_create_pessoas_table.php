@@ -18,14 +18,15 @@ class CreatePessoasTable extends Migration
             $table->float('valorConta')->nullable()->default(0);
             $table->string('nome');
             $table->integer('mesa_id')->unsigned()->nullable();
+            $table->boolean('pago')->default(false);
             $table->timestamps();
         });
         Schema::table('pessoas', function (Blueprint $table){
-            
+
             $table->foreign('mesa_id')->references('id')->on('mesas')->onDelete('cascade');
         });
     }
-      
+
     /**
      * Reverse the migrations.
      *

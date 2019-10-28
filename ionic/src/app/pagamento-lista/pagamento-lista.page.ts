@@ -19,10 +19,15 @@ export class PagamentoListaPage implements OnInit {
 
   ionViewWillEnter() {
     this.pessoas = [];
+    let people = [];
     this.storage.get("mesa_id").then( (mesa_id) => {
       this.pessoaService.getPessoasMesa(mesa_id).subscribe( (res) => {
-        console.log(res);
-        this.pessoas = res;
+        res.forEach(function (item) {
+            if(!item.pago) {
+                people.push(item);
+            }
+        });
+        this.pessoas = people;
       },
       (error) => {
           console.log(error);

@@ -31,6 +31,7 @@ class Pessoa extends Model
 
         $this->nome = $request->nome;
         $this->mesa_id = $request->mesa_id;
+        $this->pago = false;
         $this->save();
     }
 
@@ -41,6 +42,7 @@ class Pessoa extends Model
 
         if($request->nome)
             $this->nome = $request->nome;
+            $this->pago = $request->pago;
         // if($request->mesa_id)
         //     $this->mesa_id = $request->mesa_id;
         $this->save();

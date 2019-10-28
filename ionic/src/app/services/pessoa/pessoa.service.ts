@@ -36,25 +36,33 @@ export class PessoaService {
         return this.http.delete(this.url + "/" + id);
     }
 
-    createPessoa(nome: string, id: number): Observable<any> {
+    createPessoa(nome: string, id: number, pago: boolean): Observable<any> {
         return this.http.post(this.url, {
             'nome': nome,
             'mesa_id': id,
+            'pago': pago
         }, this.httpHeaders).pipe(map(res => res));
     }
 
-    createPessoas(pessoas: any, mesa_id: number):Observable<any> {
+    createPessoas(pessoas: any, mesa_id: number, pago: boolean):Observable<any> {
         return this.http.post(SERVER_URL + 'pessoas', {
             'pessoas': pessoas,
-            'mesa_id': mesa_id
+            'mesa_id': mesa_id,
+            'pago': pago
         }, this.httpHeaders).pipe(map(res => res));
     }
 
-    updatePessoa(nome: string, id: number): Observable<any> {
+    updatePessoaNome(nome: string, id: number): Observable<any> {
         return this.http.put(this.url + "/" + id, {
-            'nome': nome
+            'nome': nome,
+            'pago': false
         }, this.httpHeaders).pipe(map(res => res));
     }
 
+    updatePessoaPag(pago: boolean, id: number): Observable<any> {
+        return this.http.put(this.url + "/" + id, {
+            'pago': pago
+        }, this.httpHeaders).pipe(map(res => res));
+    }
 
 }

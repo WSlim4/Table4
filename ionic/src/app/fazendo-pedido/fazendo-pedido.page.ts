@@ -47,10 +47,6 @@ export class FazendoPedidoPage {
         });
     }
 
-    ngOnInit() {
-        this.getPessoas();
-    }
-
     checkMaster() {
         setTimeout(() => {
             this.pessoas.forEach(obj => {
@@ -85,12 +81,19 @@ export class FazendoPedidoPage {
         this.toggle = !this.toggle;
     }
 
-    getPessoas(): void {
+    getPessoas(){
+        this.pessoas = [];
+        let people = [];
         console.log("Resgatando pessoas no Back");
         this.storage.get("mesa_id").then( (mesa_id) => {
             this.mesaId = mesa_id;
             this.pessoaService.getPessoasMesa(mesa_id).subscribe( (res) => {
-                this.pessoas = res;
+                res.forEach(function (item) {
+                    if(!item.pago) {
+                        people.push(item);
+                    }
+                });
+                this.pessoas = people;
                 console.log(this.pessoas);
                 for (let pessoa of this.pessoas) {
                     pessoa['checked'] = false;
@@ -100,15 +103,7 @@ export class FazendoPedidoPage {
     }
 
     ionViewWillEnter() {
-     this.storage.get("mesa_id").then( (mesa_id) => {
-      this.pessoaService.getPessoasMesa(mesa_id).subscribe( (res) => {
-        console.log(res);
-        this.pessoas = res;
-      },
-      (error) => {
-          console.log(error);
-      });
-    });
+        this.getPessoas();
     }
 
     onSubmit(form) {
@@ -193,7 +188,7 @@ export class FazendoPedidoPage {
 
     async contaErrada() {
         const toast = await this.toastController.create({
-            position: "middle",
+            position: "top",
             message: "A conta não está batendo!",
             duration: 2000
         });
@@ -202,7 +197,7 @@ export class FazendoPedidoPage {
 
     async preencherCampos() {
         const toast = await this.toastController.create({
-            position: "middle",
+            position: "top",
             message: "Preencha todos os campos corretamente!",
             duration: 2000
         });

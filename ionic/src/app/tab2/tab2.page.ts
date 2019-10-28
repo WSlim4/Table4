@@ -21,24 +21,22 @@ export class Tab2Page {
         private router: Router
     ) { }
 
-    getPessoas(): void {
+    getPessoas(){
+        this.pessoas = [];
+        let people = [];
         console.log("Resgatando pessoas no Back");
         this.storage.get("mesa_id").then((mesa_id) => {
             this.pessoaService.getPessoasPedidos(mesa_id).subscribe((res) => {
-                this.pessoas = res;
-                console.log(res);
+                res.forEach(function (item) {
+                    if(!item.pago) {
+                        people.push(item);
+                    }
+                });
+                this.pessoas = people;
                 console.log(mesa_id);
+                console.log(this.pessoas);
             });
         });
-    }
-
-    deletePessoa(id) {
-        console.log(id);
-        this.pessoaService.deletePessoa(id).subscribe(
-            (res) => {
-                console.log(res);
-            }
-        );
     }
 
     atualizarPessoas() {
@@ -54,16 +52,12 @@ export class Tab2Page {
         this.router.navigate(['criando-pessoa'], numPessoas);
     }
 
-    refresh(): void {
-        window.location.reload();
-    }
-
     ngOnInit() {
     this.mesaId = this.router.getCurrentNavigation().extras;
 
 }
 
-    ionViewWillEnter() {
+    ionViewDidEnter() {
         this.atualizarPessoas();
     }
 

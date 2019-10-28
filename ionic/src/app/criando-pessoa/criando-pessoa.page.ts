@@ -39,7 +39,7 @@ export class CriandoPessoaPage implements OnInit {
     onSubmit(form) {
         console.log(form);
         this.storage.get("mesa_id").then((mesa_id) => {
-            this.pessoaService.createPessoas(form.value, mesa_id).subscribe(
+            this.pessoaService.createPessoas(form.value, mesa_id, false).subscribe(
                 (res) => {
                     console.log(res.data);
                     this.router.navigate(['tabs/tab2']).then(() => {
