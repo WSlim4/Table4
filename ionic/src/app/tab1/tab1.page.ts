@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Storage} from '@ionic/storage';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor( private storage: Storage) {}
 
+  mesaAberta:boolean;
+
+ ionViewWillEnter(){
+   this.storage.get("mesa_id").then( (mesa_id)=>{
+     if (mesa_id){
+       this.mesaAberta=true;
+     }else{
+       this.mesaAberta=false;
+     }
+   });
+ }
 }

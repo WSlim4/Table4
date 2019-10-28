@@ -10,7 +10,8 @@
   <h1 class="titulo-campo-opcao">Bem vindo ao Table4</h1>
   <p class="subtitulo-campo-opcao">Aqui você divide a conta como quiser sem esforço</p>
   <section>
-    <ion-button mode="ios" expand="block" class="abrir_mesa" routerLink="/tutorial" routerDirection="root">Abrir mesa</ion-button>
+    <ion-button mode="ios" expand="block" class="abrir_mesa" routerLink="/tutorial" routerDirection="root" *ngIf="!mesaAberta">Abrir mesa</ion-button>
+<ion-button mode="ios" expand="block" class="abrir_mesa" routerLink="/tabs/tab2" routerDirection="root" *ngIf="mesaAberta">Continuar</ion-button>
   </section>
   <a routerLink="/estabelecimentos">
     <ion-button mode="ios" expand="block" fill="outline" class="mesa_anterior">Encontrar estabelecimentos</ion-button>

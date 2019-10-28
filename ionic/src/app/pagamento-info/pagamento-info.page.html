@@ -1,12 +1,11 @@
 <div id="page-mask" *ngIf="drawerState == 2" (click)="closeDrawer()"></div>
 
-<ion-header>
     <ion-toolbar>
-        <ion-row class="ion-justify-content-between">
+        <ion-row class="ion-justify-content-between toolbar_line">
             <ion-col size="2">
                 <div>
                     <ion-buttons slot="start">
-                        <ion-back-button text="" defaultHref="/pagamento-lista"></ion-back-button>
+                    <ion-back-button text="" defaultHref="/pagamento-lista"></ion-back-button>
                     </ion-buttons>
                 </div>
             </ion-col>
@@ -18,7 +17,6 @@
             <ion-col size="2"></ion-col>
         </ion-row>
     </ion-toolbar>
-</ion-header>
 
 <ion-content no-bounce class="ion-padding ion-justify-content-center">
     <section id="nota-fiscal">
@@ -36,7 +34,7 @@
         <ion-grid *ngIf="pessoa">
             <ion-row *ngFor="let pedido of pessoa.pedidos" class="backgroundCinza">
                 <ion-col class="ion-justify-content-center backgroundCinza">
-                    <p class="ion-text-center">{{ pedido.nome }}</p>
+                    <p class="ion-text-center ion-text-capitalize">{{ pedido.nome }}</p>
                 </ion-col>
                 <ion-col class="ion-justify-content-center backgroundCinza">
                     <p>R$ {{ pedido.pivot.valor_divisao }}</p>

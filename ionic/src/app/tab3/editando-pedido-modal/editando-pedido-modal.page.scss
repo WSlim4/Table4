@@ -1,6 +1,12 @@
 ion-input{
   color:black;
 }
+
+ion-toggle {
+  --handle-background-checked: #981B26;
+  --background-checked: #CD9195;
+}
+
 #entrada{
   border: 10%;
   margin-top: 10%;
