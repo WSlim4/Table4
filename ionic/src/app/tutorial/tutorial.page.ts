@@ -42,7 +42,7 @@ export class TutorialPage implements OnInit {
         for(let i = 0; i < this.quantPessoas; i++){
           var pessoa = 'pessoa' + (i+1);
           console.log(form.value[pessoa]);
-          this.pessoaService.createPessoa(form.value[pessoa], res.data.id).subscribe( 
+          this.pessoaService.createPessoa(form.value[pessoa], res.data.id, false).subscribe( 
             (res) => {
               console.log(res);
               this.router.navigate(['tabs/tab2']);

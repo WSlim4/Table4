@@ -471,10 +471,30 @@ export class EstabelecimentosPage implements OnInit {
     ]
   }
 
+getEstabelecimentos() {
+    // this.estabelecimentosService.getEstabelecimentos().subscribe(
+    //     (res) => {
+    //         console.log(res);
+    //         this.estabelecimentos = res;
+    //     },
+    //     (error) => {
+    //        console.log(error);
+    //     });
+}
+
   detalheEstabelecimento(id) {
 
     this.estabelecimentosService.setEstabelecimento(id, this.estabelecimentos);
     this.router.navigate(['estabelecimentos-detalhe'], id);
+  }
+
+  // detalheEstabelecimento(id) {
+  //     this.router.navigate(['estabelecimentos-detalhe'], id);
+  // }
+
+  ionViewWillEnter() {
+      // this.estabelecimentos = [];
+      // this.getEstabelecimentos();
   }
 
   ngOnInit() {

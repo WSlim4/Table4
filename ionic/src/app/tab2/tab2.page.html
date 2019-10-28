@@ -2,7 +2,7 @@
 <ion-content>
   <!-- Botão para adicionar item de pedido -->
   <ion-fab horizontal="end"  vertical="bottom" slot="fixed">
-    <ion-fab-button color="danger" href="/criando-pessoa">
+    <ion-fab-button color="danger" (click)="numPessoas(pessoas.length)">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
@@ -11,7 +11,8 @@
     <h1 class="titulo_pedidos">Pessoas na mesa</h1>
   </section>
 
-
-  <app-pedido-pessoa-card *ngFor="let pessoa of pessoas" [pessoa]="pessoa" (configuracaoClicked)="goToConfiguracaoPedidoModal($event)" (nameUpdated)="atualizarPessoas($event)" (pagamentoClicked)="pagamento($event)"> </app-pedido-pessoa-card>
+<ng-container *ngIf="atualizarPessoas">
+  <app-pedido-pessoa-card *ngFor="let pessoa of pessoas" [pessoa]="pessoa" (configuracaoClicked)="goToConfiguracaoPedidoModal($event)" (nameUpdated)="getPessoas($event)" (pagamentoClicked)="pagamento($event)"> </app-pedido-pessoa-card>
+  </ng-container>
   <div id="fab_space"></div>
 </ion-content>
