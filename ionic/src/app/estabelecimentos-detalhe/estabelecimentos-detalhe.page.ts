@@ -18,12 +18,6 @@ export class EstabelecimentosDetalhePage implements OnInit {
         this.estabelecimentoId = this.router.getCurrentNavigation().extras;
     }
 
-    // getEstabelecimento(): void {
-    //     this.estabelecimentoDetalhe = this.estabelecimentosService.getEstabelecimento();
-    //     console.log("getEstabelecimento");
-    //     console.log(this.estabelecimentoDetalhe);
-    // }
-
     ngOnInit() {
     }
 
@@ -37,11 +31,5 @@ export class EstabelecimentosDetalhePage implements OnInit {
     abrirInstagram() {
         this.instagram = this.inAppBrowser.create('https://play.google.com/store/apps/details?id=com.instagram.android','_system',{location:'yes'});
     }
-
-    // ionViewDidEnter() {
-    //     this.getEstabelecimento();
-    //     console.log("ionViewDidEnter");
-    //     console.log(this.estabelecimentoDetalhe);
-    // }
 
 }
