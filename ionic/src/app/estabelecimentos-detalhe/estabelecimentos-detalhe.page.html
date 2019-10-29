@@ -7,20 +7,20 @@
                 </ion-buttons>
             </div>
         </ion-col>
-        <ion-col class="ion-align-self-center title" *ngIf="estabelecimentoDetalhe">{{ estabelecimentoDetalhe.nome }}</ion-col>
+        <ion-col class="ion-align-self-center title" *ngIf="detalhe">{{ detalhe.name }}</ion-col>
         <ion-col size="2"></ion-col>
     </ion-row>
 </ion-toolbar>
 
-<ion-content *ngIf="estabelecimentoDetalhe">
+<ion-content *ngIf="detalhe">
     <ion-row id="background">
     </ion-row>
     <ion-row id="logo">
         <ion-col id="avatar">
-            <ion-avatar class="ion-margin-start"><img [src]="estabelecimentoDetalhe.logo" alt="Logo do Estabelecimento"></ion-avatar>
+            <ion-avatar class="ion-margin-start"><img src="../assets/icon/LogoCompleto.png" alt="Logo do Estabelecimento"></ion-avatar>
         </ion-col>
         <ion-col id="instagram">
-            <ion-thumbnail class="ion-margin-end" *ngIf="estabelecimentoDetalhe.instagram"><img src="https://i.pinimg.com/originals/85/4c/3c/854c3cc1d194fd096a0994eab26b864c.jpg" alt="Instagram"></ion-thumbnail>
+            <ion-thumbnail id="instagram" class="ion-margin-end" *ngIf="detalhe.instagram" (click)="abrirInstagram()"><img src="https://i.pinimg.com/originals/85/4c/3c/854c3cc1d194fd096a0994eab26b864c.jpg" alt="Instagram"></ion-thumbnail>
         </ion-col>
     </ion-row>
     <section class="ion-padding">
@@ -28,27 +28,82 @@
             <h3>Endereço</h3>
         </ion-row>
         <ion-row>
-            <p>{{ estabelecimentoDetalhe.endereco }}</p>
+            <p>{{ detalhe.address_address }}</p>
         </ion-row>
         <ion-row>
             <h3>Telefone</h3>
         </ion-row>
         <ion-row>
-            <p>{{ estabelecimentoDetalhe.telefone }}</p>
+            <p>{{ detalhe.phone }}</p>
         </ion-row>
         <ion-row lines="none">
             <h3>Horário de Funcionamento</h3>
         </ion-row>
-        <ion-row *ngFor="let data of estabelecimentoDetalhe.funcionamento">
-            <ion-col>{{ data.dia }}</ion-col>
-            <ion-col>{{ data.hora }}</ion-col>
+        <ion-row>
+            <ion-col>Segunda</ion-col>
+            <ion-col>{{ detalhe.open_hours_monday }}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>Terça</ion-col>
+            <ion-col>{{ detalhe.open_hours_tuesday }}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>Quarta</ion-col>
+            <ion-col>{{ detalhe.open_hours_wednesday }}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>Quinta</ion-col>
+            <ion-col>{{ detalhe.open_hours_thursday }}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>Sexta</ion-col>
+            <ion-col>{{ detalhe.open_hours_friday }}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>Sábado</ion-col>
+            <ion-col>{{ detalhe.open_hours_saturday }}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>Domingo</ion-col>
+            <ion-col>{{ detalhe.open_hours_sunday }}</ion-col>
         </ion-row>
         <ion-row id="line">
             <h3>Características</h3>
         </ion-row>
-        <ion-row class="list justify-content-between" *ngFor="let dado of estabelecimentoDetalhe.caracteristicas">
-            <ion-col size="9">{{ dado.nome }}</ion-col>
-            <ion-col class="checkCol" size="3" *ngIf="dado.checked; else notChecked"><img class="check" src="https://image.flaticon.com/icons/svg/179/179372.svg"></ion-col>
+        <ion-row class="list justify-content-between">
+            <ion-col size="9">Aceita cartão</ion-col>
+            <ion-col class="checkCol" size="3" *ngIf="detalhe.credit_cards; else notChecked"><img class="check" src="https://image.flaticon.com/icons/svg/179/179372.svg"></ion-col>
+            <ng-template #notChecked><ion-col class="checkCol" size="3"><img class="check" src="https://image.flaticon.com/icons/svg/447/447119.svg"></ion-col></ng-template>
+        </ion-row>
+        <ion-row class="list justify-content-between">
+            <ion-col>Acessibilidade</ion-col>
+            <ion-col><img id="isa" src="../../assets/icon/isa.svg" alt="ISA"></ion-col>
+            <ion-col class="checkCol" *ngIf="detalhe.accessible; else notChecked"><img class="check" src="https://image.flaticon.com/icons/svg/179/179372.svg"></ion-col>
+            <ng-template #notChecked><ion-col class="checkCol" size="3"><img class="check" src="https://image.flaticon.com/icons/svg/447/447119.svg"></ion-col></ng-template>
+        </ion-row>
+        <ion-row class="list justify-content-between">
+            <ion-col size="9">Couvert artístico</ion-col>
+            <ion-col class="checkCol" size="3" *ngIf="detalhe.couvert_payed; else notChecked"><img class="check" src="https://image.flaticon.com/icons/svg/179/179372.svg"></ion-col>
+            <ng-template #notChecked><ion-col class="checkCol" size="3"><img class="check" src="https://image.flaticon.com/icons/svg/447/447119.svg"></ion-col></ng-template>
+        </ion-row>
+        <ion-row class="list justify-content-between">
+            <ion-col size="9">Estacionamento</ion-col>
+            <ion-col class="checkCol" size="3" *ngIf="detalhe.parking; else notChecked"><img class="check" src="https://image.flaticon.com/icons/svg/179/179372.svg"></ion-col>
+            <ng-template #notChecked><ion-col class="checkCol" size="3"><img class="check" src="https://image.flaticon.com/icons/svg/447/447119.svg"></ion-col></ng-template>
+        </ion-row>
+        <ion-row class="list justify-content-between">
+            <ion-col size="9">Faz reservas</ion-col>
+            <ion-col class="checkCol" size="3" *ngIf="detalhe.reservation; else notChecked"><img class="check" src="https://image.flaticon.com/icons/svg/179/179372.svg"></ion-col>
+            <ng-template #notChecked><ion-col class="checkCol" size="3"><img class="check" src="https://image.flaticon.com/icons/svg/447/447119.svg"></ion-col></ng-template>
+        </ion-row>
+        <ion-row class="list justify-content-between">
+            <ion-col size="9">Permitido animais</ion-col>
+            <ion-col class="checkCol" size="3" *ngIf="detalhe.reservation; else notChecked"><img class="check" src="https://image.flaticon.com/icons/svg/179/179372.svg"></ion-col>
+            <ng-template #notChecked><ion-col class="checkCol" size="3"><img class="check" src="https://image.flaticon.com/icons/svg/447/447119.svg"></ion-col></ng-template>
+        </ion-row>
+        <ion-row class="list justify-content-between">
+            <ion-col size="9">Taxa de rolha</ion-col>
+            <ion-col class="checkCol" size="3" *ngIf="detalhe.taxa_rolha_payed; else notChecked"><img class="check" src="https://image.flaticon.com/icons/svg/179/179372.svg"></ion-col>
             <ng-template #notChecked><ion-col class="checkCol" size="3"><img class="check" src="https://image.flaticon.com/icons/svg/447/447119.svg"></ion-col></ng-template>
         </ion-row>
     </section>
