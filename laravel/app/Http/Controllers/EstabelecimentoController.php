@@ -50,4 +50,43 @@ class EstabelecimentoController extends Controller
         }
     }
 
+    //Calcula distância entre duas latitudes/longitudes
+    public function distance($lat1,$lon1,$lat2,$lon2) {
+
+        $r = 6371; // km (change this constant to get miles)
+       
+        $dLat = ($lat2-$lat1)*pi()/180;
+        $dLon = ($lon2-$lon1)*pi()/180;
+        $a = sin($dLat/2)*sin($dLat/2) +
+        cos($lat1*pi()/180)*cos($lat2*pi()/180)*sin($dLon/2)*sin($dLon/2);
+       
+        $c = 2 * atan2(sqrt($a), sqrt(1-$a));
+       
+        $d = $r * $c;
+         
+        return $d;
+          
+    }
+
+        // Calcula os Estabelecimentos próximos
+        public function estabelecimentosProximos(Request $request) {
+        
+            $proximos = [];
+
+            $estabelecimentos = Estabelecimento::all();
+    
+            foreach($estabelecimentos as $estabelecimento){
+    
+                $dist = $this->distance($request->user_latitude, $request->user_longitude, $estabelecimento->address_latitude, $estabelecimento->address_longitude);
+                
+                array_push( $proximos, ["estabelecimento" => $estabelecimento, "distance" => $dist] );
+    
+            }
+
+            $proximos = collect($proximos)->sortBy('distance')->toArray();
+
+            return response()->success( $proximos );
+    
+        }
+
 }

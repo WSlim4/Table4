@@ -42,6 +42,7 @@ Route::put('/estabelecimento/{id}', 'EstabelecimentoController@updateEstabelecim
 Route::get('/estabelecimento/{id}', 'EstabelecimentoController@showEstabelecimento');
 Route::get('/estabelecimento', 'EstabelecimentoController@listEstabelecimentos');
 Route::delete('/estabelecimento/{id}', 'EstabelecimentoController@deleteEstabelecimento');
+Route::post('/estabelecimentosProximos', 'EstabelecimentoController@estabelecimentosProximos');
 
 Route::get('/conta/{id}','PessoaController@showConta');
 Route::get('/conta/{mesa_id}/{pedido_id}','MesaController@valorPedido');
