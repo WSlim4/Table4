@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page {
     pessoas = [];
+    mesaId;
+    href;
 
     constructor(
         public pessoaService: PessoaService,
@@ -19,38 +21,44 @@ export class Tab2Page {
         private router: Router
     ) { }
 
-    getPessoas(): void {
+    getPessoas(){
+        this.pessoas = [];
+        let people = [];
         console.log("Resgatando pessoas no Back");
         this.storage.get("mesa_id").then((mesa_id) => {
             this.pessoaService.getPessoasPedidos(mesa_id).subscribe((res) => {
-                this.pessoas = res;
-                console.log(res);
+                res.forEach(function (item) {
+                    if(!item.pago) {
+                        people.push(item);
+                    }
+                });
+                this.pessoas = people;
                 console.log(mesa_id);
+                console.log(this.pessoas);
             });
         });
-    }
-
-        deletePessoa(id) {
-        console.log(id);
-        this.pessoaService.deletePessoa(id).subscribe(
-            (res) => {
-                console.log(res);
-            }
-        );
     }
 
     atualizarPessoas() {
         this.getPessoas();
     }
 
-    ngOnInit() { }
-
-    ionViewWillEnter() {
-        this.getPessoas();
+    pagamento(id) {
+        console.log(id);
+        this.router.navigate(['pagamento-info'], id);
     }
 
-    pagamento(id){
-      console.log(id);
-      this.router.navigate(['pagamento-info'], id);
+    numPessoas(numPessoas) {
+        this.router.navigate(['criando-pessoa'], numPessoas);
     }
+
+    ngOnInit() {
+    this.mesaId = this.router.getCurrentNavigation().extras;
+
+}
+
+    ionViewDidEnter() {
+        this.atualizarPessoas();
+    }
+
 }

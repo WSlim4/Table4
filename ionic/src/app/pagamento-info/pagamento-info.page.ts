@@ -77,8 +77,21 @@ export class PagamentoInfoPage implements OnInit {
         this.totalNovo = this.pessoa.valorConta + porcentagem;
     }
 
-    confirmPag() {
-        console.log("Pagamento confirmado!");
+    confirmPag(id) {
+        console.log(id);
+        this.pessoaService.updatePessoaPag(true, id).subscribe(
+            (res) => {
+                console.log(res);
+                console.log("Pagamento confirmado!");
+                this.router.navigate(['tabs/tab2']).then(() => {
+                    window.location.reload();
+                });;
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+
     }
 
     //Código abaixo é referente a parte do InAppBrowser.

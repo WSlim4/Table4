@@ -15,6 +15,20 @@ class PessoaController extends Controller
         return response()->success($pessoa);
     }
 
+    public function createPessoas(Request $request){
+
+
+        foreach ($request->pessoas as $pessoa) {
+
+            $request['nome'] = $pessoa;
+            $request['mesa_id'] = $request->mesa_id;
+            $pessoa = new Pessoa;
+
+            $pessoa->createPessoa($request);
+        }
+        return response()->success($pessoa);
+    }
+
     public function updatePessoa(Request $request, $id){
 
         $pessoa = Pessoa::find($id);

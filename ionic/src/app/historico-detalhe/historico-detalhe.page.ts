@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HistoricoService } from '../services/historico/historico.service';
+import { PessoaService } from '../services/pessoa/pessoa.service';
+import { MesaService } from '../services/mesa/mesa.service';
+import { PedidoService } from '../services/pedido/pedido.service'
+import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-historico-detalhe',
@@ -8,20 +12,50 @@ import { HistoricoService } from '../services/historico/historico.service';
 })
 export class HistoricoDetalhePage implements OnInit {
 
-    mesaDetalhe: any[];
+    mesaId;
+    mesa: any[];
+    pessoas = [];
+    pedidoId;
+    pedidos;
 
-    constructor(public historicoService: HistoricoService) { }
-
-    getMesa(): void {
-        this.mesaDetalhe = this.historicoService.getMesa();
-        console.log(this.mesaDetalhe);
+    constructor(private pessoaService: PessoaService, private mesaService: MesaService, private pedidoService: PedidoService, private storage: Storage, private router: Router) {
+        this.mesaId = this.router.getCurrentNavigation().extras;
     }
+
     ngOnInit() {
     }
 
+    ionViewWillEnter() {
+        this.pessoas = [];
+        this.mesaService.getMesa(this.mesaId).subscribe(
+            (res) => {
+                this.mesa = res.data;
+                console.log(this.mesa);
+            },
+            (error) => {
+                console.log(error);
+            });
+        this.pessoaService.getPessoasPedidos(this.mesaId).subscribe((res) => {
+            console.log(res);
+            this.pessoas = res;
+        },
+            (error) => {
+                console.log(error);
+            });
+        this.pedidoService.getPedidosMesa(this.mesaId).subscribe(
+            (res) => {
+                this.pedidos = res;
+                for (let i in this.pedidos) {
+                    this.pedidos[i].valorPedido = this.pedidos[i].preco * this.pedidos[i].quantidade;
+                }
+                console.log(this.pedidos);
+            },
+            (error) => {
+                console.log(error);
+            });
+    }
+
     ionViewDidEnter() {
-        this.getMesa();
-        console.log(this.mesaDetalhe);
     }
 
 }

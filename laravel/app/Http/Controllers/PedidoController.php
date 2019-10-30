@@ -21,10 +21,13 @@ class PedidoController extends Controller
             return response()->error($data, 400);
         }
     }
+    
     public function deletePedido($id){
+
         Pedido::destroy($id);
         return response()->json(['Pedido excluido']);
     }
+
     public function listPedidos(){
         return Pedido::all();
 
