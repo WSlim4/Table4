@@ -23,10 +23,11 @@ class PedidoController extends Controller
     }
     public function deletePedido($pedido_id){
         $pedido = Pedido::find($pedido_id);
+        Pedido::destroy($pedido_id);
         foreach($pedido->pessoas as $pessoa){
             $pessoa->valorConta($pessoa);
         }
-        Pedido::destroy($pedido_id);
+        
         return response()->json(['Pedido excluido']);
     }
     public function listPedidos(){
