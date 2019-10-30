@@ -9,22 +9,28 @@ use App\Pessoa;
 class PedidoController extends Controller
 {
 
-    public function updatePedido(Request $request, $id){
-
-        $pedido = Pedido::find($id);
-
-        if($pedido){
-            $pedido->updatePedido($request);
-            return response()->success($pedido);
-        } else{
-            $data = "Pedido não encontrado";
-            return response()->error($data, 400);
+    public function updatePedido(Request $request, $pedido_id){
+        Pedido::destroy($pedido_id);
+        $pedido = new Pedido;
+        $pedido->updatePedido($request);
+        $array_pessoas = json_decode($request->dividindo, true);
+        
+        foreach($array_pessoas as $p){
+            $pessoa = Pessoa::find($p["id"]);
+            $pedido->attachPedido($p["id"]);
+            $pessoa->valorDivisao($p["preco"], $pedido->id);
+            $pessoa->valorConta($pessoa);
         }
+        return response()->success($pedido);
     }
-    
-    public function deletePedido($id){
-
-        Pedido::destroy($id);
+    public function deletePedido($pedido_id){
+        $pedido = Pedido::find($pedido_id);
+        $pessoas = $pedido->pessoas;
+        Pedido::destroy($pedido_id);
+        
+        foreach($pessoas as $pessoa){
+            $pessoa->valorConta($pessoa);
+        }
         return response()->json(['Pedido excluido']);
     }
 
@@ -50,11 +56,13 @@ class PedidoController extends Controller
 
         $pedido = new Pedido;
         $pedido->createPedido($request);
+        $array_pessoas = json_decode($request->dividindo, true);
 
-        foreach($request->dividindo as $p){
+        foreach($array_pessoas as $p){
             $pessoa = Pessoa::find($p["id"]);
             $pedido->attachPedido($p["id"]);
             $pessoa->valorDivisao($p["preco"], $pedido->id);
+            $pessoa->valorConta($pessoa);
         }
 
         return response()->success($pedido);

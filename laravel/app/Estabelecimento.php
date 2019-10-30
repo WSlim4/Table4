@@ -13,7 +13,7 @@ class Estabelecimento extends Model
     public function createEstabelecimento($request){
         /*Função que cria um estabelecimento*/
         
-        $this->nome = $request->nome;
+        $this->name = $request->name;
         $this->save();
     }
 

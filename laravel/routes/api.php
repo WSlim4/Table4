@@ -19,30 +19,29 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/pessoa', 'PessoaController@createPessoa');
 Route::post('/pessoas','PessoaController@createPessoas');
-Route::put('/pessoa/{id}', 'PessoaController@updatePessoa');
-Route::get('/pessoa/{id}', 'PessoaController@showPessoa');
-Route::delete('/pessoa/{id}', 'PessoaController@deletePessoa');
+Route::delete('/pessoa/{id}', 'PessoaController@deletePessoa'); //Rota que deleta uma pessoa da mesa
+Route::get('/pessoa/{id}', 'PessoaController@showPessoa'); //Rota que busca no BD por uma pessoa através do seu ID
+Route::put('/pessoa/{id}', 'PessoaController@updatePessoa'); //Rota que atualiza os dados da pessoa na mesa
 
-Route::get('/pedido/{id}', 'PedidoController@showPedido');
-//Route::get('/pedido', 'PedidoController@listPedidos');
-Route::get('/pedido/{pedido_id}/{pessoa_id}', 'PedidoController@fazPedido');
-Route::post('/pedido', 'PedidoController@createPedido');
-Route::put('/pedido/{id}', 'PedidoController@updatePedido');
-Route::delete('/pedido/{id}', 'PedidoController@deletePedido');
+Route::get('/pedido/{pedido_id}', 'PedidoController@showPedido'); //Rota que busca no BD por um pedido através do seu ID
+Route::post('/pedido', 'PedidoController@createPedido'); //Rota que adiciona um pedido a mesa
+Route::put('/pedido/{pedido_id}', 'PedidoController@updatePedido'); //Rota que atualiza um pedido
+Route::delete('/pedido/{pedido_id}', 'PedidoController@deletePedido'); //Rota que deleta um pedido da mesa
 
-Route::post('/mesa','MesaController@createMesa');
 Route::get('/mesa','MesaController@listMesas');
 Route::get('/mesa/{id}','MesaController@showMesa');
-Route::get('/pedidosMesa/{id}','MesaController@pedidosMesa');
-Route::get('/pessoasMesa/{id}', 'MesaController@pessoasMesa');
-Route::get('pessoasMesaComPedidos/{id}', 'MesaController@pessoasMesaComPedidos');
+Route::get('/pessoasMesaComPedidos/{mesa_id}', 'MesaController@pessoasMesaComPedidos'); //Rota que mostra as pessoas com pedidos na mesa
+Route::get('/pessoasMesa/{mesa_id}', 'MesaController@pessoasMesa'); //Rota que mostra as pessoas na mesa
+Route::get('/pedidosMesa/{mesa_id}','MesaController@pedidosMesa'); //Rota que mostra os pedidos da mesa
+Route::post('/mesa','MesaController@createMesa'); //Rota que cria uma mesa
 
-Route::post('/estabelecimento', 'EstabelecimentoController@createEstabelecimento');
-Route::put('/estabelecimento/{id}', 'EstabelecimentoController@updateEstabelecimento');
-Route::get('/estabelecimento/{id}', 'EstabelecimentoController@showEstabelecimento');
-Route::get('/estabelecimento', 'EstabelecimentoController@listEstabelecimentos');
-Route::delete('/estabelecimento/{id}', 'EstabelecimentoController@deleteEstabelecimento');
+Route::post('/estabelecimento', 'EstabelecimentoController@createEstabelecimento'); //Rota que cria um estabelecimento
+Route::put('/estabelecimento/{id}', 'EstabelecimentoController@updateEstabelecimento'); //Rota que atualiza os dados do estabelecimento
+Route::get('/estabelecimento/{id}', 'EstabelecimentoController@showEstabelecimento'); //Rota que mostra um estabelecimento através de seu ID
+Route::get('/estabelecimento', 'EstabelecimentoController@listEstabelecimentos'); //Rota que lista todos os estabelecimentos do BD
+Route::delete('/estabelecimento/{id}', 'EstabelecimentoController@deleteEstabelecimento'); //Rota que deleta um estabelecimento
 
-Route::get('/conta/{id}','PessoaController@showConta');
 Route::get('/conta/{mesa_id}/{pedido_id}','MesaController@valorPedido');
-Route::get('/contasMesa/{id}', 'MesaController@contaTotal');
+Route::get('/contasMesa/{mesa_id}', 'MesaController@contaTotal'); //Rota que mostra a conta total da mesa
+Route::get('/conta/{pessoa_id}','PessoaController@showConta'); //Rota que mostra a conta individual
+
