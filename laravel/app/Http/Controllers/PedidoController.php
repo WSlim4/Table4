@@ -25,6 +25,7 @@ class PedidoController extends Controller
         $pedido = Pedido::find($pedido_id);
         $pessoas = $pedido->pessoas;
         Pedido::destroy($pedido_id);
+        
         foreach($pessoas as $pessoa){
             $pessoa->valorConta($pessoa);
         }
