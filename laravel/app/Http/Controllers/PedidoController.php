@@ -23,11 +23,11 @@ class PedidoController extends Controller
     }
     public function deletePedido($pedido_id){
         $pedido = Pedido::find($pedido_id);
+        $pessoas = $pedido->pessoas;
         Pedido::destroy($pedido_id);
-        foreach($pedido->pessoas as $pessoa){
+        foreach($pessoas as $pessoa){
             $pessoa->valorConta($pessoa);
         }
-        
         return response()->json(['Pedido excluido']);
     }
     public function listPedidos(){
@@ -57,7 +57,7 @@ class PedidoController extends Controller
         foreach($array_pessoas as $p){
             $pessoa = Pessoa::find($p["id"]);
             $pedido->attachPedido($p["id"]);
-            $pessoa->valorDivisao($p["valor"], $pedido->id);
+            $pessoa->valorDivisao($p["preco"], $pedido->id);
             $pessoa->valorConta($pessoa);
         }
 
