@@ -21,8 +21,12 @@ class PedidoController extends Controller
             return response()->error($data, 400);
         }
     }
-    public function deletePedido($id){
-        Pedido::destroy($id);
+    public function deletePedido($pedido_id){
+        $pedido = Pedido::find($pedido_id);
+        foreach($pedido->pessoas as $pessoa){
+            $pessoa->valorConta($pessoa);
+        }
+        Pedido::destroy($pedido_id);
         return response()->json(['Pedido excluido']);
     }
     public function listPedidos(){
@@ -47,11 +51,13 @@ class PedidoController extends Controller
 
         $pedido = new Pedido;
         $pedido->createPedido($request);
+        $array_pessoas = json_decode($request->dividindo, true);
 
-        foreach($request->dividindo as $p){
+        foreach($array_pessoas as $p){
             $pessoa = Pessoa::find($p["id"]);
             $pedido->attachPedido($p["id"]);
-            $pessoa->valorDivisao($p["preco"], $pedido->id);
+            $pessoa->valorDivisao($p["valor"], $pedido->id);
+            $pessoa->valorConta($pessoa);
         }
 
         return response()->success($pedido);

@@ -43,3 +43,4 @@ Route::delete('/estabelecimento/{id}', 'EstabelecimentoController@deleteEstabele
 
 Route::get('/conta/{id}','PessoaController@showConta');
 Route::get('/contasMesa/{id}', 'MesaController@contaTotal');
+

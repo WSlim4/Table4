@@ -18,7 +18,6 @@ class CreatePedidosTable extends Migration
             $table->integer('quantidade');
             $table->float('preco');
             $table->string('nome');
-            $table->text('dividindo')->nullable();
             $table->integer('mesa_id')->unsigned();
             $table->timestamps();
         });
