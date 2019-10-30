@@ -1,12 +1,12 @@
 <ion-list lines="none" (click)="mostrarDetalhe(estabelecimentoInfo.id)">
     <ion-item>
         <ion-avatar slot="start">
-            <img [src]="estabelecimentoInfo.logo" alt="Logo do Estabelecimento">
+            <img src="../../assets/icon/LogoCompleto.png" alt="Logo do Estabelecimento">
         </ion-avatar>
         <ion-label class="ion-text-wrap">
             <ion-text>
-                <h2>{{ estabelecimentoInfo.nome }}</h2>
-                <p>{{ estabelecimentoInfo.cozinha }} - {{ estabelecimentoInfo.distancia }} km</p>
+                <h2>{{ estabelecimentoInfo.name }}</h2>
+                <p>{{ estabelecimentoInfo.cuisine }} - xx km</p>
             </ion-text>
         </ion-label>
     </ion-item>
