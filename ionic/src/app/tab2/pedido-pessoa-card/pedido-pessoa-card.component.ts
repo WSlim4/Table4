@@ -76,7 +76,12 @@ export class PedidoPessoaCardComponent implements OnInit {
     }
 
     finalizandoPedidoPessoa(id) {
-        this.pagamentoClicked.emit(id);
+        if(!this.pessoa.valorConta){
+            this.deveFazerPedido();
+        }
+        else {
+            this.pagamentoClicked.emit(id);
+        }
     }
 
     deletarPessoa(id) {
@@ -100,6 +105,15 @@ export class PedidoPessoaCardComponent implements OnInit {
         const toast = await this.toastController.create({
             position: "top",
             message: "Há pedidos pendentes. Por favor, pague sua conta ou delete seu pedido.",
+            duration: 2000
+        });
+        toast.present();
+    }
+
+    async deveFazerPedido() {
+        const toast = await this.toastController.create({
+            position: "top",
+            message: "Você deve realizar um pedido antes de pagar.",
             duration: 2000
         });
         toast.present();

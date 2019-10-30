@@ -24,17 +24,6 @@ getEstabelecimentos() {
         });
 }
 
-getEstabelecimentos() {
-    // this.estabelecimentosService.getEstabelecimentos().subscribe(
-    //     (res) => {
-    //         console.log(res);
-    //         this.estabelecimentos = res;
-    //     },
-    //     (error) => {
-    //        console.log(error);
-    //     });
-}
-
   detalheEstabelecimento(id) {
       this.router.navigate(['estabelecimentos-detalhe'], id);
   }
@@ -47,11 +36,6 @@ getEstabelecimentos() {
   // detalheEstabelecimento(id) {
   //     this.router.navigate(['estabelecimentos-detalhe'], id);
   // }
-
-  ionViewWillEnter() {
-      // this.estabelecimentos = [];
-      // this.getEstabelecimentos();
-  }
 
   ngOnInit() {
   }

@@ -12,48 +12,48 @@
   </ion-row>
 </ion-toolbar>
 
-  <ion-content color="#000000">
-  <form class="estilo_form">
-  <ion-item>
-    <ion-input required type="text" placeholder="{{nome}}" ></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-input required type="text" placeholder="{{preco}}" ></ion-input>
+  <ion-content class="ion-padding">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="estilo_form">
+    <ion-item>
+      <ion-input required type="text" name="nome" [(ngModel)]="nome" placeholder="{{nome}}" ></ion-input>
     </ion-item>
     <ion-item>
-        <ion-input required type="number" placeholder="{{quantidade}}"></ion-input>
-      </ion-item>
-  <h4 class="titulo_decisao"> Quem vai dividir esse pedido? </h4>
-  <ion-row class="list">
-      <ion-col>
-          <ion-item lines="none">
-              <ion-checkbox slot="start" name="todos" [(ngModel)]="masterChecked" [indeterminate]="isIndeterminate" (click)="checkMaster()"></ion-checkbox>
-              <ion-label position=" fixed">Todos</ion-label>
-          </ion-item>
-      </ion-col>
-  </ion-row>
+      <ion-input required type="number" name="valor" [(ngModel)]="valor" placeholder="{{preco}}" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="number" name="quantidade" [(ngModel)]="quantidade" placeholder="{{quantidade}}"></ion-input>
+    </ion-item>
+    <h4 class="titulo_decisao"> Quem vai dividir esse pedido? </h4>
+    <ion-row class="list">
+        <ion-col>
+            <ion-item lines="none">
+                <ion-checkbox slot="start" name="todos" [(ngModel)]="masterChecked" [indeterminate]="isIndeterminate" (click)="checkMaster()"></ion-checkbox>
+                <ion-label position=" fixed">Todos</ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
 
-  <ion-row id= "entrada_checkbox" *ngFor="let pessoa of pessoas; let i = index">
-    <ion-col size="8">
-      <ion-item >
-        <ion-checkbox (ionChange)="changeChecked(i)" id="pessoa" slot="start"></ion-checkbox>
-        <ion-label position="fixed">{{ pessoa.nome }}</ion-label>
-      </ion-item>
-    </ion-col>
-    <ion-col size="4">
-      <ion-input *ngIf="pessoa.checked" id="peso" type="number" placeholder= "Peso do valor"></ion-input>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-      <ion-item lines="none">
-          <ion-label (click)="changeToggle()">Opções avançadas</ion-label>
-          <ion-toggle [(ngModel)]="toggle" name="toggle" slot="start"></ion-toggle>
-      </ion-item>
-  </ion-row>
-  <ion-row>
-    <ion-col size="12">
-      <ion-button mode="ios" expand="block" fill="outline" class="estilo_botao" (click)= "SalvarMudanca()"> Salvar Mudança</ion-button>
-    </ion-col>
-  </ion-row>
+    <ion-row id= "entrada_checkbox" *ngFor="let pessoa of pessoas; let i = index">
+      <ion-col size="8">
+        <ion-item >
+          <ion-checkbox (ionChange)="changeChecked(i)" id="pessoa" slot="start"></ion-checkbox>
+          <ion-label position="fixed">{{ pessoa.nome }}</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-input *ngIf="pessoa.checked" id="peso" type="number" placeholder= "Peso do valor"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-item lines="none">
+            <ion-label (click)="changeToggle()">Opções avançadas</ion-label>
+            <ion-toggle [(ngModel)]="toggle" name="toggle" slot="start"></ion-toggle>
+        </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button mode="ios" class="estilo_botao" shape="round" expand="block" color="danger" type="submit"> Salvar Mudança</ion-button>
+      </ion-col>
+    </ion-row>
   </form>
   </ion-content>

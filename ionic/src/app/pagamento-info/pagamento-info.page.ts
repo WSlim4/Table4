@@ -34,7 +34,7 @@ export class PagamentoInfoPage implements OnInit {
 
     taxa = 10;
     total;
-    totalNovo;
+    totalNovo: number;
     pessoaId;
     pessoa;
 
@@ -75,6 +75,7 @@ export class PagamentoInfoPage implements OnInit {
         porcentagem = Math.floor(porcentagem * 100) / 100;
         console.log(porcentagem);
         this.totalNovo = this.pessoa.valorConta + porcentagem;
+        this.totalNovo = Number((this.totalNovo).toFixed(2));
     }
 
     confirmPag(id) {

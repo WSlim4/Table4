@@ -5,7 +5,12 @@
                 Total: R$ {{ preco }}
             </ion-col>
             <ion-col class="ion-align-self-end" size="5">
-                <ion-button mode="ios" size="small" fill="outline" href="/pagamento-lista">Fechar mesa</ion-button>
+                <div *ngIf="!podeFechar">
+                    <ion-button mode="ios" size="small" fill="outline" href="/pagamento-lista">Fechar mesa</ion-button>
+                </div>
+                <div *ngIf="podeFechar">
+                    <ion-button mode="ios" size="small" fill="outline" (click)="fechaMesa()">Fechar mesa</ion-button>
+                </div>
             </ion-col>
         </ion-row>
     </ion-toolbar>

@@ -62,7 +62,8 @@ isIndeterminate: boolean;
       this.toggle = !this.toggle;
   }
 
-  SalvarMudanca(){
+  onSubmit(form){
+    console.log(form);
     this.viewCtrl.dismiss({
         'dismissed': true
       });

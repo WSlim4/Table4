@@ -50,8 +50,10 @@ class Pessoa extends Model
 
     public function valorDivisao($valor_divisao, $pedido_id){
         $this->pedidos()->sync([$pedido_id => [ 'valor_divisao' => $valor_divisao] ], false);
+        $this->valorConta = $this->valorConta + $valor_divisao;
         $this->save();
     }
+    
     public function valorConta($pessoa){
         $pedidos = $this->pedidos;
         $valores = [];

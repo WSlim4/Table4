@@ -56,13 +56,11 @@ class PedidoController extends Controller
 
         $pedido = new Pedido;
         $pedido->createPedido($request);
-        $array_pessoas = json_decode($request->dividindo, true);
 
-        foreach($array_pessoas as $p){
+        foreach($request->dividindo as $p){
             $pessoa = Pessoa::find($p["id"]);
             $pedido->attachPedido($p["id"]);
             $pessoa->valorDivisao($p["preco"], $pedido->id);
-            $pessoa->valorConta($pessoa);
         }
 
         return response()->success($pedido);
