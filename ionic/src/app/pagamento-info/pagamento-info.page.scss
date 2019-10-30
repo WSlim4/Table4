@@ -1,7 +1,4 @@
-* {
-    background: #fcfcfc;
-    --background: #fcfcfc;
-}
+
 
 h3 {
     font-family: 'PoetsenOne';
@@ -41,9 +38,7 @@ ion-button {
     width: 100%;
 }
 
-ion-row {
-    border-radius: 25px;
-}
+
 
 ion-thumbnail {
     height: 70px;
@@ -55,6 +50,11 @@ ion-thumbnail {
     height: 0;
 }
 
+  .toolbar_line{
+      border-bottom:1px solid #c6c6c6;
+  }
+
+
 .titulo {
     font-family: 'PoetsenOne';
 }
@@ -64,12 +64,8 @@ ion-thumbnail {
 }
 
 #nota-fiscal,
-.backgroundCinza,
-h3,
-p,
-span {
-    background: #fbfbfb;
-    --background: #fbfbfb;
+ {
+ background: #fbfbfb;
 }
 
 .pagCol {

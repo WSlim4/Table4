@@ -22,11 +22,14 @@ private editandoPedidoForm: FormGroup;
 @Input() nome;
 mesaId;
 pessoas;
+toggle: boolean = false;
+masterChecked: boolean;
+isIndeterminate: boolean;
 
-  constructor(public viewCtrl: ModalController, 
-    public AlterandoPedido: PedidoService, 
-    private editandoPedido: FormBuilder, 
-    private storage: Storage, 
+  constructor(public viewCtrl: ModalController,
+    public AlterandoPedido: PedidoService,
+    private editandoPedido: FormBuilder,
+    private storage: Storage,
     private pessoaService: PessoaService) {
 
       this.editandoPedidoForm = this.editandoPedido.group({
@@ -55,6 +58,10 @@ pessoas;
     this.viewCtrl.dismiss();
   }
 
+  changeToggle() {
+      this.toggle = !this.toggle;
+  }
+
   SalvarMudanca(){
     this.viewCtrl.dismiss({
         'dismissed': true
@@ -64,4 +71,35 @@ pessoas;
   ngOnInit() {
     this.getPessoa();
   }
+
+  checkMaster() {
+      setTimeout(() => {
+          this.pessoas.forEach(obj => {
+              obj.checked = this.masterChecked;
+          });
+      });
+  }
+
+  checkEvent() {
+      const totalItems = this.pessoas.length;
+      let checked = 0;
+      //checa quantas pessoas foram selecionadas
+      this.pessoas.map(obj => {
+          if (obj.checked) checked++;
+      });
+      if (checked > 0 && checked < totalItems) {
+          //se pelo menos uma foi selecionada (mas não todas)
+          this.isIndeterminate = true;
+          this.masterChecked = false;
+      } else if (checked == totalItems) {
+          //se todas foram selecionada
+          this.masterChecked = true;
+          this.isIndeterminate = false;
+      } else {
+          //se nenhuma foi selecionada
+          this.isIndeterminate = false;
+          this.masterChecked = false;
+      }
+  }
+
 }
