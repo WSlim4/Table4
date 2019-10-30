@@ -47,6 +47,8 @@ class Pedido extends Model
             $this->pessoa_id = $request->pessoa_id;
         if($request->preco)
             $this->preco = $request->preco;
+        if($request->mesa_id)
+            $this->mesa_id = $request->mesa_id;
         $this->save();
     }
     public function attachPedido($pessoas_id){
