@@ -7,7 +7,7 @@ export const environment = {
 };
 
 //export const SERVER_URL = 'http://table4.ejcm.com.br/api/';
-export const SERVER_URL = 'http://localhost:8000/api/';
+export const SERVER_URL = 'http://localhost:8001/api/';
 
 /*
  * For easier debugging in development mode, you can import the following file

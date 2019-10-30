@@ -16,7 +16,8 @@ export class Tab3Page {
 constructor(private pedidoService: PedidoService, public modalController: ModalController, private storage: Storage) { }
 
   pedidos = [];
-  pedidosVazio = true;
+  pedidosVazio = false;
+  loading = true;
 
   ionViewWillEnter(){
     this.storage.get("mesa_id").then( (mesa_id) => {
@@ -25,9 +26,12 @@ constructor(private pedidoService: PedidoService, public modalController: ModalC
         this.pedidos = res;
         if(this.pedidos.length == 0){
           this.pedidosVazio = true;
+          this.loading = false;
         }
         else{
           this.pedidosVazio = false;
+          this.loading = false;
+
         }
       },
       (error) => {

@@ -17,5 +17,10 @@
     </section>
   </section>
 
-  <app-pedido-card *ngFor="let pedido of pedidos" [pedido]="pedido"> </app-pedido-card>
+
+
+    <ion-spinner name="crescent" color="danger" *ngIf="loading"></ion-spinner>
+
+      <app-pedido-card *ngFor="let pedido of pedidos" [pedido]="pedido"> </app-pedido-card>
+
 </ion-content>
