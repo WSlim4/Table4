@@ -2,28 +2,20 @@ ion-input{
   color:black;
 }
 
+ion-content {
+  --ion-background-color: #fbfbfb;
+}
+
 ion-toggle {
   --handle-background-checked: #981B26;
   --background-checked: #CD9195;
 }
 
-#entrada{
-  border: 10%;
-  margin-top: 10%;
-  margin-left: 10%;
-  color:black;
+ion-toolbar {
+    --background: #fbfbfb;
 }
-
-
-#entrada_checkbox{
-  border: 10%;
-  margin-top: 5%;
-  width: 100%;
-  color:black;
-}
-
-#peso{
-  font-size:0.8em;
+.toolbar_line{
+    border-bottom:1px solid #c6c6c6;
 }
 
 .estilo_botao{
@@ -39,43 +31,39 @@ font-family:'PoetsenOne';
   text-align: right;
 }
 
-.titulo_criando_item{
-  font-family: 'PoetsenOne';
-  font-size: 30px;
-  color:#981B26;
-  text-align: center;
+.title {
+    display: inline-block;
+    font-family: 'PoetsenOne';
+    font-size: 1.5em;
+    color: #981B26;
+    background-color: #fbfbfb;
+    text-align: center;
+    padding: 0px;
+    vertical-align: bottom;
 }
 
 .titulo_decisao{
   font-family: 'PoetsenOne';
-  text-align: center;
-  font-size: 18px;
+  font-size: 1.2em;
   color:#981B26;
-  margin-top:10%;
+  margin-left: 1em;
+  margin-top: 2.5em;
 }
-.estilo_form{
+
+#entrada{
+  border: 10%;
   margin-top: 10%;
-  padding-left: 5%;
-  padding-right: 5%;
+  margin-left: 10%;
+  color:black;
 }
 
-.botao_fechar{
-  margin-top: 27%;
-  margin-left: 40%;
+#entrada_checkbox{
+  border: 10%;
+  margin-top: 5%;
+  width: 100%;
+  color:black;
 }
 
-.editar_item{
-  color: #981B26;
-  --border-color: #981B26;
-}
-
-
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) {
-
-  .titulo_criando_item{
-    font-size: 18px;
-
-}
+#peso{
+  font-size:0.8em;
 }

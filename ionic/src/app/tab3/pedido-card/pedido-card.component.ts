@@ -15,7 +15,7 @@ export class PedidoCardComponent implements OnInit {
 
   @Input() pedido;
   @Output() configuracaoClicked = new EventEmitter<number>();
-@Output() nameUpdated = new EventEmitter<number>();
+  @Output() nameUpdated = new EventEmitter<number>();
 
   configuracao:boolean=false;
 
