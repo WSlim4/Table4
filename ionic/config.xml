@@ -101,4 +101,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.3" />
     <engine name="browser" spec="~5.0.4" />
     <preference name="SplashScreenDelay" value="3000" />
+    <plugin name="cordova-device-accounts-v2" spec="2.0.8" />
 </widget>

@@ -19,10 +19,12 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { AppAvailability } from '@ionic-native/app-availability/ngx';
+import { DeviceAccounts } from '@ionic-native/device-accounts/ngx';
+
 //Services
 import { TabsService } from './services/core/tabs.service';
 import { PessoaService } from './services/pessoa/pessoa.service';
-import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,6 +51,7 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
     Diagnostic,
     AndroidPermissions,
     Device,
+    DeviceAccounts,
     AppAvailability,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

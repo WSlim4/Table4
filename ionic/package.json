@@ -27,6 +27,7 @@
     "@ionic-native/app-availability": "^5.15.1",
     "@ionic-native/core": "^5.16.0",
     "@ionic-native/device": "^5.15.1",
+    "@ionic-native/device-accounts": "^5.16.0",
     "@ionic-native/diagnostic": "^5.15.1",
     "@ionic-native/in-app-browser": "^5.15.1",
     "@ionic-native/splash-screen": "^5.16.0",
@@ -36,6 +37,7 @@
     "@types/hammerjs": "^2.0.36",
     "cordova-android": "8.1.0",
     "cordova-browser": "~5.0.4",
+    "cordova-device-accounts-v2": "2.0.8",
     "cordova-ios": "^5.0.1",
     "cordova-plugin-android-permissions": "^1.0.2",
     "cordova-plugin-appavailability": "^0.4.2",
@@ -97,7 +99,8 @@
       "cordova-plugin-android-permissions": {},
       "cordova.plugins.diagnostic": {},
       "cordova-plugin-appavailability": {},
-      "cordova-plugin-geolocation": {}
+      "cordova-plugin-geolocation": {},
+      "cordova-device-accounts-v2": {}
     },
     "platforms": [
       "browser",
