@@ -2,6 +2,13 @@ ion-button{
   --border-radius: 10px;
 }
 
+ion-spinner {
+   display: block;
+   margin: auto;
+   margin-top: 5%;
+ }
+
+
 // Área do titulo e texto de apoio ao usuário
 .titulo{
   text-align:center;

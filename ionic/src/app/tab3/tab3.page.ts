@@ -15,12 +15,30 @@ export class Tab3Page {
 
     constructor(private pedidoService: PedidoService, public modalController: ModalController, private storage: Storage) { }
 
-    pedidos = [];
-    pedidosVazio = true;
+  pedidos = [];
+  pedidosVazio = false;
+  loading = true;
 
-    ionViewWillEnter() {
-        this.atualizarPedidos();
-    }
+  ionViewWillEnter(){
+    this.storage.get("mesa_id").then( (mesa_id) => {
+      this.pedidoService.getPedidosMesa(mesa_id).subscribe( (res) => {
+        console.log(res);
+        this.pedidos = res;
+        if(this.pedidos.length == 0){
+          this.pedidosVazio = true;
+          this.loading = false;
+        }
+        else{
+          this.pedidosVazio = false;
+          this.loading = false;
+
+        }
+      },
+      (error) => {
+          console.log(error);
+      });
+    });
+  }
 
     atualizarPedidos() {
         this.storage.get("mesa_id").then((mesa_id) => {
