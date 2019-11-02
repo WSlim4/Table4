@@ -89,8 +89,7 @@ p {
 
 #instagram {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+  
 }
 
 #line {
@@ -98,10 +97,8 @@ p {
     border-top: 5px solid #981B26;
 }
 
-#instagram {
-    z-index: 100;
-}
-
-#isa {
-    height: 3vh;
+#botao_criarMersa{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }

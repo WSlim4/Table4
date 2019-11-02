@@ -37,6 +37,7 @@ Route::get('/pessoasMesa/{mesa_id}', 'MesaController@pessoasMesa'); //Rota que m
 Route::get('/pedidosMesa/{mesa_id}','MesaController@pedidosMesa'); //Rota que mostra os pedidos da mesa
 Route::post('/mesa','MesaController@createMesa'); //Rota que cria uma mesa
 
+Route::post('/estabelecimentosProximos', 'EstabelecimentoController@estabelecimentosProximos');
 Route::post('/estabelecimento', 'EstabelecimentoController@createEstabelecimento'); //Rota que cria um estabelecimento
 Route::put('/estabelecimento/{id}', 'EstabelecimentoController@updateEstabelecimento'); //Rota que atualiza os dados do estabelecimento
 Route::get('/estabelecimento/{id}', 'EstabelecimentoController@showEstabelecimento'); //Rota que mostra um estabelecimento através de seu ID
