@@ -41,7 +41,7 @@ export class TutorialPage implements OnInit {
 
   onSubmit(form) {
     console.log(form.value);
-    this.mesaService.createTable(form.value.estabelecimento, 'real').subscribe(
+    this.mesaService.createTable(form.value.estabelecimentoNome, 'real').subscribe(
       (res) => {
         //Guarda id da mesa no Storage
         this.storage.set('mesa_id', res.data.id);

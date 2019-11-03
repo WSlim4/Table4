@@ -17,10 +17,8 @@
     </section>
   </section>
 
-
-
     <ion-spinner name="crescent" color="danger" *ngIf="loading"></ion-spinner>
 
-      <app-pedido-card *ngFor="let pedido of pedidos" [pedido]="pedido"> </app-pedido-card>
+      <app-pedido-card *ngFor="let pedido of pedidos" [pedido]="pedido" (pedidoUpdated)="atualizarPedidos($event)" (editClicked)="openModal($event)"> </app-pedido-card>
 
 </ion-content>
