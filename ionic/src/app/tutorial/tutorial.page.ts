@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
 
@@ -21,8 +21,16 @@ export class TutorialPage implements OnInit {
   quantPessoas: number;
   pessoas = [];
   muitasPessoas: boolean = false;
+  estabelecimentoNome;
 
-  constructor(private mesaService: MesaService, private pessoaService: PessoaService, private storage: Storage, public router: Router) { }
+  constructor(private mesaService: MesaService, private pessoaService: PessoaService, private storage: Storage, private route: ActivatedRoute, private router: Router) {
+      this.route.queryParams.subscribe(params => {
+     if (this.router.getCurrentNavigation().extras.state) {
+       this.estabelecimentoNome = this.router.getCurrentNavigation().extras.state.nome;
+     }
+   });
+
+  }
 
   swipeNext(){
     this.slides.slideNext();
@@ -42,7 +50,7 @@ export class TutorialPage implements OnInit {
         for(let i = 0; i < this.quantPessoas; i++){
           var pessoa = 'pessoa' + (i+1);
           console.log(form.value[pessoa]);
-          this.pessoaService.createPessoa(form.value[pessoa], res.data.id, false).subscribe( 
+          this.pessoaService.createPessoa(form.value[pessoa], res.data.id, false).subscribe(
             (res) => {
               console.log(res);
               this.router.navigate(['tabs/tab2']);
@@ -71,6 +79,10 @@ export class TutorialPage implements OnInit {
     else{
       this.muitasPessoas = true;
     }
+  }
+
+  ionViewWillEnter() {
+      console.log(this.estabelecimentoNome);
   }
 
 }

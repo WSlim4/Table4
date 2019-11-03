@@ -14,6 +14,7 @@ import { Storage } from '@ionic/storage';
 export class EditandoPedidoModalPage {
 
     @Input() pedido;
+    
     pessoas: any[];
     consumidores = [];
     pessoa = {

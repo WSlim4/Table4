@@ -34,10 +34,10 @@ p {
     margin-bottom: -0.5px;
 }
 
-
 .toolbar_line{
     border-bottom:1px solid #c6c6c6;
 }
+
 .title {
     display: inline-block;
     font-family: 'PoetsenOne';
@@ -63,6 +63,7 @@ p {
 .list {
     border-bottom: 1px solid #981B26;
 }
+
 #background {
     border-top: 5px solid #981B26;
     border-bottom: 5px solid #981B26;
@@ -89,7 +90,7 @@ p {
 
 #instagram {
     display: flex;
-  
+
 }
 
 #line {
@@ -97,8 +98,13 @@ p {
     border-top: 5px solid #981B26;
 }
 
-#botao_criarMersa{
+#botao_criarMesa{
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  z-index: 100;
+}
+
+#isa {
+    height: 3vh;
 }

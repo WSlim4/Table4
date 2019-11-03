@@ -19,8 +19,8 @@
         <ion-col id="avatar">
             <ion-avatar class="ion-margin-start"><img src="../assets/icon/LogoCompleto.png" alt="Logo do Estabelecimento"></ion-avatar>
         </ion-col>
-        <ion-col id="botao_criarMersa">
-            <ion-button class="ion-margin-end" href="/tutorial"> Abrir mesa </ion-button>
+        <ion-col id="botao_criarMesa">
+            <ion-button class="ion-margin-end" (click)="abrirMesa()"> Abrir mesa </ion-button>
         </ion-col>
     </ion-row>
     <section class="ion-padding">
@@ -40,7 +40,7 @@
           <h3>Social</h3>
         </ion-row>
         <ion-row id="instagram">
-            <ion-thumbnail class="ion-margin-start" *ngIf="estabelecimentoDetalhe.instagram"><img src="https://i.pinimg.com/originals/85/4c/3c/854c3cc1d194fd096a0994eab26b864c.jpg" alt="Instagram"></ion-thumbnail>
+            <ion-thumbnail class="ion-margin-start" *ngIf="detalhe.instagram"><img src="https://i.pinimg.com/originals/85/4c/3c/854c3cc1d194fd096a0994eab26b864c.jpg" alt="Instagram"></ion-thumbnail>
         </ion-row>
         <ion-row lines="none">
             <h3>Horário de Funcionamento</h3>

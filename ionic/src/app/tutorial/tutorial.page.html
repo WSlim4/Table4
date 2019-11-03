@@ -4,7 +4,7 @@
       <ion-slide>
         <ion-content class="fundoTutorial">
           <h1>Em qual estabelecimento você está? </h1>
-          <ion-input type="text" placeholder="Nome do estabelecimento" name="estabelecimento" ngModel required></ion-input>
+          <ion-input [(ngModel)]="estabelecimentoNome" required type="text" value="{{ estabelecimentoNome }}" placeholder="Nome do estabelecimento" name="estabelecimentoNome"></ion-input>
           <ion-item class= "tutorial_moeda">
             <ion-label>Moeda</ion-label>
             <ion-select placeholder="Opções">
