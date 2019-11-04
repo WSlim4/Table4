@@ -10,7 +10,13 @@
   <section class="titulo">
     <h1 class="titulo_pedidos">Pessoas na mesa</h1>
   </section>
-  <ion-spinner name="crescent" color="danger" *ngIf="pessoas == 0"></ion-spinner>
+  <ion-spinner name="crescent" color="danger" *ngIf="pessoas == 0 && pessoasQuePagaram == 0"></ion-spinner>
+  <section *ngIf="pessoas == 0 && pessoasQuePagaram != 0">
+    <h2 class="titulo_subtitulo-tutorial"> Ops! Não há pessoas na mesa.
+       Clique em
+       <ion-icon class= "text_icon" color= "danger" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+        e adicione uma nova pessoa ou feche a mesa.</h2>
+  </section>
   <section *ngIf="pessoas != 0" >
     <app-pedido-pessoa-card *ngFor="let pessoa of pessoas" [pessoa]="pessoa" (configuracaoClicked)="goToConfiguracaoPedidoModal($event)" (nameUpdated)="atualizarPessoas($event)" (pagamentoClicked)="pagamento($event)"> </app-pedido-pessoa-card>
   </section>

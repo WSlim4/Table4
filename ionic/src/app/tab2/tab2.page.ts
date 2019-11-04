@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page {
     pessoas = [];
+    pessoasQuePagaram = [];
     mesaId;
     href;
 
@@ -24,6 +25,7 @@ export class Tab2Page {
     getPessoas(){
         this.pessoas = [];
         let people = [];
+        let peoplePaid = [];
         console.log("Resgatando pessoas no Back");
         this.storage.get("mesa_id").then((mesa_id) => {
             this.pessoaService.getPessoasPedidos(mesa_id).subscribe((res) => {
@@ -31,10 +33,14 @@ export class Tab2Page {
                     if(!item.pago) {
                         people.push(item);
                     }
+                    else {
+                      peoplePaid.push(item);
+                    }
                 });
                 this.pessoas = people;
+                this.pessoasQuePagaram = peoplePaid;
                 console.log(mesa_id);
-                console.log(this.pessoas);
+                console.log(this.pessoasQuePagaram);
             });
         });
     }
