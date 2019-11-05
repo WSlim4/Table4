@@ -12,10 +12,10 @@
     </ion-row>
 </ion-toolbar>
 
-  <ion-content>
+  <ion-content class="ion-padding">
           <h1>Quantas pessoas você gostaria de adicionar?</h1>
           <ion-input (ionChange)="criaArray(quantPessoas)" required [(ngModel)]="quantPessoas" name="quantPessoas" type="number" placeholder="Máx. 20"></ion-input>
-          <p *ngIf="muitasPessoas">Por favor, insira um número menor que 20.</p>
+          <p *ngIf="muitasPessoas">Máximo 20 pessoas na mesa. Por favor, insira um número menor.</p>
           <form #form="ngForm" (ngSubmit)="onSubmit(form)">
           <ion-input *ngFor="let pessoa of pessoas; let i = index" required name="pessoa{{i+1}}" ngModel placeholder="Nome"></ion-input>
           <div>

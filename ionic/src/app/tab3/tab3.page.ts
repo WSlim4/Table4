@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import * as $ from 'jquery';
-import { AlertController } from '@ionic/angular';
 import { PedidoService } from '../services/pedido/pedido.service';
 //import { EditandoPedidoModalPage } from './editando-pedido-modal/editando-pedido-modal.page';
 import { Storage } from '@ionic/storage';
-import { EditandoPedidoModalComponent } from './editando-pedido-modal/editando-pedido-modal.component';
+//import { EditandoPedidoModalComponent } from './editando-pedido-modal/editando-pedido-modal.component';
 
 @Component({
     selector: 'app-tab3',
@@ -57,8 +55,6 @@ export class Tab3Page {
     atualizarPedidos() {
         this.getPedidos();
     }
-
-
 
     ionViewDidEnter() {
         this.atualizarPedidos();

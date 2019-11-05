@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PedidoService } from '../../services/pedido/pedido.service';
 import { PessoaService } from '../../services/pessoa/pessoa.service';
+import { EventEmitterService } from "../../services/evento/event-emitter.service";
 import { ToastController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
@@ -146,6 +147,7 @@ export class EditandoPedidoModalComponent implements OnInit {
               this.pedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.preco, this.mesaId, this.consumidores).subscribe(
                   (res) => {
                       console.log(res);
+                      EventEmitterService.get('dismiss').emit('Deu dismiss');
                       this.dismiss();
                   },
                   (error) => {
@@ -180,6 +182,7 @@ export class EditandoPedidoModalComponent implements OnInit {
                   this.pedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.preco, this.mesaId, this.consumidores).subscribe(
                       (res) => {
                           console.log(res);
+                          EventEmitterService.get('dismiss').emit('Deu dismiss');
                           this.dismiss();
                       },
                       (error) => {

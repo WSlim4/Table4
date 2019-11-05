@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MesaService } from '../../services/mesa/mesa.service';
 import { PessoaService } from '../../services/pessoa/pessoa.service';
+import { EventEmitterService } from "../../services/evento/event-emitter.service";
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
@@ -15,9 +16,15 @@ export class HeaderTotalFecharComponent implements OnInit {
     pessoas;
     podeFechar: boolean = false;
 
-    constructor(private router: Router, private pessoaService: PessoaService, private mesaService: MesaService, private storage: Storage) { }
+    constructor(private router: Router, private pessoaService: PessoaService, private mesaService: MesaService, private storage: Storage) {
+      EventEmitterService.get('dismiss').subscribe(this.atualizar);
+    }
 
     ngOnInit() {
+      this.calculaTotal();
+    }
+
+    calculaTotal(){
       this.preco = 0;
       let soma = 0;
       this.storage.get("mesa_id").then( (mesa_id) => {
@@ -44,6 +51,11 @@ export class HeaderTotalFecharComponent implements OnInit {
           }
         });
       });
+    }
+
+    atualizar(data){
+      console.log(data);
+      this.calculaTotal();
     }
 
     fechaMesa(){

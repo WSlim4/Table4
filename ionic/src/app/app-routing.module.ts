@@ -26,10 +26,10 @@ const routes: Routes = [
     path: 'historico-detalhe',
     loadChildren: './historico-detalhe/historico-detalhe.module#HistoricoDetalhePageModule'
   },
-  {
+  /*{
     path: 'editando-pedido-modal',
     loadChildren: './tab3/editando-pedido-modal/editando-pedido-modal.module#EditandoPedidoModalPageModule'
-  },
+  },*/
   {
     path: 'pagamento-lista',
     loadChildren: './pagamento-lista/pagamento-lista.module#PagamentoListaPageModule'
