@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditandoPedidoModalPage } from './editando-pedido-modal.page';
+import { EditandoPedidoModalComponent } from './editando-pedido-modal.component';
 
-describe('EditandoPedidoModalPage', () => {
-  let component: EditandoPedidoModalPage;
-  let fixture: ComponentFixture<EditandoPedidoModalPage>;
+describe('EditandoPedidoModalComponent', () => {
+  let component: EditandoPedidoModalComponent;
+  let fixture: ComponentFixture<EditandoPedidoModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditandoPedidoModalPage ],
+      declarations: [ EditandoPedidoModalComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditandoPedidoModalPage);
+    fixture = TestBed.createComponent(EditandoPedidoModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

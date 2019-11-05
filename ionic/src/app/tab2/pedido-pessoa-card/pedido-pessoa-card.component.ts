@@ -37,8 +37,8 @@ export class PedidoPessoaCardComponent implements OnInit {
 
     async editandoPessoa() {
         const alert = await this.alertController.create({
-            header: 'Editar nome usuário',
-            message: 'Ao clicar em alterar você modificara o nome do usuário',
+            header: 'Editar nome de usuário',
+            message: 'Ao clicar em alterar você modificará o nome do usuário',
             inputs: [
                 {
                     name: 'name1',

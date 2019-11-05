@@ -12,11 +12,11 @@
   </div>
 </section>
 <section class="lista_configuracao-pedido" id="lista_configuracao-pedido" *ngIf="configuracao">
-  <ion-row >
-    <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
-        <ion-button mode="ios" color="danger" (click)="editandoPedido()"> Editar </ion-button>
+  <ion-row>
+    <div style="flex-grow: 6" class="lista_botao-configuracao-pedido">
+        <ion-button mode="ios" color="danger" (click)="editarPedido(pedido)"> Editar </ion-button>
     </div>
-    <div  style="flex-grow: 6" class="lista_botao-configuracao-pedido">
+    <div style="flex-grow: 6" class="lista_botao-configuracao-pedido">
         <ion-button mode="ios" color="danger" (click)="deletarPedido(pedido.id)"> Deletar </ion-button>
     </div>
   </ion-row>

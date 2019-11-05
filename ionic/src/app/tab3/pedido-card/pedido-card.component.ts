@@ -1,10 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import{ EditandoPedidoModalPage } from '../editando-pedido-modal/editando-pedido-modal.page';
+//import{ EditandoPedidoModalPage } from '../editando-pedido-modal/editando-pedido-modal.page';
 import { PedidoService } from '../../services/pedido/pedido.service';
-
-
-
+import { EditandoPedidoModalComponent } from '../editando-pedido-modal/editando-pedido-modal.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pedido-card',
@@ -15,11 +13,12 @@ export class PedidoCardComponent implements OnInit {
 
   @Input() pedido;
   @Output() configuracaoClicked = new EventEmitter<number>();
-  @Output() nameUpdated = new EventEmitter<number>();
+  @Output() editClicked = new EventEmitter<any>();
+  @Output() pedidoUpdated = new EventEmitter<number>();
 
   configuracao:boolean=false;
 
-  constructor(public modalController: ModalController, private pedidoService: PedidoService) {}
+  constructor(private pedidoService: PedidoService, private modalController: ModalController) {}
 
   async dropdownConfiguracao(){
     if (this.configuracao){
@@ -30,22 +29,28 @@ export class PedidoCardComponent implements OnInit {
     console.log("clicou");
   }
 
-    async editandoPedido(){
-     this.goToConfiguracaoPedidoModal();
+    async editarPedido(pedido) {
+        console.log(pedido);
+        const modal = await this.modalController.create({
+            component: EditandoPedidoModalComponent,
+            componentProps: {
+                id: pedido.id,
+                quantidade: pedido.quantidade,
+                preco: pedido.preco,
+                nome: pedido.nome
+            }
+        });
+        modal.onDidDismiss().then((data) => {
+        this.pedidoUpdated.emit();
+    });
+        return await modal.present();
     }
-
-    // async deletandoPedido(id){
-    //     console.log(id);
-    //     this.pedidoService.deletePedido(id).subscribe( (res) =>{
-    //         console.log(res);
-    //     });
-    // }
 
     deletarPedido(id) {
         console.log(id);
         this.pedidoService.deletePedido(id).subscribe(
             (res) => {
-                this.nameUpdated.emit();
+                this.pedidoUpdated.emit();
                 console.log(res);
             },
             (error) => {
@@ -54,28 +59,8 @@ export class PedidoCardComponent implements OnInit {
         );
     }
 
-    async goToConfiguracaoPedidoModal(){
-      console.log(this.pedido);
-       const modal = await this.modalController.create({
-         component: EditandoPedidoModalPage,
-         componentProps:{
-           id:this.pedido.id,
-           quantidade: this.pedido.quantidade,
-           preco: this.pedido.preco,
-           nome:this.pedido.nome
-                }
-       });
-       return await modal.present();
+  ngOnInit() { }
 
-     }
-
-  ngOnInit() {
-
-  }
-
-  ionViewDidEnter(){
-    console.log(this.pedido[0]);
-  }
-
+  ionViewDidEnter() { }
 
 }
