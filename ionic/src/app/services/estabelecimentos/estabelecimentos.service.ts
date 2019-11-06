@@ -14,15 +14,6 @@ export class EstabelecimentosService {
 
     constructor(public http: HttpClient) { }
 
-    // setEstabelecimento(id, estabelecimentos) {
-    //     this.estabelecimentos = estabelecimentos[id];
-    //     console.log(this.estabelecimentos);
-    // }
-    //
-    // getEstabelecimento() {
-    //     return this.estabelecimentos;
-    // }
-
     getEstabelecimentos(): Observable<any> {
         return this.http.get(SERVER_URL + 'estabelecimento/').pipe(map(res => res));
     }
@@ -31,11 +22,10 @@ export class EstabelecimentosService {
         return this.http.get(SERVER_URL + 'estabelecimento/' + id).pipe(map(res => res));
     }
 
-    // getEstabelecimentos(): Observable<any> {
-    //     return this.http.get(SERVER_URL + 'estabelecimento/').pipe(map(res => res));
-    // }
-    //
-    // getEstabelecimento(id: number): Observable<any> {
-    //     return this.http.get(SERVER_URL + 'estabelecimento/' + id).pipe(map(res => res));
-    // }
+    getEstabelecimentosProximos(latitude: number, longitude: number): Observable<any> {
+        return this.http.post(SERVER_URL + 'estabelecimentosProximos', {
+            'latitude': latitude,
+            'longitude': longitude
+        }).pipe(map(res => res));
+    }
 }

@@ -43,6 +43,7 @@ export class EditandoPedidoModalComponent implements OnInit {
                   private toastController: ToastController,
                   private modalController: ModalController,
                   private storage: Storage,
+                  private eventEmitterService: EventEmitterService,
                   private router: Router) {
 
           this.form = this.formBuilder.group({
@@ -147,7 +148,7 @@ export class EditandoPedidoModalComponent implements OnInit {
               this.pedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.preco, this.mesaId, this.consumidores).subscribe(
                   (res) => {
                       console.log(res);
-                      EventEmitterService.get('dismiss').emit('Deu dismiss');
+                      this.eventEmitterService.get('dismiss').emit('Deu dismiss');
                       this.dismiss();
                   },
                   (error) => {
@@ -182,7 +183,7 @@ export class EditandoPedidoModalComponent implements OnInit {
                   this.pedidoService.postPedido(form.value.nome, form.value.quantidade, form.value.preco, this.mesaId, this.consumidores).subscribe(
                       (res) => {
                           console.log(res);
-                          EventEmitterService.get('dismiss').emit('Deu dismiss');
+                          this.eventEmitterService.get('dismiss').emit('Deu dismiss');
                           this.dismiss();
                       },
                       (error) => {

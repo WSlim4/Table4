@@ -16,8 +16,8 @@ export class HeaderTotalFecharComponent implements OnInit {
     pessoas;
     podeFechar: boolean = false;
 
-    constructor(private router: Router, private pessoaService: PessoaService, private mesaService: MesaService, private storage: Storage) {
-      EventEmitterService.get('dismiss').subscribe(this.atualizar);
+    constructor(private router: Router, private pessoaService: PessoaService, private mesaService: MesaService, private storage: Storage, private eventEmitterService: EventEmitterService) {
+      this.eventEmitterService.get('dismiss').subscribe(this.atualizar);
     }
 
     ngOnInit() {
