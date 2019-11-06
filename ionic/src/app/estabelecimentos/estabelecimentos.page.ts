@@ -23,8 +23,8 @@ getEstabelecimentos() {
   this.estabelecimentos=[];
     this.estabelecimentosService.getEstabelecimentosProximos(this.latitude, this.longitude).subscribe(
         (res) => {
-            console.log(res.data) as [];
-            this.estabelecimentos = res.data;
+            console.log(res.data);
+            this.estabelecimentos = res.data as [];
         },
         (error) => {
            console.log(error);
