@@ -1,9 +1,21 @@
+ion-toolbar {
+    --background: #fbfbfb;
+}
+
+ion-spinner {
+   display: block;
+   margin: auto;
+   margin-top: 15%;
+ }
+
 ion-content {
     --ion-background-color: #fbfbfb;
 }
+
 .toolbar_line{
     border-bottom:1px solid #c6c6c6;
 }
+
 .title {
     display: inline-block;
     font-family: 'PoetsenOne';
@@ -13,8 +25,4 @@ ion-content {
     text-align: center;
     padding: 0px;
     vertical-align: bottom;
-}
-
-ion-toolbar {
-    --background: #fbfbfb;
 }

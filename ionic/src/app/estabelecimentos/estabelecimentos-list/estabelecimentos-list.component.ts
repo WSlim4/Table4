@@ -10,14 +10,19 @@ export class EstabelecimentosListComponent implements OnInit {
     @Input() estabelecimentoInfo;
     @Output() estabelecimentoClicked = new EventEmitter<number>();
 
+
     constructor() { }
 
     mostrarDetalhe(id) {
         this.estabelecimentoClicked.emit(id);
     }
 
+    ionViewWillEnter() {
+        this.estabelecimentoInfo.distance;
+    }
+
     ngOnInit() {
-        console.log(this.estabelecimentoInfo.id);
+        console.log(this.estabelecimentoInfo.distance);
     }
 
 }

@@ -83,8 +83,12 @@ class EstabelecimentoController extends Controller
 
             }
 
-            $proximos = collect($proximos)->sortBy('distance')->toArray();
+            usort($proximos, function($a, $b) {
+                return $a['distance'] <=> $b['distance'];
+            });
 
+            // $proximos = collect($proximos)->sortBy('distance')->toArray();
+            
             return response()->success( $proximos );
 
         }

@@ -12,6 +12,8 @@
     </ion-row>
 </ion-toolbar>
 
+<ion-spinner name="crescent" color="danger" *ngIf="loading"></ion-spinner>
+
 <ion-content class="ion-padding">
   <app-estabelecimentos-list *ngFor="let estabelecimento of estabelecimentos" [estabelecimentoInfo]="estabelecimento" (estabelecimentoClicked)="detalheEstabelecimento($event)"></app-estabelecimentos-list>
 </ion-content>

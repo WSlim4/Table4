@@ -13,6 +13,7 @@ export class EstabelecimentosPage {
   estabelecimentos=[];
   latitude: number;
   longitude:number;
+  loading = true;
 
   constructor(
     public router: Router,
@@ -23,8 +24,9 @@ getEstabelecimentos() {
   this.estabelecimentos=[];
     this.estabelecimentosService.getEstabelecimentosProximos(this.latitude, this.longitude).subscribe(
         (res) => {
-            console.log(res.data);
-            this.estabelecimentos = res.data as [];
+            console.log(Object.values(res.data));
+            this.estabelecimentos = Object.values(res.data);
+            this.loading = false;
         },
         (error) => {
            console.log(error);

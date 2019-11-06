@@ -1,4 +1,4 @@
-<ion-list lines="none" (click)="mostrarDetalhe(estabelecimentoInfo.id)">
+<ion-list lines="none" (click)="mostrarDetalhe(estabelecimentoInfo.estabelecimento.id)">
     <ion-item>
         <ion-avatar slot="start">
             <img src="../../assets/icon/LogoCompleto.png" alt="Logo do Estabelecimento">
@@ -6,7 +6,7 @@
         <ion-label class="ion-text-wrap">
             <ion-text>
                 <h2>{{ estabelecimentoInfo.estabelecimento.name }}</h2>
-                <p>{{ estabelecimentoInfo.estabelecimento.cuisine }} - xx km</p>
+                <p>{{ estabelecimentoInfo.estabelecimento.cuisine }} - {{ estabelecimentoInfo.distance.toFixed(2) }} km</p>
             </ion-text>
         </ion-label>
     </ion-item>

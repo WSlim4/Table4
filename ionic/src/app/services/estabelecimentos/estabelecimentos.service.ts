@@ -22,10 +22,10 @@ export class EstabelecimentosService {
         return this.http.get(SERVER_URL + 'estabelecimento/' + id).pipe(map(res => res));
     }
 
-    getEstabelecimentosProximos(latitude: number, longitude: number): Observable<any> {
+    getEstabelecimentosProximos(user_latitude: number, user_longitude: number): Observable<any> {
         return this.http.post(SERVER_URL + 'estabelecimentosProximos', {
-            'latitude': latitude,
-            'longitude': longitude
+            'user_latitude': user_latitude,
+            'user_longitude': user_longitude
         }).pipe(map(res => res));
     }
 }
