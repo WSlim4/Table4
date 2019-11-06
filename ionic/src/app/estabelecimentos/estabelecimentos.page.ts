@@ -10,7 +10,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 })
 export class EstabelecimentosPage {
 
-  estabelecimentos: any[];
+  estabelecimentos=[];
   latitude: number;
   longitude:number;
 
@@ -20,10 +20,11 @@ export class EstabelecimentosPage {
     private geolocalizacao: Geolocation) { }
 
 getEstabelecimentos() {
+  this.estabelecimentos=[];
     this.estabelecimentosService.getEstabelecimentosProximos(this.latitude, this.longitude).subscribe(
         (res) => {
-            console.log(res);
-            this.estabelecimentos = res;
+            console.log(res.data) as [];
+            this.estabelecimentos = res.data;
         },
         (error) => {
            console.log(error);
