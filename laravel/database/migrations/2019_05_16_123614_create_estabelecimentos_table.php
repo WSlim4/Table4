@@ -16,7 +16,7 @@ class CreateEstabelecimentosTable extends Migration
         Schema::create('estabelecimentos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->text('description');
+            /*$table->text('description');
             $table->string('site');
             $table->string('phone');
             $table->string('email');
@@ -45,7 +45,7 @@ class CreateEstabelecimentosTable extends Migration
             $table->string('taxa_rolha_value')->nullable();
             $table->string('type');
             $table->string('type_details');
-            $table->string('cuisine');
+            $table->string('cuisine');*/
             $table->string('photo')->nullable();
             $table->timestamps();
         });

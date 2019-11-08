@@ -39,9 +39,11 @@ Route::post('/mesa','MesaController@createMesa'); //Rota que cria uma mesa
 
 Route::post('/estabelecimentosProximos', 'EstabelecimentoController@estabelecimentosProximos');
 Route::post('/estabelecimento', 'EstabelecimentoController@createEstabelecimento'); //Rota que cria um estabelecimento
+Route::post('/fotoEstabelecimento/{est_id}', 'EstabelecimentoController@fotoEstabelecimento');
 Route::put('/estabelecimento/{id}', 'EstabelecimentoController@updateEstabelecimento'); //Rota que atualiza os dados do estabelecimento
 Route::get('/estabelecimento/{id}', 'EstabelecimentoController@showEstabelecimento'); //Rota que mostra um estabelecimento através de seu ID
 Route::get('/estabelecimento', 'EstabelecimentoController@listEstabelecimentos'); //Rota que lista todos os estabelecimentos do BD
+Route::get('/fotoEstabelecimento/{est_id}', 'EstabelecimentoController@getFoto');
 Route::delete('/estabelecimento/{id}', 'EstabelecimentoController@deleteEstabelecimento'); //Rota que deleta um estabelecimento
 
 Route::get('/conta/{mesa_id}/{pedido_id}','MesaController@valorPedido');

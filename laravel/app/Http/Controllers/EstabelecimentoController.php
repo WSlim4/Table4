@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Estabelecimento;
+use Illuminate\Support\Facades\Storage;
 
 class EstabelecimentoController extends Controller
 {
@@ -91,6 +92,27 @@ class EstabelecimentoController extends Controller
             
             return response()->success( $proximos );
 
+        }
+
+        public function fotoEstabelecimento(Request $request, $est_id){
+            $estabelecimento = Estabelecimento::find($est_id);
+            
+            if (!Storage::exists('localPhotos/')){
+			    Storage::makeDirectory('localPhotos/', 0775, true);
+            }
+            $file = $request->file('photo');
+            $path = $file->store('localPhotos');
+            $estabelecimento->photo = $path;
+
+            $estabelecimento->save();
+            
+            return response()->json([$estabelecimento->photo]);
+
+        }
+
+        public function getFoto($est_id){
+            $estabelecimento = Estabelecimento::find($est_id);
+            return response()->download(storage_path('../localPhotos' .$estabelecimento->photo));
         }
 
 }
