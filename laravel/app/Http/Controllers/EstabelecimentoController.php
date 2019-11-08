@@ -97,11 +97,11 @@ class EstabelecimentoController extends Controller
         public function fotoEstabelecimento(Request $request, $est_id){
             $estabelecimento = Estabelecimento::find($est_id);
             
-            if (!Storage::exists('localPhotos/')){
-			    Storage::makeDirectory('localPhotos/', 0775, true);
+            if (!Storage::exists('estPhotos/')){
+			    Storage::makeDirectory('estPhotos/', 0775, true);
             }
             $file = $request->file('photo');
-            $path = $file->store('localPhotos');
+            $path = $file->store('estPhotos');
             $estabelecimento->photo = $path;
 
             $estabelecimento->save();
@@ -112,7 +112,10 @@ class EstabelecimentoController extends Controller
 
         public function getFoto($est_id){
             $estabelecimento = Estabelecimento::find($est_id);
-            return response()->download(storage_path('../localPhotos' .$estabelecimento->photo));
+            return response()->download(storage_path('app\\'.str_replace("/","\\",$estabelecimento->photo)));
+            
+            /*Quando for dar deploy, corrigir a barra de app\\ para app/ e remover a função str.replace*/
+        
         }
 
 }
