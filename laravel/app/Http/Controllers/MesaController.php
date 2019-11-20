@@ -62,6 +62,7 @@ class MesaController extends Controller
 
     public function contaTotal($mesa_id){
         $mesa = Mesa::find($mesa_id);
+        $pessoas = $mesa->pessoas;
         $mesa->contaTotal($mesa);
 
         return response()->success($mesa->valorTotal);
