@@ -23,9 +23,14 @@ class Mesa extends Model
         $this->save();
     }
 
-    public function contaTotal(Mesa $mesa){
-        $preco = $mesa->pedidos()->sum(DB::raw('preco*quantidade'));
-        $this->valorTotal = $preco;
+    public function contaTotal(Pessoa $pessoas){
+        $contaTotal = []; 
+        foreach($pessoas as $pessoa){
+            if ($pessoa->pago == false){
+                array_push($contaTotal, $pessoa->valorConta);
+            }
+        }
+        $this->valorTotal = array_sum($contaTotal);
         $this->save();
     }
 
