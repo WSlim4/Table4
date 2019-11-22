@@ -67,5 +67,10 @@ class MesaController extends Controller
 
         return response()->success($mesa->valorTotal);
     }
+    /*public function contaTotalHistorico(Mesa $mesa_id){
+        $mesa = Mesa::find($mesa_id);
+        $mesa->contaTotalHistorico($mesa);
+        return response()->success($mesa->valorTotalHistorico);
+    }*/
 
 }

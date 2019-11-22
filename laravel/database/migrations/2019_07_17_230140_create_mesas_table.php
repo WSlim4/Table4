@@ -19,6 +19,7 @@ class CreateMesasTable extends Migration
             $table->string('estabelecimento');
             $table->string('moeda');
             $table->double('valorTotal')->default(0)->nullable();
+            $table->double('valorTotalHistorico')->default(0)->nullable();
             $table->timestamps();
         });
 

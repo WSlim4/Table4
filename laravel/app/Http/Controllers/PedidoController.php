@@ -56,12 +56,16 @@ class PedidoController extends Controller
 
         $pedido = new Pedido;
         $pedido->createPedido($request);
+        $mesa = $pedido->mesa;
+        $pessoas = $mesa->pessoas;
 
         foreach($request->dividindo as $p){
             $pessoa = Pessoa::find($p["id"]);
             $pedido->attachPedido($p["id"]);
             $pessoa->valorDivisao($p["preco"], $pedido->id);
         }
+        $mesa->contaTotalHistorico($mesa);
+        $mesa->contaTotal($pessoas);
 
         return response()->success($pedido);
     }
