@@ -74,7 +74,7 @@ class EstabelecimentoController extends Controller
 
             $proximos = [];
 
-            $estabelecimentos = Estabelecimento::all();
+            $estabelecimentos = Estabelecimento::paginate(10);
 
             foreach($estabelecimentos as $estabelecimento){
 
