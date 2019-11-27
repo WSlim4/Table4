@@ -49,4 +49,5 @@ Route::delete('/estabelecimento/{id}', 'EstabelecimentoController@deleteEstabele
 Route::get('/conta/{mesa_id}/{pedido_id}','MesaController@valorPedido');
 Route::get('/contasMesa/{mesa_id}', 'MesaController@contaTotal'); //Rota que mostra a conta total da mesa
 Route::get('/conta/{pessoa_id}','PessoaController@showConta'); //Rota que mostra a conta individual
+Route::get('/contaTotalHistorico/{mesa_id}', 'MesaController@contaTotalHistorico');
 
