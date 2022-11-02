@@ -37,7 +37,7 @@
     "@ionic/storage": "^2.2.0",
     "@types/hammerjs": "^2.0.36",
     "cordova-android": "^8.1.0",
-    "cordova-browser": "~5.0.4",
+    "cordova-browser": "~6.0.0",
     "cordova-device-accounts-v2": "2.0.8",
     "cordova-ios": "^5.0.1",
     "cordova-plugin-android-permissions": "^1.0.2",
